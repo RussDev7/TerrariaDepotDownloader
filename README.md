@@ -16,6 +16,7 @@ Note to Terraria's team: I have created this courtesyware in hopes to diminish p
 ## Important Links
 
 - [Forums Link](https://forums.terraria.org/index.php?threads/terrariadepotdownloader-downgrade-to-any-version.107519/)
+- [Startup Guide](https://forums.terraria.org/index.php?threads/terrariadepotdownloader-downgrade-to-any-version.107519/)
 - [Discord](https://discord.gg/fEK6eE7W)
 
 ## Download
