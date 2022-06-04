@@ -1,0 +1,344 @@
+C:\Users\Win100\Source\Repos\TerrariaDepotDownloader\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.exe.config
+C:\Users\Win100\Source\Repos\TerrariaDepotDownloader\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.exe
+C:\Users\Win100\Source\Repos\TerrariaDepotDownloader\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.pdb
+C:\Users\Win100\Source\Repos\TerrariaDepotDownloader\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Form1.resources
+C:\Users\Win100\Source\Repos\TerrariaDepotDownloader\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Properties.Resources.resources
+C:\Users\Win100\Source\Repos\TerrariaDepotDownloader\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.GenerateResource.cache
+C:\Users\Win100\Source\Repos\TerrariaDepotDownloader\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.CoreCompileInputs.cache
+C:\Users\Win100\Source\Repos\TerrariaDepotDownloader\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.exe
+C:\Users\Win100\Source\Repos\TerrariaDepotDownloader\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.pdb
+C:\Users\Win100\Source\Repos\TerrariaDepotDownloader\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Form2.resources
+C:\Users\Win100\Source\Repos\TerrariaDepotDownloader\TerrariaDepotDownloader\bin\x64\Release\DepotDownloader.dll
+C:\Users\Win100\Source\Repos\TerrariaDepotDownloader\TerrariaDepotDownloader\bin\x64\Release\protobuf-net.Core.dll
+C:\Users\Win100\Source\Repos\TerrariaDepotDownloader\TerrariaDepotDownloader\bin\x64\Release\protobuf-net.dll
+C:\Users\Win100\Source\Repos\TerrariaDepotDownloader\TerrariaDepotDownloader\bin\x64\Release\SteamKit2.dll
+C:\Users\Win100\Source\Repos\TerrariaDepotDownloader\TerrariaDepotDownloader\bin\x64\Release\DepotDownloader.deps.json
+C:\Users\Win100\Source\Repos\TerrariaDepotDownloader\TerrariaDepotDownloader\bin\x64\Release\DepotDownloader.runtimeconfig.json
+C:\Users\Win100\Source\Repos\TerrariaDepotDownloader\TerrariaDepotDownloader\bin\x64\Release\System.Collections.Immutable.dll
+C:\Users\Win100\Source\Repos\TerrariaDepotDownloader\TerrariaDepotDownloader\bin\x64\Release\Microsoft.Win32.Registry.dll
+C:\Users\Win100\Source\Repos\TerrariaDepotDownloader\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.exe.config
+C:\Users\Win100\Source\Repos\TerrariaDepotDownloader\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.CopyComplete
+C:\Users\Win100\Desktop\TerrariaDepotDownloader\TerrariaDepotDownloader\bin\x64\Release\DepotDownloader.dll
+C:\Users\Win100\Desktop\TerrariaDepotDownloader\TerrariaDepotDownloader\bin\x64\Release\protobuf-net.Core.dll
+C:\Users\Win100\Desktop\TerrariaDepotDownloader\TerrariaDepotDownloader\bin\x64\Release\protobuf-net.dll
+C:\Users\Win100\Desktop\TerrariaDepotDownloader\TerrariaDepotDownloader\bin\x64\Release\SteamKit2.dll
+C:\Users\Win100\Desktop\TerrariaDepotDownloader\TerrariaDepotDownloader\bin\x64\Release\DepotDownloader.deps.json
+C:\Users\Win100\Desktop\TerrariaDepotDownloader\TerrariaDepotDownloader\bin\x64\Release\DepotDownloader.runtimeconfig.json
+C:\Users\Win100\Desktop\TerrariaDepotDownloader\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.exe.config
+C:\Users\Win100\Desktop\TerrariaDepotDownloader\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.exe
+C:\Users\Win100\Desktop\TerrariaDepotDownloader\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.pdb
+C:\Users\Win100\Desktop\TerrariaDepotDownloader\TerrariaDepotDownloader\bin\x64\Release\System.Collections.Immutable.dll
+C:\Users\Win100\Desktop\TerrariaDepotDownloader\TerrariaDepotDownloader\bin\x64\Release\Microsoft.Win32.Registry.dll
+C:\Users\Win100\Desktop\TerrariaDepotDownloader\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.exe.config
+C:\Users\Win100\Desktop\TerrariaDepotDownloader\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Form1.resources
+C:\Users\Win100\Desktop\TerrariaDepotDownloader\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Form2.resources
+C:\Users\Win100\Desktop\TerrariaDepotDownloader\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Properties.Resources.resources
+C:\Users\Win100\Desktop\TerrariaDepotDownloader\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.GenerateResource.cache
+C:\Users\Win100\Desktop\TerrariaDepotDownloader\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.CoreCompileInputs.cache
+C:\Users\Win100\Desktop\TerrariaDepotDownloader\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.CopyComplete
+C:\Users\Win100\Desktop\TerrariaDepotDownloader\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.exe
+C:\Users\Win100\Desktop\TerrariaDepotDownloader\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.pdb
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.4.0\TerrariaDepotDownloader\bin\x64\Release\DepotDownloader.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.4.0\TerrariaDepotDownloader\bin\x64\Release\protobuf-net.Core.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.4.0\TerrariaDepotDownloader\bin\x64\Release\protobuf-net.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.4.0\TerrariaDepotDownloader\bin\x64\Release\SteamKit2.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.4.0\TerrariaDepotDownloader\bin\x64\Release\DepotDownloader.deps.json
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.4.0\TerrariaDepotDownloader\bin\x64\Release\DepotDownloader.runtimeconfig.json
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.4.0\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.exe.config
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.4.0\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.exe
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.4.0\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.pdb
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.4.0\TerrariaDepotDownloader\bin\x64\Release\System.Collections.Immutable.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.4.0\TerrariaDepotDownloader\bin\x64\Release\Microsoft.Win32.Registry.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.4.0\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.exe.config
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.4.0\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Form1.resources
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.4.0\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Form2.resources
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.4.0\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Properties.Resources.resources
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.4.0\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.GenerateResource.cache
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.4.0\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.CoreCompileInputs.cache
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.4.0\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.CopyComplete
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.4.0\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.exe
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.4.0\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.pdb
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.5.0\TerrariaDepotDownloader\bin\x64\Release\DepotDownloader.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.5.0\TerrariaDepotDownloader\bin\x64\Release\protobuf-net.Core.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.5.0\TerrariaDepotDownloader\bin\x64\Release\protobuf-net.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.5.0\TerrariaDepotDownloader\bin\x64\Release\SteamKit2.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.5.0\TerrariaDepotDownloader\bin\x64\Release\DepotDownloader.deps.json
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.5.0\TerrariaDepotDownloader\bin\x64\Release\DepotDownloader.runtimeconfig.json
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.5.0\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.exe.config
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.5.0\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.exe
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.5.0\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.pdb
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.5.0\TerrariaDepotDownloader\bin\x64\Release\System.Collections.Immutable.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.5.0\TerrariaDepotDownloader\bin\x64\Release\Microsoft.Win32.Registry.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.5.0\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.exe.config
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.5.0\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Form1.resources
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.5.0\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Form2.resources
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.5.0\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Properties.Resources.resources
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.5.0\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.GenerateResource.cache
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.5.0\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.CoreCompileInputs.cache
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.5.0\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.CopyComplete
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.5.0\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.exe
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.5.0\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.pdb
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.6.0\TerrariaDepotDownloader\bin\x64\Release\DepotDownloader.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.6.0\TerrariaDepotDownloader\bin\x64\Release\protobuf-net.Core.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.6.0\TerrariaDepotDownloader\bin\x64\Release\protobuf-net.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.6.0\TerrariaDepotDownloader\bin\x64\Release\SteamKit2.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.6.0\TerrariaDepotDownloader\bin\x64\Release\DepotDownloader.deps.json
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.6.0\TerrariaDepotDownloader\bin\x64\Release\DepotDownloader.runtimeconfig.json
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.6.0\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.exe.config
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.6.0\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.exe
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.6.0\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.pdb
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.6.0\TerrariaDepotDownloader\bin\x64\Release\System.Collections.Immutable.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.6.0\TerrariaDepotDownloader\bin\x64\Release\Microsoft.Win32.Registry.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.6.0\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.exe.config
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.6.0\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Form1.resources
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.6.0\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Form2.resources
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.6.0\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Properties.Resources.resources
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.6.0\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.GenerateResource.cache
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.6.0\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.CoreCompileInputs.cache
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.6.0\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.CopyComplete
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.6.0\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.exe
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.6.0\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.pdb
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.6.0\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.AssemblyReference.cache
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.6.1\TerrariaDepotDownloader\bin\x64\Release\DepotDownloader.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.6.1\TerrariaDepotDownloader\bin\x64\Release\protobuf-net.Core.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.6.1\TerrariaDepotDownloader\bin\x64\Release\protobuf-net.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.6.1\TerrariaDepotDownloader\bin\x64\Release\SteamKit2.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.6.1\TerrariaDepotDownloader\bin\x64\Release\DepotDownloader.deps.json
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.6.1\TerrariaDepotDownloader\bin\x64\Release\DepotDownloader.runtimeconfig.json
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.6.1\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.exe.config
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.6.1\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.exe
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.6.1\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.pdb
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.6.1\TerrariaDepotDownloader\bin\x64\Release\System.Collections.Immutable.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.6.1\TerrariaDepotDownloader\bin\x64\Release\Microsoft.Win32.Registry.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.6.1\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.exe.config
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.6.1\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Form1.resources
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.6.1\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Form2.resources
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.6.1\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Properties.Resources.resources
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.6.1\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.GenerateResource.cache
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.6.1\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.CoreCompileInputs.cache
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.6.1\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.CopyComplete
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.6.1\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.exe
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.6.1\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.pdb
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.0\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.exe.config
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.0\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.exe
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.0\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.pdb
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.0\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.exe.config
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.0\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Form1.resources
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.0\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Form2.resources
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.0\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Properties.Resources.resources
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.0\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.GenerateResource.cache
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.0\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.CoreCompileInputs.cache
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.0\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.exe
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.0\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.pdb
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.0\TerrariaDepotDownloader\bin\x64\Release\Octokit.dll
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.0\TerrariaDepotDownloader\bin\x64\Release\Octokit.xml
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.0\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.CopyComplete
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.0\TerrariaDepotDownloader\bin\x64\Release\DepotDownloader.dll
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.0\TerrariaDepotDownloader\bin\x64\Release\protobuf-net.Core.dll
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.0\TerrariaDepotDownloader\bin\x64\Release\SteamKit2.dll
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.0\TerrariaDepotDownloader\bin\x64\Release\protobuf-net.dll
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.0\TerrariaDepotDownloader\bin\x64\Release\System.Collections.Immutable.dll
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.0\TerrariaDepotDownloader\bin\x64\Release\DotNetZip.dll
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.0\TerrariaDepotDownloader\bin\x64\Release\DotNetZip.pdb
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.0\TerrariaDepotDownloader\bin\x64\Release\DotNetZip.xml
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.0\TerrariaDepotDownloader\bin\x64\Release\DepotDownloader.pdb
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.1\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.exe.config
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.1\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.exe
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.1\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.pdb
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.1\TerrariaDepotDownloader\bin\x64\Release\DepotDownloader.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.1\TerrariaDepotDownloader\bin\x64\Release\DotNetZip.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.1\TerrariaDepotDownloader\bin\x64\Release\Octokit.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.1\TerrariaDepotDownloader\bin\x64\Release\protobuf-net.Core.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.1\TerrariaDepotDownloader\bin\x64\Release\SteamKit2.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.1\TerrariaDepotDownloader\bin\x64\Release\protobuf-net.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.1\TerrariaDepotDownloader\bin\x64\Release\System.Collections.Immutable.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.1\TerrariaDepotDownloader\bin\x64\Release\DepotDownloader.pdb
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.1\TerrariaDepotDownloader\bin\x64\Release\DotNetZip.pdb
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.1\TerrariaDepotDownloader\bin\x64\Release\DotNetZip.xml
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.1\TerrariaDepotDownloader\bin\x64\Release\Octokit.xml
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.1\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.exe.config
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.1\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Form1.resources
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.1\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Form2.resources
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.1\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Properties.Resources.resources
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.1\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.GenerateResource.cache
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.1\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.CoreCompileInputs.cache
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.1\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.CopyComplete
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.1\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.exe
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.1\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.pdb
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.2\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.exe.config
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.2\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.exe
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.2\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.pdb
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.2\TerrariaDepotDownloader\bin\x64\Release\DepotDownloader.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.2\TerrariaDepotDownloader\bin\x64\Release\DotNetZip.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.2\TerrariaDepotDownloader\bin\x64\Release\Octokit.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.2\TerrariaDepotDownloader\bin\x64\Release\protobuf-net.Core.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.2\TerrariaDepotDownloader\bin\x64\Release\SteamKit2.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.2\TerrariaDepotDownloader\bin\x64\Release\protobuf-net.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.2\TerrariaDepotDownloader\bin\x64\Release\System.Collections.Immutable.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.2\TerrariaDepotDownloader\bin\x64\Release\DepotDownloader.pdb
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.2\TerrariaDepotDownloader\bin\x64\Release\DotNetZip.pdb
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.2\TerrariaDepotDownloader\bin\x64\Release\DotNetZip.xml
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.2\TerrariaDepotDownloader\bin\x64\Release\Octokit.xml
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.2\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.exe.config
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.2\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Form1.resources
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.2\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Form2.resources
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.2\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Properties.Resources.resources
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.2\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.GenerateResource.cache
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.2\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.CoreCompileInputs.cache
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.2\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.CopyComplete
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.2\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.exe
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.2\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.pdb
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.2\TerrariaDepotDownloader\bin\x64\Release\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.2\TerrariaDepotDownloader\bin\x64\Release\System.Threading.Tasks.Extensions.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.2\TerrariaDepotDownloader\bin\x64\Release\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.2\TerrariaDepotDownloader\bin\x64\Release\System.Threading.Tasks.Extensions.xml
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.3\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.exe.config
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.3\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.exe
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.3\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.pdb
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.3\TerrariaDepotDownloader\bin\x64\Release\DepotDownloader.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.3\TerrariaDepotDownloader\bin\x64\Release\DotNetZip.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.3\TerrariaDepotDownloader\bin\x64\Release\Octokit.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.3\TerrariaDepotDownloader\bin\x64\Release\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.3\TerrariaDepotDownloader\bin\x64\Release\System.Threading.Tasks.Extensions.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.3\TerrariaDepotDownloader\bin\x64\Release\protobuf-net.Core.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.3\TerrariaDepotDownloader\bin\x64\Release\SteamKit2.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.3\TerrariaDepotDownloader\bin\x64\Release\protobuf-net.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.3\TerrariaDepotDownloader\bin\x64\Release\System.Collections.Immutable.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.3\TerrariaDepotDownloader\bin\x64\Release\DepotDownloader.pdb
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.3\TerrariaDepotDownloader\bin\x64\Release\DotNetZip.pdb
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.3\TerrariaDepotDownloader\bin\x64\Release\DotNetZip.xml
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.3\TerrariaDepotDownloader\bin\x64\Release\Octokit.xml
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.3\TerrariaDepotDownloader\bin\x64\Release\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.3\TerrariaDepotDownloader\bin\x64\Release\System.Threading.Tasks.Extensions.xml
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.3\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.exe.config
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.3\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Form1.resources
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.3\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Form2.resources
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.3\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Properties.Resources.resources
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.3\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.GenerateResource.cache
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.3\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.CoreCompileInputs.cache
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.3\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.CopyComplete
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.3\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.exe
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.3\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.pdb
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.4\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.exe.config
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.4\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.exe
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.4\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.pdb
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.4\TerrariaDepotDownloader\bin\x64\Release\DepotDownloader.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.4\TerrariaDepotDownloader\bin\x64\Release\DotNetZip.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.4\TerrariaDepotDownloader\bin\x64\Release\Octokit.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.4\TerrariaDepotDownloader\bin\x64\Release\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.4\TerrariaDepotDownloader\bin\x64\Release\System.Threading.Tasks.Extensions.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.4\TerrariaDepotDownloader\bin\x64\Release\protobuf-net.Core.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.4\TerrariaDepotDownloader\bin\x64\Release\SteamKit2.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.4\TerrariaDepotDownloader\bin\x64\Release\protobuf-net.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.4\TerrariaDepotDownloader\bin\x64\Release\System.Collections.Immutable.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.4\TerrariaDepotDownloader\bin\x64\Release\DepotDownloader.pdb
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.4\TerrariaDepotDownloader\bin\x64\Release\DotNetZip.pdb
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.4\TerrariaDepotDownloader\bin\x64\Release\DotNetZip.xml
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.4\TerrariaDepotDownloader\bin\x64\Release\Octokit.xml
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.4\TerrariaDepotDownloader\bin\x64\Release\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.4\TerrariaDepotDownloader\bin\x64\Release\System.Threading.Tasks.Extensions.xml
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.4\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.exe.config
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.4\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Form1.resources
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.4\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Form2.resources
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.4\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Properties.Resources.resources
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.4\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.GenerateResource.cache
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.4\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.CoreCompileInputs.cache
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.4\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.CopyComplete
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.4\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.exe
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.4\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.pdb
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.exe.config
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.exe
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.pdb
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\bin\x64\Release\DepotDownloader.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\bin\x64\Release\DotNetZip.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\bin\x64\Release\Octokit.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\bin\x64\Release\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\bin\x64\Release\System.Threading.Tasks.Extensions.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\bin\x64\Release\protobuf-net.Core.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\bin\x64\Release\SteamKit2.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\bin\x64\Release\protobuf-net.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\bin\x64\Release\System.Collections.Immutable.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\bin\x64\Release\DepotDownloader.pdb
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\bin\x64\Release\DotNetZip.pdb
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\bin\x64\Release\DotNetZip.xml
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\bin\x64\Release\Octokit.xml
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\bin\x64\Release\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\bin\x64\Release\System.Threading.Tasks.Extensions.xml
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.exe.config
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Form1.resources
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Form2.resources
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Properties.Resources.resources
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.GenerateResource.cache
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.CoreCompileInputs.cache
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.CopyComplete
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.exe
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.pdb
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.exe.config
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.exe
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.pdb
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\bin\x64\Release\DepotDownloader.dll
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\bin\x64\Release\DotNetZip.dll
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\bin\x64\Release\Octokit.dll
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\bin\x64\Release\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\bin\x64\Release\System.Threading.Tasks.Extensions.dll
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\bin\x64\Release\protobuf-net.Core.dll
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\bin\x64\Release\SteamKit2.dll
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\bin\x64\Release\protobuf-net.dll
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\bin\x64\Release\System.Collections.Immutable.dll
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\bin\x64\Release\DepotDownloader.pdb
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\bin\x64\Release\DotNetZip.pdb
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\bin\x64\Release\DotNetZip.xml
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\bin\x64\Release\Octokit.xml
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\bin\x64\Release\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\bin\x64\Release\System.Threading.Tasks.Extensions.xml
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.AssemblyReference.cache
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.exe.config
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Form1.resources
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Form2.resources
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Properties.Resources.resources
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.GenerateResource.cache
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.CoreCompileInputs.cache
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.CopyComplete
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.exe
+C:\Users\Win100\Desktop\TerrariaDepotDownloader v1.8.5\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.pdb
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5.1\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.exe.config
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5.1\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.exe
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5.1\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.pdb
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5.1\TerrariaDepotDownloader\bin\x64\Release\DepotDownloader.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5.1\TerrariaDepotDownloader\bin\x64\Release\DotNetZip.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5.1\TerrariaDepotDownloader\bin\x64\Release\Octokit.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5.1\TerrariaDepotDownloader\bin\x64\Release\protobuf-net.Core.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5.1\TerrariaDepotDownloader\bin\x64\Release\SteamKit2.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5.1\TerrariaDepotDownloader\bin\x64\Release\protobuf-net.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5.1\TerrariaDepotDownloader\bin\x64\Release\System.Collections.Immutable.dll
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5.1\TerrariaDepotDownloader\bin\x64\Release\DepotDownloader.pdb
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5.1\TerrariaDepotDownloader\bin\x64\Release\DotNetZip.pdb
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5.1\TerrariaDepotDownloader\bin\x64\Release\DotNetZip.xml
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5.1\TerrariaDepotDownloader\bin\x64\Release\Octokit.xml
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5.1\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.exe.config
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5.1\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Form1.resources
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5.1\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Form2.resources
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5.1\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Properties.Resources.resources
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5.1\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.GenerateResource.cache
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5.1\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.CoreCompileInputs.cache
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5.1\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.CopyComplete
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5.1\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.exe
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5.1\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.pdb
+C:\Users\Win100\Desktop\Terraria Depot Downloader\TerrariaDepotDownloader v1.8.5.1\TerrariaDepotDownloader\bin\x64\Release\System.Collections.Immutable.xml
+C:\Users\imthe\Desktop\Files - Copy\src\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.exe.config
+C:\Users\imthe\Desktop\Files - Copy\src\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.exe
+C:\Users\imthe\Desktop\Files - Copy\src\TerrariaDepotDownloader\bin\x64\Release\TerrariaDepotDownloader.pdb
+C:\Users\imthe\Desktop\Files - Copy\src\TerrariaDepotDownloader\bin\x64\Release\DotNetZip.dll
+C:\Users\imthe\Desktop\Files - Copy\src\TerrariaDepotDownloader\bin\x64\Release\Octokit.dll
+C:\Users\imthe\Desktop\Files - Copy\src\TerrariaDepotDownloader\bin\x64\Release\System.Collections.Immutable.dll
+C:\Users\imthe\Desktop\Files - Copy\src\TerrariaDepotDownloader\bin\x64\Release\DotNetZip.pdb
+C:\Users\imthe\Desktop\Files - Copy\src\TerrariaDepotDownloader\bin\x64\Release\DotNetZip.xml
+C:\Users\imthe\Desktop\Files - Copy\src\TerrariaDepotDownloader\bin\x64\Release\Octokit.xml
+C:\Users\imthe\Desktop\Files - Copy\src\TerrariaDepotDownloader\bin\x64\Release\System.Collections.Immutable.xml
+C:\Users\imthe\Desktop\Files - Copy\src\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csprojResolveAssemblyReference.cache
+C:\Users\imthe\Desktop\Files - Copy\src\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Form1.resources
+C:\Users\imthe\Desktop\Files - Copy\src\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Form2.resources
+C:\Users\imthe\Desktop\Files - Copy\src\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.Properties.Resources.resources
+C:\Users\imthe\Desktop\Files - Copy\src\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.csproj.GenerateResource.Cache
+C:\Users\imthe\Desktop\Files - Copy\src\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.exe
+C:\Users\imthe\Desktop\Files - Copy\src\TerrariaDepotDownloader\obj\x64\Release\TerrariaDepotDownloader.pdb

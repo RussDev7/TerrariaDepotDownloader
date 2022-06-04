@@ -1,0 +1,9 @@
+C:\Users\Win100\Source\Repos\TerrariaDepotDownloader\TerrariaDepotDownloader\bin\Debug\TerrariaDepotDownloader.exe.config
+C:\Users\Win100\Source\Repos\TerrariaDepotDownloader\TerrariaDepotDownloader\bin\Debug\TerrariaDepotDownloader.exe
+C:\Users\Win100\Source\Repos\TerrariaDepotDownloader\TerrariaDepotDownloader\bin\Debug\TerrariaDepotDownloader.pdb
+C:\Users\Win100\Source\Repos\TerrariaDepotDownloader\TerrariaDepotDownloader\obj\Debug\TerrariaDepotDownloader.Form1.resources
+C:\Users\Win100\Source\Repos\TerrariaDepotDownloader\TerrariaDepotDownloader\obj\Debug\TerrariaDepotDownloader.Properties.Resources.resources
+C:\Users\Win100\Source\Repos\TerrariaDepotDownloader\TerrariaDepotDownloader\obj\Debug\TerrariaDepotDownloader.csproj.GenerateResource.cache
+C:\Users\Win100\Source\Repos\TerrariaDepotDownloader\TerrariaDepotDownloader\obj\Debug\TerrariaDepotDownloader.csproj.CoreCompileInputs.cache
+C:\Users\Win100\Source\Repos\TerrariaDepotDownloader\TerrariaDepotDownloader\obj\Debug\TerrariaDepotDownloader.exe
+C:\Users\Win100\Source\Repos\TerrariaDepotDownloader\TerrariaDepotDownloader\obj\Debug\TerrariaDepotDownloader.pdb
