@@ -21,11 +21,10 @@ Note to Terraria's team: I have created this courtesyware in hopes to diminish p
 
 ## Download
 
-- [Source](https://github.com/RussDev7/TerrariaDepotDownloader)
-- [Download](https://github.com/RussDev7/TerrariaDepotDownloader/releases) 
 - [GitHub Releases](https://github.com/RussDev7/TerrariaDepotDownloader/releases)
-- [Change Log](https://github.com/RussDev7/TerrariaDepotDownloader/commits/master)
+- [Terraria Forums](https://forums.terraria.org/index.php?threads/terrariadepotdownloader-downgrade-to-any-version.107519/)
 
 ## Support & Credits
-- [Donations](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=imthedude030@gmail.com&lc=US&item_name=Donation&currency_code=USD&bn=PP%2dDonationsBF)
+
 - [DepotDownloader API](https://github.com/SteamRE/DepotDownloader)
+- [Donations](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=imthedude030@gmail.com&lc=US&item_name=Donation&currency_code=USD&bn=PP%2dDonationsBF)
