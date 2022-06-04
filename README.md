@@ -1,5 +1,7 @@
 # Terraria Depot Downloader - Danny Russ
 
+[![Build status](https://ci.appveyor.com/api/projects/status/4je4mgn8thq15cf9?svg=true)](https://ci.appveyor.com/project/RussDev7/terrariadepotdownloader) [![GitHub Version](https://img.shields.io/github/v/release/RussDev7/TerrariaDepotDownloader)](https://github.com/RussDev7/TerrariaDepotDownloader) [![CodeFactor](https://img.shields.io/github/downloads/RussDev7/TerrariaDepotDownloader/1.8.5/total)](https://github.com/RussDev7/TerrariaDepotDownloader)
+
 ![TDD](https://github.com/RussDev7/TerrariaDepotDownloader/src/TerrariaDepotDownloader/ExternalResources/IconFontImageStone2.png)
 
 TerrariaDepotDownloader - This application allows you to downgrade your game to any of the past game versions where the steam manifest IDs are known.
