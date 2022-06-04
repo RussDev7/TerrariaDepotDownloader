@@ -1,6 +1,6 @@
 # Terraria Depot Downloader - Danny Russ
 
-[![Build status](https://ci.appveyor.com/api/projects/status/4je4mgn8thq15cf9?svg=true)](https://ci.appveyor.com/project/RussDev7/terrariadepotdownloader) [![GitHub Version](https://img.shields.io/github/v/release/RussDev7/TerrariaDepotDownloader)](https://github.com/RussDev7/TerrariaDepotDownloader) [![Contributors](https://img.shields.io/github/contributors/RussDev7/TerrariaDepotDownloader)](https://github.com/RussDev7/TerrariaDepotDownloader)
+[![Build status](https://ci.appveyor.com/api/projects/status/4je4mgn8thq15cf9?svg=true)](https://ci.appveyor.com/project/RussDev7/terrariadepotdownloader) [![GitHub Version](https://img.shields.io/github/tag/RussDev7/TerrariaDepotDownloader.svg?label=GitHub)](https://github.com/RussDev7/TerrariaDepotDownloader) [![Contributors](https://img.shields.io/github/contributors/RussDev7/TerrariaDepotDownloader)](https://github.com/RussDev7/TerrariaDepotDownloader)
 
 ![TDD](https://raw.githubusercontent.com/RussDev7/TerrariaDepotDownloader/main/src/TerrariaDepotDownloader/Resources/custom-terraria-logo1.png)
 
