@@ -177,6 +177,7 @@ namespace TerrariaDepotDownloader
             Tooltips.SetToolTip(checkBox1, "Log all actions to the output log");
             Tooltips.SetToolTip(checkBox2, "All installs overwrites Steam directory");
             Tooltips.SetToolTip(checkBox3, "Show or hide tooltips");
+            Tooltips.SetToolTip(checkBox4, "Skip API update check");
 
             // Enable or Disable Tooltips
             if (checkBox3.Checked)
