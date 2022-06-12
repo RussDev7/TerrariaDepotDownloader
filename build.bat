@@ -6,7 +6,7 @@
 @ECHO OFF
 
 Rem | Set Params
-Set "VersionPrefix=1.8.5"
+Set "VersionPrefix=1.8.5.1"
 Set "filename=TerrariaDepotDownloader-%VersionPrefix%"
 
 Rem | Install SLN Under x64 Profile
@@ -37,5 +37,5 @@ if exist ".\%filename%.zip" (del /f ".\%filename%.zip")
 powershell.exe -nologo -noprofile -command "Compress-Archive -Path ".\release\*" -DestinationPath ".\%filename%.zip""
 
 Rem | Operation Complete
-echo All tasks have been processed and completed.
+echo(
 pause
