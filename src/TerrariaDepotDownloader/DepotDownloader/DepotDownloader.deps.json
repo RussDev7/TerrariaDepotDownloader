@@ -6,10 +6,10 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "DepotDownloader/2.4.6": {
+      "DepotDownloader/2.4.7": {
         "dependencies": {
           "SteamKit2": "2.4.1",
-          "protobuf-net": "3.0.101"
+          "protobuf-net": "3.1.17"
         },
         "runtime": {
           "DepotDownloader.dll": {}
@@ -22,29 +22,29 @@
           "System.Security.Principal.Windows": "5.0.0"
         }
       },
-      "protobuf-net/3.0.101": {
+      "protobuf-net/3.1.17": {
         "dependencies": {
-          "protobuf-net.Core": "3.0.101"
+          "protobuf-net.Core": "3.1.17"
         },
         "runtime": {
           "lib/net5.0/protobuf-net.dll": {
             "assemblyVersion": "3.0.0.0",
-            "fileVersion": "3.0.101.59408"
+            "fileVersion": "3.1.17.6991"
           }
         }
       },
-      "protobuf-net.Core/3.0.101": {
+      "protobuf-net.Core/3.1.17": {
         "runtime": {
           "lib/net5.0/protobuf-net.Core.dll": {
             "assemblyVersion": "3.0.0.0",
-            "fileVersion": "3.0.101.59408"
+            "fileVersion": "3.1.17.6991"
           }
         }
       },
       "SteamKit2/2.4.1": {
         "dependencies": {
           "Microsoft.Win32.Registry": "5.0.0",
-          "protobuf-net": "3.0.101"
+          "protobuf-net": "3.1.17"
         },
         "runtime": {
           "lib/net6.0/SteamKit2.dll": {
@@ -63,7 +63,7 @@
     }
   },
   "libraries": {
-    "DepotDownloader/2.4.6": {
+    "DepotDownloader/2.4.7": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -82,19 +82,19 @@
       "path": "microsoft.win32.registry/5.0.0",
       "hashPath": "microsoft.win32.registry.5.0.0.nupkg.sha512"
     },
-    "protobuf-net/3.0.101": {
+    "protobuf-net/3.1.17": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-mLm8VGfGylp9q+rbJDp3uw0BOeNzfGENecVz/EYGlzq3ss7tfajGXHCMoZm/GxJ9vSn9pcK22UXWZnQ5GJQMjA==",
-      "path": "protobuf-net/3.0.101",
-      "hashPath": "protobuf-net.3.0.101.nupkg.sha512"
+      "sha512": "sha512-lN6JWutKqn1Aq/hI1BXcR7VbgHgcerUTMav2rTenflE28GWC2y1JoF9XPkoQdCkf24olStY00r68PHJhUpWFaw==",
+      "path": "protobuf-net/3.1.17",
+      "hashPath": "protobuf-net.3.1.17.nupkg.sha512"
     },
-    "protobuf-net.Core/3.0.101": {
+    "protobuf-net.Core/3.1.17": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-gf9QIF0RlctfjmOjbE6eOyMulkNEsH7tHncjKj/4BTu9tkuTyrH3fv5I+35GnolJqKJ6fh9kYaezvNRL3t75+Q==",
-      "path": "protobuf-net.core/3.0.101",
-      "hashPath": "protobuf-net.core.3.0.101.nupkg.sha512"
+      "sha512": "sha512-6PK/ZswVXHdUfMFEv9bI+jkNipuy9ifKRKRBAZlqFrbGXOwvREdMA2H53GTqTc6728PMA0VGvsbnjPAQ0Cx59A==",
+      "path": "protobuf-net.core/3.1.17",
+      "hashPath": "protobuf-net.core.3.1.17.nupkg.sha512"
     },
     "SteamKit2/2.4.1": {
       "type": "package",
