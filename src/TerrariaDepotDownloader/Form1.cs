@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Ionic.Zip;
 
@@ -830,7 +831,8 @@ namespace TerrariaDepotDownloader
                                     Directory.CreateDirectory(OutDir); // Update 1.8.2 Fix
                                 }
                                 String ManifestID = itemRow.SubItems[1].Text;
-                                String Arg = "dotnet " + "\"" + DLLLocation + "\"" + " -app 105600 -depot 105601 -manifest " + ManifestID + " -username " + textBox2.Text + " -password " + textBox3.Text + " -dir " + "\"" + OutDir + "\"";
+                                String EscapedPassword = Regex.Replace(textBox3.Text, @"[%|<>&^]", @"^$&"); // Escape Any CMD Special Characters If Any Exist // Update 1.8.5.2 Fix
+                                String Arg = "dotnet " + "\"" + DLLLocation + "\"" + " -app 105600 -depot 105601 -manifest " + ManifestID + " -username " + textBox2.Text + " -password " + EscapedPassword + " -dir " + "\"" + OutDir + "\"";
 
                                 // Start Download
                                 try
@@ -920,7 +922,8 @@ namespace TerrariaDepotDownloader
                                 Directory.CreateDirectory(OutDir); // Update 1.8.2 Fix
                             }
                             String ManifestID = itemRow.SubItems[1].Text;
-                            String Arg = "dotnet " + "\"" + DLLLocation + "\"" + " -app 105600 -depot 105601 -manifest " + ManifestID + " -username " + textBox2.Text + " -password " + textBox3.Text + " -dir " + "\"" + OutDir + "\"";
+                            String EscapedPassword = Regex.Replace(textBox3.Text, @"[%|<>&^]", @"^$&"); // Escape Any CMD Special Characters If Any Exist // Update 1.8.5.2 Fix
+                            String Arg = "dotnet " + "\"" + DLLLocation + "\"" + " -app 105600 -depot 105601 -manifest " + ManifestID + " -username " + textBox2.Text + " -password " + EscapedPassword + " -dir " + "\"" + OutDir + "\"";
 
                             // Start Download
                             try
