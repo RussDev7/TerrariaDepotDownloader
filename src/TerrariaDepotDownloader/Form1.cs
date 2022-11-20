@@ -756,7 +756,10 @@ namespace TerrariaDepotDownloader
                         {
                             try
                             {
+                                // Start Terraria Though Steam
                                 Process.Start("steam://rungameid/105600");
+
+                                // Do logging If Enabled
                                 if (checkBox1.Checked)
                                 {
                                     Console.WriteLine("Successfully launched Terraria v" + File.ReadLines(Properties.Settings.Default.DepotPath + @"\changelog.txt").First().Split(' ')[1].ToString() + " Through Steam!");
@@ -771,7 +774,13 @@ namespace TerrariaDepotDownloader
                         {
                             try
                             {
-                                Process.Start(Properties.Settings.Default.DepotPath + @"\Terraria-v" + itemRow.SubItems[0].Text + @"\Terraria.exe");
+                                // Start Terraria By File
+                                Process startPath = new Process();
+                                startPath.StartInfo.WorkingDirectory = Properties.Settings.Default.DepotPath + @"\Terraria-v" + itemRow.SubItems[0].Text;
+                                startPath.StartInfo.FileName = Properties.Settings.Default.DepotPath + @"\Terraria-v" + itemRow.SubItems[0].Text + @"\Terraria.exe";
+                                startPath.Start();
+
+                                // Do Logging If Enabled
                                 if (checkBox1.Checked)
                                 {
                                     Console.WriteLine("Successfully launched Terraria v" + itemRow.SubItems[0].Text);
