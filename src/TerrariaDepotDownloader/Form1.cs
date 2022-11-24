@@ -14,7 +14,7 @@ namespace TerrariaDepotDownloader
     public partial class Form1 : Form
     {
         // Say Hello To Decompilers
-        private static string HelloThere = "Hello there fellow Decompiler, This Program Was Made By D.RUSS (xXCrypticNightXx).";
+        private static string HelloThere = "Hello There Fellow Decompiler, This Program Was Made By D.RUSS#2430 (xXCrypticNightXx).";
 
         #region Main Code
         public Form1()
