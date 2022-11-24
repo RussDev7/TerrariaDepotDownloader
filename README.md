@@ -1,4 +1,4 @@
-# Terraria Depot Downloader - For Terraria 1.1.2 1.2X 1.3X 1.4X+
+# Terraria Depot Downloader - Terraria 1.1.2 1.2X 1.3X 1.4X+
 
 [![Build status](https://ci.appveyor.com/api/projects/status/4je4mgn8thq15cf9?svg=true)](https://ci.appveyor.com/project/RussDev7/terrariadepotdownloader) [![GitHub Version](https://img.shields.io/github/tag/RussDev7/TerrariaDepotDownloader.svg?label=GitHub)](https://github.com/RussDev7/TerrariaDepotDownloader) [![Contributors](https://img.shields.io/github/contributors/RussDev7/TerrariaDepotDownloader)](https://github.com/RussDev7/TerrariaDepotDownloader)
 
