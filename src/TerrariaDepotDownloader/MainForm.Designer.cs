@@ -101,8 +101,8 @@ namespace TerrariaDepotDownloader
             this.listView1.TabIndex = 2;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.Click += new System.EventHandler(this.listView1_Click);
-            this.listView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseClick);
+            this.listView1.Click += new System.EventHandler(this.ListView1_Click);
+            this.listView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ListView1_MouseClick);
             // 
             // columnHeader2
             // 
@@ -159,7 +159,7 @@ namespace TerrariaDepotDownloader
             this.button9.TabIndex = 4;
             this.button9.Text = "Open Depots";
             this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            this.button9.Click += new System.EventHandler(this.Button9_Click);
             // 
             // button8
             // 
@@ -181,7 +181,7 @@ namespace TerrariaDepotDownloader
             this.button3.TabIndex = 3;
             this.button3.Text = "Reload List";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.Click += new System.EventHandler(this.Button3_Click);
             // 
             // tabPage2
             // 
@@ -218,7 +218,7 @@ namespace TerrariaDepotDownloader
             this.checkBox4.TabIndex = 15;
             this.checkBox4.Text = "Skip Update Check";
             this.checkBox4.UseVisualStyleBackColor = true;
-            this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
+            this.checkBox4.CheckedChanged += new System.EventHandler(this.CheckBox4_CheckedChanged);
             // 
             // checkBox1
             // 
@@ -231,7 +231,7 @@ namespace TerrariaDepotDownloader
             this.checkBox1.TabIndex = 12;
             this.checkBox1.Text = "Log Actions";
             this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.CheckBox1_CheckedChanged);
             // 
             // checkBox3
             // 
@@ -244,7 +244,7 @@ namespace TerrariaDepotDownloader
             this.checkBox3.TabIndex = 13;
             this.checkBox3.Text = "Show Tooltips";
             this.checkBox3.UseVisualStyleBackColor = true;
-            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
+            this.checkBox3.CheckedChanged += new System.EventHandler(this.CheckBox3_CheckedChanged);
             // 
             // checkBox2
             // 
@@ -255,7 +255,7 @@ namespace TerrariaDepotDownloader
             this.checkBox2.TabIndex = 14;
             this.checkBox2.Text = "Overwrite Steam Directory";
             this.checkBox2.UseVisualStyleBackColor = true;
-            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.CheckBox2_CheckedChanged);
             // 
             // groupBox2
             // 
@@ -279,7 +279,7 @@ namespace TerrariaDepotDownloader
             this.button6.TabIndex = 7;
             this.button6.Text = "Browse";
             this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.button6.Click += new System.EventHandler(this.Button6_Click);
             // 
             // textBox1
             // 
@@ -336,8 +336,8 @@ namespace TerrariaDepotDownloader
             this.button7.TabIndex = 8;
             this.button7.Text = "Show";
             this.button7.UseVisualStyleBackColor = true;
-            this.button7.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button7_MouseDown);
-            this.button7.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button7_MouseUp);
+            this.button7.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button7_MouseDown);
+            this.button7.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Button7_MouseUp);
             // 
             // label3
             // 
@@ -382,7 +382,7 @@ namespace TerrariaDepotDownloader
             this.richTextBox1.Size = new System.Drawing.Size(540, 251);
             this.richTextBox1.TabIndex = 16;
             this.richTextBox1.Text = "";
-            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
+            this.richTextBox1.TextChanged += new System.EventHandler(this.RichTextBox1_TextChanged);
             // 
             // button4
             // 
@@ -393,7 +393,7 @@ namespace TerrariaDepotDownloader
             this.button4.TabIndex = 17;
             this.button4.Text = "Clear Log";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button4.Click += new System.EventHandler(this.Button4_Click);
             // 
             // toolStrip1
             // 
@@ -429,7 +429,7 @@ namespace TerrariaDepotDownloader
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(114, 24);
             this.toolStripMenuItem1.Text = "Close";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.ToolStripMenuItem1_Click);
             // 
             // toolStripDropDownButton1
             // 
@@ -443,7 +443,7 @@ namespace TerrariaDepotDownloader
             this.toolStripDropDownButton1.ShowDropDownArrow = false;
             this.toolStripDropDownButton1.Size = new System.Drawing.Size(49, 24);
             this.toolStripDropDownButton1.Text = "Info";
-            this.toolStripDropDownButton1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.toolStripDropDownButton1_MouseUp);
+            this.toolStripDropDownButton1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ToolStripDropDownButton1_MouseUp);
             // 
             // button1
             // 
@@ -455,7 +455,7 @@ namespace TerrariaDepotDownloader
             this.button1.TabIndex = 5;
             this.button1.Text = "Close";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // button2
             // 
@@ -493,7 +493,7 @@ namespace TerrariaDepotDownloader
             this.button5.TabIndex = 5;
             this.button5.Text = "Remove App";
             this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.button5.Click += new System.EventHandler(this.Button5_Click);
             // 
             // contextMenuStrip1
             // 
@@ -510,7 +510,7 @@ namespace TerrariaDepotDownloader
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(162, 22);
             this.toolStripMenuItem2.Text = "Download App";
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.ToolStripMenuItem2_Click);
             // 
             // toolStripMenuItem3
             // 
@@ -519,7 +519,7 @@ namespace TerrariaDepotDownloader
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
             this.toolStripMenuItem3.Size = new System.Drawing.Size(162, 22);
             this.toolStripMenuItem3.Text = "Remove App";
-            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
+            this.toolStripMenuItem3.Click += new System.EventHandler(this.ToolStripMenuItem3_Click);
             // 
             // Form1
             // 

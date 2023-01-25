@@ -14,7 +14,7 @@ namespace TerrariaDepotDownloader
     public partial class MainForm : Form
     {
         // Say Hello To Decompilers
-        private static string HelloThere = "Hello There Fellow Decompiler, This Program Was Made By D.RUSS#2430 (xXCrypticNightXx).";
+        private static readonly string HelloThere = "Hello There Fellow Decompiler, This Program Was Made By D.RUSS#2430 (xXCrypticNightXx).";
 
         #region Main Code
         public MainForm()
@@ -356,7 +356,7 @@ namespace TerrariaDepotDownloader
         }
 
         // Reload List
-        private void button3_Click(object sender, EventArgs e)
+        private void Button3_Click(object sender, EventArgs e)
         {
             ReloadList();
             if (checkBox1.Checked)
@@ -480,7 +480,7 @@ namespace TerrariaDepotDownloader
         }
 
         // Open Browse Dialogue
-        private void button6_Click(object sender, EventArgs e)
+        private void Button6_Click(object sender, EventArgs e)
         {
             using (var fbd = new FolderBrowserDialog())
             {
@@ -495,7 +495,7 @@ namespace TerrariaDepotDownloader
         }
 
         // Close Games & Application
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             // Check For Any Open Clients
             if (Process.GetProcessesByName("Terraria").Length > 0)
@@ -533,14 +533,14 @@ namespace TerrariaDepotDownloader
         }
 
         // Clear Log
-        private void button4_Click(object sender, EventArgs e)
+        private void Button4_Click(object sender, EventArgs e)
         {
             richTextBox1.Clear();
             richTextBox1.Update();
         }
 
         // Close Via ToolStrip
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        private void ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             // Gather Steam Data
             Properties.Settings.Default.SteamUser = textBox2.Text;
@@ -554,7 +554,7 @@ namespace TerrariaDepotDownloader
         }
 
         // Open Info Tab
-        private void toolStripDropDownButton1_MouseUp(object sender, MouseEventArgs e)
+        private void ToolStripDropDownButton1_MouseUp(object sender, MouseEventArgs e)
         {
             // Open New Form2
             About frm2 = new About();
@@ -562,19 +562,19 @@ namespace TerrariaDepotDownloader
         }
 
         // Show Password
-        private void button7_MouseDown(object sender, MouseEventArgs e)
+        private void Button7_MouseDown(object sender, MouseEventArgs e)
         {
             textBox3.PasswordChar = '\u0000';
         }
 
         // Hide Password
-        private void button7_MouseUp(object sender, MouseEventArgs e)
+        private void Button7_MouseUp(object sender, MouseEventArgs e)
         {
             textBox3.PasswordChar = '*';
         }
 
         // Open Context Menu
-        private void listView1_MouseClick(object sender, MouseEventArgs e)
+        private void ListView1_MouseClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
             {
@@ -587,7 +587,7 @@ namespace TerrariaDepotDownloader
         }
 
         // Remove App Tool Via ToolStrip
-        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        private void ToolStripMenuItem3_Click(object sender, EventArgs e)
         {
             // Check If Removal Is Avalible
             if (!button5.Enabled)
@@ -701,7 +701,7 @@ namespace TerrariaDepotDownloader
         }
 
         // Update Button
-        private void listView1_Click(object sender, EventArgs e)
+        private void ListView1_Click(object sender, EventArgs e)
         {
             // Get Each Row
             foreach (ListViewItem itemRow in this.listView1.Items)
@@ -880,7 +880,7 @@ namespace TerrariaDepotDownloader
         }
 
         // Download App Via ToolStrip
-        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        private void ToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             // Get Each Row
             foreach (ListViewItem itemRow in this.listView1.Items)
@@ -970,7 +970,7 @@ namespace TerrariaDepotDownloader
         }
 
         // Remove App
-        private void button5_Click(object sender, EventArgs e)
+        private void Button5_Click(object sender, EventArgs e)
         {
             // Disable If Overwrite Steam Directory Enabled
             if (checkBox2.Checked)
@@ -1025,7 +1025,7 @@ namespace TerrariaDepotDownloader
         }
 
         // Open Depot Folder Directory
-        private void button9_Click(object sender, EventArgs e)
+        private void Button9_Click(object sender, EventArgs e)
         {
             try
             {
@@ -1046,7 +1046,7 @@ namespace TerrariaDepotDownloader
         }
 
         // Update Checkbox Config
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void CheckBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox1.Checked)
             {
@@ -1059,7 +1059,7 @@ namespace TerrariaDepotDownloader
         }
 
         // Auto Scroll To End
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        private void RichTextBox1_TextChanged(object sender, EventArgs e)
         {
             // set the current caret position to the end
             richTextBox1.SelectionStart = richTextBox1.Text.Length;
@@ -1069,7 +1069,7 @@ namespace TerrariaDepotDownloader
         }
 
         // Show Prompt Warning
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        private void CheckBox2_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox2.Checked && Properties.Settings.Default.OverwriteSteam == false)
             {
@@ -1147,7 +1147,7 @@ namespace TerrariaDepotDownloader
         }
 
         // Tooltip Contols
-        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        private void CheckBox3_CheckedChanged(object sender, EventArgs e)
         {
             // Enable or Disable Tooltips
             if (checkBox3.Checked)
@@ -1165,7 +1165,7 @@ namespace TerrariaDepotDownloader
         }
 
         // Skip Update Controls
-        private void checkBox4_CheckedChanged(object sender, EventArgs e)
+        private void CheckBox4_CheckedChanged(object sender, EventArgs e)
         {
             // Enable or Disable Tooltips
             if (checkBox4.Checked)
