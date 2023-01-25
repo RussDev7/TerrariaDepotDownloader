@@ -5,9 +5,9 @@ using System.Windows.Forms;
 
 namespace TerrariaDepotDownloader
 {
-    public partial class Form2 : Form
+    public partial class About : Form
     {
-        public Form2()
+        public About()
         {
             InitializeComponent();
         }
@@ -20,27 +20,27 @@ namespace TerrariaDepotDownloader
         }
 
         // Discord Link
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void LinkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             linkLabel2.LinkVisited = true;
             System.Diagnostics.Process.Start("https://discordapp.com/users/840645038466793498/");
         }
 
         // Game Thread
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             linkLabel1.LinkVisited = true;
             System.Diagnostics.Process.Start("https://forums.terraria.org/index.php?threads/terrariadepotdownloader-downgrade-to-any-version.107519/");
         }
 
         // Close Form2
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
         // Donate
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
             string url = "";
             string business = "imthedude030@gmail.com";

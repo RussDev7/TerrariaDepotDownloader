@@ -1,7 +1,7 @@
 ﻿
 namespace TerrariaDepotDownloader
 {
-    partial class Form2
+    partial class About
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace TerrariaDepotDownloader
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(About));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -94,7 +94,7 @@ namespace TerrariaDepotDownloader
             this.button1.TabIndex = 9;
             this.button1.Text = "OK";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // label7
             // 
@@ -125,7 +125,7 @@ namespace TerrariaDepotDownloader
             this.linkLabel1.TabIndex = 14;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "https://forums.terraria.org/";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel1_LinkClicked);
             // 
             // linkLabel2
             // 
@@ -136,7 +136,7 @@ namespace TerrariaDepotDownloader
             this.linkLabel2.TabIndex = 15;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "D.RUSS#2430";
-            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel2_LinkClicked);
             // 
             // label5
             // 
@@ -158,7 +158,7 @@ namespace TerrariaDepotDownloader
             this.button2.Size = new System.Drawing.Size(125, 66);
             this.button2.TabIndex = 17;
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // pictureBox1
             // 

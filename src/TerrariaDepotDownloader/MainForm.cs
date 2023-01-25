@@ -11,13 +11,13 @@ using Ionic.Zip;
 
 namespace TerrariaDepotDownloader
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         // Say Hello To Decompilers
         private static string HelloThere = "Hello There Fellow Decompiler, This Program Was Made By D.RUSS#2430 (xXCrypticNightXx).";
 
         #region Main Code
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
             Console.SetOut(new MultiTextWriter(new ControlWriter(richTextBox1), Console.Out));
@@ -557,7 +557,7 @@ namespace TerrariaDepotDownloader
         private void toolStripDropDownButton1_MouseUp(object sender, MouseEventArgs e)
         {
             // Open New Form2
-            Form2 frm2 = new Form2();
+            About frm2 = new About();
             frm2.ShowDialog();
         }
 
