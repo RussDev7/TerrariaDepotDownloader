@@ -162,6 +162,7 @@ namespace TerrariaDepotDownloader
             checkBox2.Checked = Properties.Settings.Default.OverwriteSteam;
             checkBox3.Checked = Properties.Settings.Default.ToolTips;
             checkBox4.Checked = Properties.Settings.Default.SkipUpdate;
+            checkBox5.Checked = Properties.Settings.Default.SaveLogin;
 
             // Add Tooltips - Update 1.8.5
             Tooltips.InitialDelay = 1000;
@@ -179,6 +180,7 @@ namespace TerrariaDepotDownloader
             Tooltips.SetToolTip(checkBox2, "All installs overwrites Steam directory");
             Tooltips.SetToolTip(checkBox3, "Show or hide tooltips");
             Tooltips.SetToolTip(checkBox4, "Skip API update check");
+            Tooltips.SetToolTip(checkBox5, "Remember the password and steam key for this user");
 
             // Enable or Disable Tooltips
             if (checkBox3.Checked)
@@ -841,7 +843,7 @@ namespace TerrariaDepotDownloader
                                 }
                                 String ManifestID = itemRow.SubItems[1].Text;
                                 String EscapedPassword = Regex.Replace(textBox3.Text, @"[%|<>&^]", @"^$&"); // Escape Any CMD Special Characters If Any Exist // Update 1.8.5.2 Fix
-                                String Arg = "dotnet " + "\"" + DLLLocation + "\"" + " -app 105600 -depot 105601 -manifest " + ManifestID + " -username " + textBox2.Text + " -password " + EscapedPassword + " -dir " + "\"" + OutDir + "\"";
+                                String Arg = "dotnet " + "\"" + DLLLocation + "\"" + " -app 105600 -depot 105601 -manifest " + ManifestID + " -username " + textBox2.Text + " -password " + EscapedPassword + " -dir " + "\"" + OutDir + "\"" + ((checkBox5.Checked) ? " -remember-password" : "");
 
                                 // Start Download
                                 try
@@ -932,7 +934,7 @@ namespace TerrariaDepotDownloader
                             }
                             String ManifestID = itemRow.SubItems[1].Text;
                             String EscapedPassword = Regex.Replace(textBox3.Text, @"[%|<>&^]", @"^$&"); // Escape Any CMD Special Characters If Any Exist // Update 1.8.5.2 Fix
-                            String Arg = "dotnet " + "\"" + DLLLocation + "\"" + " -app 105600 -depot 105601 -manifest " + ManifestID + " -username " + textBox2.Text + " -password " + EscapedPassword + " -dir " + "\"" + OutDir + "\"";
+                            String Arg = "dotnet " + "\"" + DLLLocation + "\"" + " -app 105600 -depot 105601 -manifest " + ManifestID + " -username " + textBox2.Text + " -password " + EscapedPassword + " -dir " + "\"" + OutDir + "\"" + ((checkBox5.Checked) ? " -remember-password" : "");
 
                             // Start Download
                             try
@@ -1167,16 +1169,32 @@ namespace TerrariaDepotDownloader
         // Skip Update Controls
         private void CheckBox4_CheckedChanged(object sender, EventArgs e)
         {
-            // Enable or Disable Tooltips
+            // Enable or Disable Update Check
             if (checkBox4.Checked)
             {
-                // Enable Tooltips
+                // Enable Check
                 Properties.Settings.Default.SkipUpdate = true;
             }
             else
             {
-                // Disable Tooltips
+                // Disable Check
                 Properties.Settings.Default.SkipUpdate = false;
+            }
+        }
+
+        // Update Save Login
+        private void CheckBox5_CheckedChanged(object sender, EventArgs e)
+        {
+            // Enable or Disable SaveLogin
+            if (checkBox5.Checked)
+            {
+                // Enable SaveLogin
+                Properties.Settings.Default.SaveLogin = true;
+            }
+            else
+            {
+                // Disable SaveLogin
+                Properties.Settings.Default.SaveLogin = false;
             }
         }
         #endregion

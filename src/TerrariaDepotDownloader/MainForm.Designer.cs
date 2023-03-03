@@ -42,6 +42,7 @@ namespace TerrariaDepotDownloader
             this.button3 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.checkBox5 = new System.Windows.Forms.CheckBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
@@ -198,6 +199,7 @@ namespace TerrariaDepotDownloader
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.checkBox5);
             this.groupBox3.Controls.Add(this.checkBox4);
             this.groupBox3.Controls.Add(this.checkBox1);
             this.groupBox3.Controls.Add(this.checkBox3);
@@ -209,10 +211,23 @@ namespace TerrariaDepotDownloader
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Options";
             // 
+            // checkBox5
+            // 
+            this.checkBox5.AutoSize = true;
+            this.checkBox5.Checked = true;
+            this.checkBox5.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox5.Location = new System.Drawing.Point(109, 20);
+            this.checkBox5.Name = "checkBox5";
+            this.checkBox5.Size = new System.Drawing.Size(131, 20);
+            this.checkBox5.TabIndex = 16;
+            this.checkBox5.Text = "Remember Login";
+            this.checkBox5.UseVisualStyleBackColor = true;
+            this.checkBox5.CheckedChanged += new System.EventHandler(this.CheckBox5_CheckedChanged);
+            // 
             // checkBox4
             // 
             this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(6, 83);
+            this.checkBox4.Location = new System.Drawing.Point(364, 20);
             this.checkBox4.Name = "checkBox4";
             this.checkBox4.Size = new System.Drawing.Size(143, 20);
             this.checkBox4.TabIndex = 15;
@@ -238,7 +253,7 @@ namespace TerrariaDepotDownloader
             this.checkBox3.AutoSize = true;
             this.checkBox3.Checked = true;
             this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox3.Location = new System.Drawing.Point(6, 41);
+            this.checkBox3.Location = new System.Drawing.Point(246, 20);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(112, 20);
             this.checkBox3.TabIndex = 13;
@@ -249,7 +264,7 @@ namespace TerrariaDepotDownloader
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(6, 62);
+            this.checkBox2.Location = new System.Drawing.Point(6, 41);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(182, 20);
             this.checkBox2.TabIndex = 14;
@@ -521,7 +536,7 @@ namespace TerrariaDepotDownloader
             this.toolStripMenuItem3.Text = "Remove App";
             this.toolStripMenuItem3.Click += new System.EventHandler(this.ToolStripMenuItem3_Click);
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -535,7 +550,7 @@ namespace TerrariaDepotDownloader
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(590, 490);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "Terraria Depot Downloader";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -597,6 +612,7 @@ namespace TerrariaDepotDownloader
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.CheckBox checkBox5;
     }
 }
 
