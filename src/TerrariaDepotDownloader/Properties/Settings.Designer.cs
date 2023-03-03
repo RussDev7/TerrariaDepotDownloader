@@ -118,5 +118,17 @@ namespace TerrariaDepotDownloader.Properties {
                 this["SkipUpdate"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool SaveLogin {
+            get {
+                return ((bool)(this["SaveLogin"]));
+            }
+            set {
+                this["SaveLogin"] = value;
+            }
+        }
     }
 }
