@@ -138,6 +138,7 @@ For some people, steam will try to keep Terraria up to date automatically. This 
     v1.8.5.4
      - Orginized the projects forms with new names.
      - Fixed all intelsense project warning messages.
+     - Added an save login option.
 
     v1.8.5.3
      - Fixed an issue where the launch button was not correctly launching desired versions.
