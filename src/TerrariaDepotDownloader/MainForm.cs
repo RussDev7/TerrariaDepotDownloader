@@ -1115,7 +1115,7 @@ namespace TerrariaDepotDownloader
                             string subKey = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Steam App 105600";
                             using (var key = root.OpenSubKey(subKey)) // False is important!
                             {
-                                var s = key?.GetValue("InstallLocation") as string;
+                                var s = key.GetValue("InstallLocation") as string;
                                 if (!string.IsNullOrWhiteSpace(s))
                                 {
                                     // Define path; should be the games initial install directory.
