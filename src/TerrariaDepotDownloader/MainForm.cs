@@ -8,6 +8,7 @@ using System.Net;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Ionic.Zip;
+using Microsoft.Win32;
 
 namespace TerrariaDepotDownloader
 {
@@ -1100,17 +1101,68 @@ namespace TerrariaDepotDownloader
                 else
                 {
                     // Prompt Yes, Create Directory, Change Textbox
-                    if (!Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + @"\Steam\steamapps\common\Terraria"))
+                    // Defne the game path based on the registry rather then a hardcoded path encase game was installed elseware. - Added 1.8.5.4.
+
+                    // Define varibles.
+                    string backupLocation = textBox1.Text;
+                    string installLocation = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + @"\Steam\steamapps\common\Terraria";
+
+                    // Try to read registry key.
+                    try
                     {
-                        Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + @"\Steam\steamapps\common\Terraria");
+                        using (var root = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64))
+                        {
+                            string subKey = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Steam App 105600";
+                            using (var key = root.OpenSubKey(subKey)) // False is important!
+                            {
+                                var s = key?.GetValue("InstallLocation") as string;
+                                if (!string.IsNullOrWhiteSpace(s))
+                                {
+                                    // Define path; should be the games initial install directory.
+                                    installLocation = s + @"\Terraria";
+                                }
+                                else
+                                {
+                                    // Key does not exist, log item.
+                                    if (checkBox1.Checked)
+                                    {
+                                        Console.WriteLine("ERROR: Unable to find the default install location!");
+                                    }
+
+                                    // Cancle operations and exit void.
+                                    checkBox2.Checked = false;
+                                    textBox1.Text = backupLocation;
+                                    return;
+                                }
+                            }
+                        }
                     }
-                    textBox1.Text = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + @"\Steam\steamapps\common\Terraria";
+                    catch (Exception) // Handle exception.
+                    {
+                        // Key does not exist, log item.
+                        if (checkBox1.Checked)
+                        {
+                            Console.WriteLine("ERROR: Something went wrong while reading the registry!");
+                        }
+
+                        // Cancle operations and exit void.
+                        checkBox2.Checked = false;
+                        textBox1.Text = backupLocation;
+                        return;
+                    }
+
+                    // Prompt Yes, Create Directory, Change Textbox
+                    if (!Directory.Exists(Directory.GetParent(installLocation).FullName))
+                    {
+                        Directory.CreateDirectory(Directory.GetParent(installLocation).FullName);
+                    }
+                    textBox1.Text = Directory.GetParent(installLocation).FullName;
 
                     // Disable Path Changing
                     button6.Enabled = false;
 
                     // Update Settings
-                    Properties.Settings.Default.DepotPath = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + @"\Steam\steamapps\common\Terraria";
+                    Properties.Settings.Default.DepotPath = Directory.GetParent(installLocation).FullName;
                     Properties.Settings.Default.OverwriteSteam = true;
                     Properties.Settings.Default.PathChangeEnabled = false;
 
