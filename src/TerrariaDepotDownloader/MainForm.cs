@@ -15,7 +15,7 @@ namespace TerrariaDepotDownloader
     public partial class MainForm : Form
     {
         // Say Hello To Decompilers
-        private static readonly string HelloThere = "Hello There Fellow Decompiler, This Program Was Made By D.RUSS#2430 (xXCrypticNightXx).";
+        private static readonly string HelloThere = "Hello There Fellow Decompiler, This Program Was Made By Discord:dannyruss (xXCrypticNightXx).";
 
         #region Main Code
         public MainForm()
