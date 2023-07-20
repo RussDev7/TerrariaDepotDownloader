@@ -17,7 +17,8 @@ namespace TerrariaDepotDownloader
         // Say Hello To Decompilers
         private static readonly string HelloThere = "Hello There Fellow Decompiler, This Program Was Made By Discord:dannyruss (xXCrypticNightXx).";
 
-        #region Main Code
+        #region Form Load
+
         public MainForm()
         {
             InitializeComponent();
@@ -357,6 +358,150 @@ namespace TerrariaDepotDownloader
                 }
             }
         }
+        #endregion
+
+        #region Form Controls
+
+        // Open Browse Dialogue
+        private void Button6_Click(object sender, EventArgs e)
+        {
+            using (var fbd = new FolderBrowserDialog())
+            {
+                DialogResult result = fbd.ShowDialog();
+
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                {
+                    textBox1.Text = fbd.SelectedPath;
+                    Properties.Settings.Default.DepotPath = fbd.SelectedPath;
+                }
+            }
+        }
+
+        // Close Games & Application
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            // Check For Any Open Clients
+            if (Process.GetProcessesByName("Terraria").Length > 0)
+            {
+                // Is running
+                foreach (var process in Process.GetProcessesByName("Terraria"))
+                {
+                    process.Kill();
+                }
+            }
+
+            // Gather Steam Data
+            Properties.Settings.Default.SteamUser = textBox2.Text;
+            Properties.Settings.Default.SteamPass = textBox3.Text;
+
+            // Save Settings
+            Properties.Settings.Default.Save();
+
+            // Close Application
+            Application.Exit();
+        }
+
+        // Form Closing
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Gather Steam Data
+            Properties.Settings.Default.SteamUser = textBox2.Text;
+            Properties.Settings.Default.SteamPass = textBox3.Text;
+
+            // Save Settings
+            Properties.Settings.Default.Save();
+
+            // Close Application
+            Application.Exit();
+        }
+
+        // Clear Log
+        private void Button4_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Clear();
+            richTextBox1.Update();
+        }
+
+        // Close Via ToolStrip
+        private void ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            // Gather Steam Data
+            Properties.Settings.Default.SteamUser = textBox2.Text;
+            Properties.Settings.Default.SteamPass = textBox3.Text;
+
+            // Save Settings
+            Properties.Settings.Default.Save();
+
+            // Close Application
+            Application.Exit();
+        }
+
+        // Open Info Tab
+        private void ToolStripDropDownButton1_MouseUp(object sender, MouseEventArgs e)
+        {
+            // Open New Form2
+            About frm2 = new About();
+            frm2.ShowDialog();
+        }
+
+        // Show Password
+        private void Button7_MouseDown(object sender, MouseEventArgs e)
+        {
+            textBox3.PasswordChar = '\u0000';
+        }
+
+        // Hide Password
+        private void Button7_MouseUp(object sender, MouseEventArgs e)
+        {
+            textBox3.PasswordChar = '*';
+        }
+
+        // Open Context Menu
+        private void ListView1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                var focusedItem = listView1.FocusedItem;
+                if (focusedItem != null && focusedItem.Bounds.Contains(e.Location))
+                {
+                    contextMenuStrip1.Show(Cursor.Position);
+                }
+            }
+        }
+
+        // Open Depot Folder Directory
+        private void Button9_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Open Folder
+                Process.Start(Properties.Settings.Default.DepotPath);
+
+                // Log Action
+                if (checkBox1.Checked)
+                {
+                    Console.WriteLine("Opened depot directory");
+                }
+            }
+            catch (Win32Exception win32Exception)
+            {
+                //The system cannot find the file specified...
+                Console.WriteLine(win32Exception.Message);
+            }
+        }
+
+        // Auto Scroll To End
+        private void RichTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            // set the current caret position to the end
+            richTextBox1.SelectionStart = richTextBox1.Text.Length;
+
+            // scroll it automatically
+            richTextBox1.ScrollToCaret();
+        }
+        #endregion
+
+        #region Main
 
         // Reload List
         private void Button3_Click(object sender, EventArgs e)
@@ -482,113 +627,6 @@ namespace TerrariaDepotDownloader
             }
         }
 
-        // Open Browse Dialogue
-        private void Button6_Click(object sender, EventArgs e)
-        {
-            using (var fbd = new FolderBrowserDialog())
-            {
-                DialogResult result = fbd.ShowDialog();
-
-                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
-                {
-                    textBox1.Text = fbd.SelectedPath;
-                    Properties.Settings.Default.DepotPath = fbd.SelectedPath;
-                }
-            }
-        }
-
-        // Close Games & Application
-        private void Button1_Click(object sender, EventArgs e)
-        {
-            // Check For Any Open Clients
-            if (Process.GetProcessesByName("Terraria").Length > 0)
-            {
-                // Is running
-                foreach (var process in Process.GetProcessesByName("Terraria"))
-                {
-                    process.Kill();
-                }
-            }
-
-            // Gather Steam Data
-            Properties.Settings.Default.SteamUser = textBox2.Text;
-            Properties.Settings.Default.SteamPass = textBox3.Text;
-
-            // Save Settings
-            Properties.Settings.Default.Save();
-
-            // Close Application
-            Application.Exit();
-        }
-
-        // Form Closing
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            // Gather Steam Data
-            Properties.Settings.Default.SteamUser = textBox2.Text;
-            Properties.Settings.Default.SteamPass = textBox3.Text;
-
-            // Save Settings
-            Properties.Settings.Default.Save();
-
-            // Close Application
-            Application.Exit();
-        }
-
-        // Clear Log
-        private void Button4_Click(object sender, EventArgs e)
-        {
-            richTextBox1.Clear();
-            richTextBox1.Update();
-        }
-
-        // Close Via ToolStrip
-        private void ToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            // Gather Steam Data
-            Properties.Settings.Default.SteamUser = textBox2.Text;
-            Properties.Settings.Default.SteamPass = textBox3.Text;
-
-            // Save Settings
-            Properties.Settings.Default.Save();
-
-            // Close Application
-            Application.Exit();
-        }
-
-        // Open Info Tab
-        private void ToolStripDropDownButton1_MouseUp(object sender, MouseEventArgs e)
-        {
-            // Open New Form2
-            About frm2 = new About();
-            frm2.ShowDialog();
-        }
-
-        // Show Password
-        private void Button7_MouseDown(object sender, MouseEventArgs e)
-        {
-            textBox3.PasswordChar = '\u0000';
-        }
-
-        // Hide Password
-        private void Button7_MouseUp(object sender, MouseEventArgs e)
-        {
-            textBox3.PasswordChar = '*';
-        }
-
-        // Open Context Menu
-        private void ListView1_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Right)
-            {
-                var focusedItem = listView1.FocusedItem;
-                if (focusedItem != null && focusedItem.Bounds.Contains(e.Location))
-                {
-                    contextMenuStrip1.Show(Cursor.Position);
-                }
-            }
-        }
-
         // Remove App Tool Via ToolStrip
         private void ToolStripMenuItem3_Click(object sender, EventArgs e)
         {
@@ -642,6 +680,43 @@ namespace TerrariaDepotDownloader
 
                         // Update Forum
                         ReloadList();
+                    }
+                }
+            }
+        }
+
+        // Update Button
+        private void ListView1_Click(object sender, EventArgs e)
+        {
+            // Get Each Row
+            foreach (ListViewItem itemRow in this.listView1.Items)
+            {
+                // Get Selected Item
+                if (itemRow.Focused)
+                {
+                    // Check If Already Downloaded
+                    if (itemRow.SubItems[2].Text == "Yes")
+                    {
+                        // Edit Launch Button
+                        button2.Enabled = true;
+                        button2.Text = "Launch";
+
+                        // Edit Remove Button
+                        button5.Enabled = true;
+                    }
+                    else if (itemRow.SubItems[2].Text == "No")
+                    {
+                        // Edit Launch Button
+                        button2.Enabled = true;
+                        button2.Text = "Download";
+
+                        // Edit Remove Button
+                        button5.Enabled = false;
+                    }
+                    else if (itemRow.SubItems[2].Text == "N/A")
+                    {
+                        button2.Text = "N/A";
+                        button2.Enabled = false;
                     }
                 }
             }
@@ -703,9 +778,16 @@ namespace TerrariaDepotDownloader
             }
         }
 
-        // Update Button
-        private void ListView1_Click(object sender, EventArgs e)
+        // Remove App
+        private void Button5_Click(object sender, EventArgs e)
         {
+            // Disable If Overwrite Steam Directory Enabled
+            if (checkBox2.Checked)
+            {
+                MessageBox.Show("You cannot use this feature while \"Overwrite Steam Directory\" feature is enabled.", "TerrariaDepotDownloader v" + FileVersionInfo.GetVersionInfo(Path.GetFileName(System.Windows.Forms.Application.ExecutablePath)).FileVersion, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                return;
+            }
+
             // Get Each Row
             foreach (ListViewItem itemRow in this.listView1.Items)
             {
@@ -715,33 +797,47 @@ namespace TerrariaDepotDownloader
                     // Check If Already Downloaded
                     if (itemRow.SubItems[2].Text == "Yes")
                     {
-                        // Edit Launch Button
-                        button2.Enabled = true;
-                        button2.Text = "Launch";
+                        // Check If Client Is Currently Running - Update 1.8.3
+                        bool isRunning = Process.GetProcessesByName("Terraria").FirstOrDefault(p => p.MainModule.FileName.StartsWith(Properties.Settings.Default.DepotPath + @"\Terraria-v" + itemRow.SubItems[0].Text, StringComparison.InvariantCultureIgnoreCase)) != default(Process);
+                        if (isRunning)
+                        {
+                            // Is running
+                            foreach (var process in Process.GetProcessesByName("Terraria"))
+                            {
+                                process.Kill();
 
-                        // Edit Remove Button
-                        button5.Enabled = true;
-                    }
-                    else if (itemRow.SubItems[2].Text == "No")
-                    {
-                        // Edit Launch Button
-                        button2.Enabled = true;
-                        button2.Text = "Download";
+                                // Log Item
+                                if (checkBox1.Checked)
+                                {
+                                    Console.WriteLine("The Terraria process was killed to continue operations.");
+                                }
+                            }
+                        }
 
-                        // Edit Remove Button
-                        button5.Enabled = false;
-                    }
-                    else if (itemRow.SubItems[2].Text == "N/A")
-                    {
-                        button2.Text = "N/A";
-                        button2.Enabled = false;
+                        // Delete Folder
+                        Directory.Delete(Properties.Settings.Default.DepotPath + @"\Terraria-v" + itemRow.SubItems[0].Text, true);
+
+                        // Log Item
+                        if (checkBox1.Checked)
+                        {
+                            Console.WriteLine("Removed: " + Properties.Settings.Default.DepotPath + @"\Terraria-v" + itemRow.SubItems[0].Text);
+                        }
+
+                        // Update Forum
+                        ReloadList();
                     }
                 }
             }
+
+            // Edit Button
+            button5.Enabled = false;
         }
+        #endregion
+
+        #region Launch / Download
 
         // Launch Button
-        private void Button2_Click(object sender, EventArgs e)
+        private async void Button2_Click(object sender, EventArgs e)
         {
             // Get Each Row
             foreach (ListViewItem itemRow in this.listView1.Items)
@@ -839,30 +935,165 @@ namespace TerrariaDepotDownloader
                                     }
 
                                     // Delete Folder
-                                    Directory.Delete(OutDir, true);
+                                    try
+                                    {
+                                        Directory.Delete(OutDir, true);
+                                    }
+                                    catch (Exception) { }
                                     Directory.CreateDirectory(OutDir); // Update 1.8.2 Fix
                                 }
-                                String ManifestID = itemRow.SubItems[1].Text;
-                                String EscapedPassword = Regex.Replace(textBox3.Text, @"[%|<>&^]", @"^$&"); // Escape Any CMD Special Characters If Any Exist // Update 1.8.5.2 Fix
-                                String Arg = "dotnet " + "\"" + DLLLocation + "\"" + " -app 105600 -depot 105601 -manifest " + ManifestID + " -username " + textBox2.Text + " -password " + EscapedPassword + " -dir " + "\"" + OutDir + "\"" + ((checkBox5.Checked) ? " -remember-password" : "");
 
-                                // Start Download
-                                try
+                                // Check to see if this is a github repo.
+                                if (itemRow.SubItems[1].Text.Contains("github"))
                                 {
-                                    // Start Download Process
-                                    ExecuteCmd.ExecuteCommandAsync(Arg);
-
-                                    // Log Item
-                                    if (checkBox1.Checked)
+                                    try
                                     {
-                                        Console.WriteLine("Download prompt started for Terraria-v" + itemRow.SubItems[0].Text);
+                                        // Log Item
+                                        if (checkBox1.Checked)
+                                        {
+                                            Console.WriteLine("Github download for Terraria-v" + itemRow.SubItems[0].Text + " initiated.");
+                                        }
+
+                                        // Create an outpath.
+                                        Directory.CreateDirectory(OutDir);
+
+                                        // Extract the owwner and repo names.
+                                        string repoOwner = itemRow.SubItems[1].Text.Split('/')[1];
+                                        string repoName = itemRow.SubItems[1].Text.Split('/')[2];
+
+                                        // Get the path name to the desired repo sub-directory.
+                                        Octokit.GitHubClient client = new Octokit.GitHubClient(new Octokit.ProductHeaderValue(repoName));
+                                        var repositoryReadme = await client.Repository.Content.GetReadme(repoOwner, repoName);
+
+                                        // Show Warning
+                                        if (MessageBox.Show(repositoryReadme.Content + "\n" + "Do you wish to continue ?", "Repository Readme:", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                                        {
+                                            // Log Item
+                                            if (checkBox1.Checked)
+                                            {
+                                                Console.WriteLine("User declined the readme terms.");
+                                            }
+
+                                            // Clean files.
+                                            try
+                                            {
+                                                Directory.Delete(OutDir, true);
+                                            }
+                                            catch (Exception) { }
+                                            Directory.CreateDirectory(OutDir);
+
+                                            return;
+                                        }
+
+                                        var repositoryContents = await client.Repository.Content.GetAllContents(repoOwner, repoName);
+                                        var directoryName = repositoryContents.FirstOrDefault(c => c.Path == "Terraria-v" + itemRow.SubItems[0].Text).Name;
+
+                                        // Get the url to the desired file to download.
+                                        repositoryContents = await client.Repository.Content.GetAllContents(repoOwner, repoName, directoryName);
+                                        var downloadUrl = repositoryContents.FirstOrDefault().DownloadUrl;
+
+                                        // Log Item
+                                        if (checkBox1.Checked)
+                                        {
+                                            Console.WriteLine("Terraria-v" + itemRow.SubItems[0].Text + " found! Downloading." + downloadUrl);
+                                        }
+
+                                        // Start github download.
+                                        WebClient webClient = new WebClient();
+                                        //webClient.Headers.Add("user-agent", "Anything");
+                                        await webClient.DownloadFileTaskAsync(new Uri(downloadUrl), OutDir + @"\" + directoryName + ".zip");
+
+                                        // Extract ZIP Into Dir
+                                        using (ZipFile archive = new ZipFile(@"" + OutDir + @"\" + directoryName + ".zip"))
+                                        {
+                                            archive.ExtractAll(@"" + OutDir, ExtractExistingFileAction.OverwriteSilently);
+                                        }
+
+                                        // Clean zip files.
+                                        try
+                                        {
+                                            // Remove zip file.
+                                            File.Delete(OutDir + @"\" + directoryName + ".zip");
+
+                                            // Move files out of downloaded sub-directory.
+                                            if (Directory.Exists(OutDir + @"\" + directoryName))
+                                            {
+                                                var sourcePath = (OutDir + @"\" + directoryName).TrimEnd('\\', ' ');
+                                                var targetPath = OutDir.TrimEnd('\\', ' ');
+                                                var files = Directory.EnumerateFiles(sourcePath, "*", SearchOption.AllDirectories)
+                                                                     .GroupBy(s => Path.GetDirectoryName(s));
+                                                foreach (var folder in files)
+                                                {
+                                                    var targetFolder = folder.Key.Replace(sourcePath, targetPath);
+                                                    Directory.CreateDirectory(targetFolder);
+                                                    foreach (var file in folder)
+                                                    {
+                                                        var targetFile = Path.Combine(targetFolder, Path.GetFileName(file));
+                                                        if (File.Exists(targetFile)) File.Delete(targetFile);
+                                                        File.Move(file, targetFile);
+                                                    }
+                                                }
+                                                Directory.Delete(OutDir + @"\" + directoryName, true);
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show(OutDir + @"\" + directoryName);
+                                            }
+                                        }
+                                        catch (Exception) { }
+
+                                        // Log Item
+                                        if (checkBox1.Checked)
+                                        {
+                                            Console.WriteLine("Terraria-v" + itemRow.SubItems[0].Text + " download completed!");
+                                        }
+                                    }
+                                    catch (Exception)
+                                    {
+                                        // No repo file found, log it.
+                                        if (checkBox1.Checked)
+                                        {
+                                            Console.WriteLine("ERROR: This repository contans no versions that match: \"" + itemRow.SubItems[0].Text + "\"!");
+                                        }
+
+                                        // Process Failed, Delete Folder
+                                        try
+                                        {
+                                            Directory.Delete(OutDir, true);
+                                        }
+                                        catch (Exception) { }
+                                        Directory.CreateDirectory(OutDir); // Update 1.8.2 Fix}
                                     }
                                 }
-                                catch (Exception)
+                                else
                                 {
-                                    // Process Failed, Delete Folder
-                                    Directory.Delete(OutDir, true);
-                                    Directory.CreateDirectory(OutDir); // Update 1.8.2 Fix
+                                    // Proceed to download through steam.
+                                    String ManifestID = itemRow.SubItems[1].Text;
+                                    String EscapedPassword = Regex.Replace(textBox3.Text, @"[%|<>&^]", @"^$&"); // Escape Any CMD Special Characters If Any Exist // Update 1.8.5.2 Fix
+                                    String Arg = "dotnet " + "\"" + DLLLocation + "\"" + " -app 105600 -depot 105601 -manifest " + ManifestID + " -username " + textBox2.Text + " -password " + EscapedPassword + " -dir " + "\"" + OutDir + "\"" + ((checkBox5.Checked) ? " -remember-password" : "");
+
+                                    // Start Download
+                                    try
+                                    {
+                                        // Start Download Process
+                                        ExecuteCmd.ExecuteCommandAsync(Arg);
+
+                                        // Log Item
+                                        if (checkBox1.Checked)
+                                        {
+                                            Console.WriteLine("Download prompt started for Terraria-v" + itemRow.SubItems[0].Text);
+                                        }
+                                    }
+                                    catch (Exception)
+                                    {
+                                        // Process Failed, Delete Folder
+                                        try
+                                        {
+                                            Directory.Delete(OutDir, true);
+                                        }
+                                        catch (Exception) { }
+                                        Directory.CreateDirectory(OutDir); // Update 1.8.2 Fix
+                                    }
                                 }
 
                                 // Reload List
@@ -883,7 +1114,7 @@ namespace TerrariaDepotDownloader
         }
 
         // Download App Via ToolStrip
-        private void ToolStripMenuItem2_Click(object sender, EventArgs e)
+        private async void ToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             // Get Each Row
             foreach (ListViewItem itemRow in this.listView1.Items)
@@ -930,30 +1161,164 @@ namespace TerrariaDepotDownloader
                                 }
 
                                 // Delete Folder
-                                Directory.Delete(OutDir, true);
+                                try
+                                {
+                                    Directory.Delete(OutDir, true);
+                                } catch (Exception) { }
                                 Directory.CreateDirectory(OutDir); // Update 1.8.2 Fix
                             }
-                            String ManifestID = itemRow.SubItems[1].Text;
-                            String EscapedPassword = Regex.Replace(textBox3.Text, @"[%|<>&^]", @"^$&"); // Escape Any CMD Special Characters If Any Exist // Update 1.8.5.2 Fix
-                            String Arg = "dotnet " + "\"" + DLLLocation + "\"" + " -app 105600 -depot 105601 -manifest " + ManifestID + " -username " + textBox2.Text + " -password " + EscapedPassword + " -dir " + "\"" + OutDir + "\"" + ((checkBox5.Checked) ? " -remember-password" : "");
 
-                            // Start Download
-                            try
+                            // Check to see if this is a github repo.
+                            if (itemRow.SubItems[1].Text.Contains("github"))
                             {
-                                // Start Download Process
-                                ExecuteCmd.ExecuteCommandAsync(Arg);
-
-                                // Log Item
-                                if (checkBox1.Checked)
+                                try
                                 {
-                                    Console.WriteLine("Download prompt started for Terraria-v" + itemRow.SubItems[0].Text);
+                                    // Log Item
+                                    if (checkBox1.Checked)
+                                    {
+                                        Console.WriteLine("Github download for Terraria-v" + itemRow.SubItems[0].Text + " initiated.");
+                                    }
+
+                                    // Create an outpath.
+                                    Directory.CreateDirectory(OutDir);
+
+                                    // Extract the owwner and repo names.
+                                    string repoOwner = itemRow.SubItems[1].Text.Split('/')[1];
+                                    string repoName = itemRow.SubItems[1].Text.Split('/')[2];
+
+                                    // Get the path name to the desired repo sub-directory.
+                                    Octokit.GitHubClient client = new Octokit.GitHubClient(new Octokit.ProductHeaderValue(repoName));
+                                    var repositoryReadme = await client.Repository.Content.GetReadme(repoOwner, repoName);
+
+                                    // Show Warning
+                                    if (MessageBox.Show(repositoryReadme.Content + "\n" + "Do you wish to continue ?", "Repository Readme:", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                                    {
+                                        // Log Item
+                                        if (checkBox1.Checked)
+                                        {
+                                            Console.WriteLine("User declined the readme terms.");
+                                        }
+
+                                        // Clean files.
+                                        try
+                                        {
+                                            Directory.Delete(OutDir, true);
+                                        }
+                                        catch (Exception) { }
+                                        Directory.CreateDirectory(OutDir);
+
+                                        return;
+                                    }
+
+                                    var repositoryContents = await client.Repository.Content.GetAllContents(repoOwner, repoName);
+                                    var directoryName = repositoryContents.FirstOrDefault(c => c.Path == "Terraria-v" + itemRow.SubItems[0].Text).Name;
+
+                                    // Get the url to the desired file to download.
+                                    repositoryContents = await client.Repository.Content.GetAllContents(repoOwner, repoName, directoryName);
+                                    var downloadUrl = repositoryContents.FirstOrDefault().DownloadUrl;
+
+                                    // Log Item
+                                    if (checkBox1.Checked)
+                                    {
+                                        Console.WriteLine("Terraria-v" + itemRow.SubItems[0].Text + " found! Downloading." + downloadUrl);
+                                    }
+
+                                    // Start github download.
+                                    WebClient webClient = new WebClient();
+                                    //webClient.Headers.Add("user-agent", "Anything");
+                                    await webClient.DownloadFileTaskAsync(new Uri(downloadUrl), OutDir + @"\" + directoryName + ".zip");
+
+                                    // Extract ZIP Into Dir
+                                    using (ZipFile archive = new ZipFile(@"" + OutDir + @"\" + directoryName + ".zip"))
+                                    {
+                                        archive.ExtractAll(@"" + OutDir, ExtractExistingFileAction.OverwriteSilently);
+                                    }
+
+                                    // Clean zip files.
+                                    try
+                                    {
+                                        // Remove zip file.
+                                        File.Delete(OutDir + @"\" + directoryName + ".zip");
+
+                                        // Move files out of downloaded sub-directory.
+                                        if (Directory.Exists(OutDir + @"\" + directoryName))
+                                        {
+                                            var sourcePath = (OutDir + @"\" + directoryName).TrimEnd('\\', ' ');
+                                            var targetPath = OutDir.TrimEnd('\\', ' ');
+                                            var files = Directory.EnumerateFiles(sourcePath, "*", SearchOption.AllDirectories)
+                                                                 .GroupBy(s => Path.GetDirectoryName(s));
+                                            foreach (var folder in files)
+                                            {
+                                                var targetFolder = folder.Key.Replace(sourcePath, targetPath);
+                                                Directory.CreateDirectory(targetFolder);
+                                                foreach (var file in folder)
+                                                {
+                                                    var targetFile = Path.Combine(targetFolder, Path.GetFileName(file));
+                                                    if (File.Exists(targetFile)) File.Delete(targetFile);
+                                                    File.Move(file, targetFile);
+                                                }
+                                            }
+                                            Directory.Delete(OutDir + @"\" + directoryName, true);
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show(OutDir + @"\" + directoryName);
+                                        }
+                                    }
+                                    catch (Exception) { }
+
+                                    // Log Item
+                                    if (checkBox1.Checked)
+                                    {
+                                        Console.WriteLine("Terraria-v" + itemRow.SubItems[0].Text + " download completed!");
+                                    }
+                                }
+                                catch (Exception)
+                                {
+                                    // No repo file found, log it.
+                                    if (checkBox1.Checked)
+                                    {
+                                        Console.WriteLine("ERROR: This repository contans no versions that match: \"" + itemRow.SubItems[0].Text + "\"!");
+                                    }
+
+                                    // Process Failed, Delete Folder
+                                    try
+                                    {
+                                        Directory.Delete(OutDir, true);
+                                    }
+                                    catch (Exception) { }
+                                    Directory.CreateDirectory(OutDir); // Update 1.8.2 Fix}
                                 }
                             }
-                            catch (Exception)
+                            else
                             {
-                                // Process Failed, Delete Folder
-                                Directory.Delete(OutDir, true);
-                                Directory.CreateDirectory(OutDir); // Update 1.8.2 Fix
+                                // Proceed to download through steam.
+                                String ManifestID = itemRow.SubItems[1].Text;
+                                String EscapedPassword = Regex.Replace(textBox3.Text, @"[%|<>&^]", @"^$&"); // Escape Any CMD Special Characters If Any Exist // Update 1.8.5.2 Fix
+                                String Arg = "dotnet " + "\"" + DLLLocation + "\"" + " -app 105600 -depot 105601 -manifest " + ManifestID + " -username " + textBox2.Text + " -password " + EscapedPassword + " -dir " + "\"" + OutDir + "\"" + ((checkBox5.Checked) ? " -remember-password" : "");
+
+                                // Start Download
+                                try
+                                {
+                                    // Start Download Process
+                                    ExecuteCmd.ExecuteCommandAsync(Arg);
+
+                                    // Log Item
+                                    if (checkBox1.Checked)
+                                    {
+                                        Console.WriteLine("Download prompt started for Terraria-v" + itemRow.SubItems[0].Text);
+                                    }
+                                }
+                                catch (Exception)
+                                {
+                                    // Process Failed, Delete Folder
+                                    try
+                                    {
+                                        Directory.Delete(OutDir, true);
+                                    }
+                                    catch (Exception) { }
+                                    Directory.CreateDirectory(OutDir); // Update 1.8.2 Fix
+                                }
                             }
 
                             // Reload List
@@ -971,82 +1336,9 @@ namespace TerrariaDepotDownloader
                 }
             }
         }
+        #endregion
 
-        // Remove App
-        private void Button5_Click(object sender, EventArgs e)
-        {
-            // Disable If Overwrite Steam Directory Enabled
-            if (checkBox2.Checked)
-            {
-                MessageBox.Show("You cannot use this feature while \"Overwrite Steam Directory\" feature is enabled.", "TerrariaDepotDownloader v" + FileVersionInfo.GetVersionInfo(Path.GetFileName(System.Windows.Forms.Application.ExecutablePath)).FileVersion, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                return;
-            }
-
-            // Get Each Row
-            foreach (ListViewItem itemRow in this.listView1.Items)
-            {
-                // Get Selected Item
-                if (itemRow.Focused)
-                {
-                    // Check If Already Downloaded
-                    if (itemRow.SubItems[2].Text == "Yes")
-                    {
-                        // Check If Client Is Currently Running - Update 1.8.3
-                        bool isRunning = Process.GetProcessesByName("Terraria").FirstOrDefault(p => p.MainModule.FileName.StartsWith(Properties.Settings.Default.DepotPath + @"\Terraria-v" + itemRow.SubItems[0].Text, StringComparison.InvariantCultureIgnoreCase)) != default(Process);
-                        if (isRunning)
-                        {
-                            // Is running
-                            foreach (var process in Process.GetProcessesByName("Terraria"))
-                            {
-                                process.Kill();
-
-                                // Log Item
-                                if (checkBox1.Checked)
-                                {
-                                    Console.WriteLine("The Terraria process was killed to continue operations.");
-                                }
-                            }
-                        }
-
-                        // Delete Folder
-                        Directory.Delete(Properties.Settings.Default.DepotPath + @"\Terraria-v" + itemRow.SubItems[0].Text, true);
-
-                        // Log Item
-                        if (checkBox1.Checked)
-                        {
-                            Console.WriteLine("Removed: " + Properties.Settings.Default.DepotPath + @"\Terraria-v" + itemRow.SubItems[0].Text);
-                        }
-
-                        // Update Forum
-                        ReloadList();
-                    }
-                }
-            }
-
-            // Edit Button
-            button5.Enabled = false;
-        }
-
-        // Open Depot Folder Directory
-        private void Button9_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                // Open Folder
-                Process.Start(Properties.Settings.Default.DepotPath);
-
-                // Log Action
-                if (checkBox1.Checked)
-                {
-                    Console.WriteLine("Opened depot directory");
-                }
-            }
-            catch (Win32Exception win32Exception)
-            {
-                //The system cannot find the file specified...
-                Console.WriteLine(win32Exception.Message);
-            }
-        }
+        #region Checkbox Settings
 
         // Update Checkbox Config
         private void CheckBox1_CheckedChanged(object sender, EventArgs e)
@@ -1059,16 +1351,6 @@ namespace TerrariaDepotDownloader
             {
                 Properties.Settings.Default.LogActions = false;
             }
-        }
-
-        // Auto Scroll To End
-        private void RichTextBox1_TextChanged(object sender, EventArgs e)
-        {
-            // set the current caret position to the end
-            richTextBox1.SelectionStart = richTextBox1.Text.Length;
-
-            // scroll it automatically
-            richTextBox1.ScrollToCaret();
         }
 
         // Show Prompt Warning
@@ -1101,7 +1383,7 @@ namespace TerrariaDepotDownloader
                 else
                 {
                     // Prompt Yes, Create Directory, Change Textbox
-                    // Defne the game path based on the registry rather then a hardcoded path encase game was installed elseware. - Added 1.8.5.4.
+                    // Define the game path based on the registry rather then a hardcoded path encase game was installed elseware. - Added 1.8.5.4.
 
                     // Define varibles.
                     string backupLocation = textBox1.Text;
