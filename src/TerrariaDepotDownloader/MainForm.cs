@@ -230,12 +230,12 @@ namespace TerrariaDepotDownloader
                             if (Directory.Exists(Properties.Settings.Default.DepotPath + @"\Terraria-v" + String.Concat(line.TakeWhile(c => c != ','))))
                             {
                                 // String Does Not Contain "null", Record Like Normal
-                                listView1.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("github") ? "GitHub - Unofficial Patch" : line.Substring(line.LastIndexOf(' ') + 1), "Yes" })); // Fix v1.8.5.4: Add Check For GitHub Links.
+                                listView1.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("github") ? "GitHub - Unofficial Patch\t                    \t" + line.Substring(line.LastIndexOf(' ') + 1) : line.Substring(line.LastIndexOf(' ') + 1), "Yes" })); // Fix v1.8.5.4: Add Check For GitHub Links.
                             }
                             else
                             {
                                 // String Does Not Contain "null", Record Like Normal
-                                listView1.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("github") ? "GitHub - Unofficial Patch" : line.Substring(line.LastIndexOf(' ') + 1), "No" })); // Fix v1.8.5.4: Add Check For GitHub Links.
+                                listView1.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("github") ? "GitHub - Unofficial Patch\t                    \t" + line.Substring(line.LastIndexOf(' ') + 1) : line.Substring(line.LastIndexOf(' ') + 1), "No" })); // Fix v1.8.5.4: Add Check For GitHub Links.
                             }
                         }
                     }
@@ -569,12 +569,12 @@ namespace TerrariaDepotDownloader
                                 if (File.ReadLines(Properties.Settings.Default.DepotPath + @"\changelog.txt").First().Split(' ')[1].ToString() == String.Concat(line.TakeWhile(c => c != ',')) || File.ReadLines(Properties.Settings.Default.DepotPath + @"\changelog.txt").First().Split(' ')[1].ToString() == "1.3" && String.Concat(line.TakeWhile(c => c != ',')) == "1.3.0.1" || File.ReadLines(Properties.Settings.Default.DepotPath + @"\changelog.txt").First().Split(' ')[1].ToString() == "1.4" && String.Concat(line.TakeWhile(c => c != ',')) == "1.4.0.1")
                                 {
                                     // String Does Not Contain "null", Record Like Normal
-                                    listView1.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("github") ? "GitHub - Unofficial Patch" : line.Substring(line.LastIndexOf(' ') + 1), "Yes" })); // Fix v1.8.5.4: Add Check For GitHub Links.
+                                    listView1.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("github") ? "GitHub - Unofficial Patch\t                    \t" + line.Substring(line.LastIndexOf(' ') + 1) : line.Substring(line.LastIndexOf(' ') + 1), "Yes" })); // Fix v1.8.5.4: Add Check For GitHub Links.
                                 }
                                 else
                                 {
                                     // String Does Not Contain "null", Record Like Normal
-                                    listView1.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("github") ? "GitHub - Unofficial Patch" : line.Substring(line.LastIndexOf(' ') + 1), "No" })); // Fix v1.8.5.4: Add Check For GitHub Links.
+                                    listView1.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("github") ? "GitHub - Unofficial Patch\t                    \t" + line.Substring(line.LastIndexOf(' ') + 1) : line.Substring(line.LastIndexOf(' ') + 1), "No" })); // Fix v1.8.5.4: Add Check For GitHub Links.
                                 }
                             }
                             else
@@ -586,7 +586,7 @@ namespace TerrariaDepotDownloader
                                     if (Directory.EnumerateFileSystemEntries(Properties.Settings.Default.DepotPath + @"\Terraria-v" + String.Concat(line.TakeWhile(c => c != ','))).Any())
                                     {
                                         // String Does Not Contain "null", Record Like Normal
-                                        listView1.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("github") ? "GitHub - Unofficial Patch" : line.Substring(line.LastIndexOf(' ') + 1), "Yes" })); // Fix v1.8.5.4: Add Check For GitHub Links.
+                                        listView1.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("github") ? "GitHub - Unofficial Patch\t                    \t" + line.Substring(line.LastIndexOf(' ') + 1) : line.Substring(line.LastIndexOf(' ') + 1), "Yes" })); // Fix v1.8.5.4: Add Check For GitHub Links.
                                     }
                                     else
                                     {
@@ -600,13 +600,13 @@ namespace TerrariaDepotDownloader
                                         }
 
                                         // String Does Not Contain "null", Record Like Normal
-                                        listView1.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("github") ? "GitHub - Unofficial Patch" : line.Substring(line.LastIndexOf(' ') + 1), "No" })); // Fix v1.8.5.4: Add Check For GitHub Links.
+                                        listView1.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("github") ? "GitHub - Unofficial Patch\t                    \t" + line.Substring(line.LastIndexOf(' ') + 1) : line.Substring(line.LastIndexOf(' ') + 1), "No" })); // Fix v1.8.5.4: Add Check For GitHub Links.
                                     }
                                 }
                                 else
                                 {
                                     // String Does Not Contain "null", Record Like Normal
-                                    listView1.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("github") ? "GitHub - Unofficial Patch" : line.Substring(line.LastIndexOf(' ') + 1), "No" })); // Fix v1.8.5.4: Add Check For GitHub Links.
+                                    listView1.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("github") ? "GitHub - Unofficial Patch\t                    \t" + line.Substring(line.LastIndexOf(' ') + 1) : line.Substring(line.LastIndexOf(' ') + 1), "No" })); // Fix v1.8.5.4: Add Check For GitHub Links.
                                 }
                             }
                         }
@@ -944,7 +944,7 @@ namespace TerrariaDepotDownloader
                                 }
 
                                 // Check to see if this is a github repo.
-                                if (itemRow.SubItems[1].Text.Contains("github"))
+                                if (itemRow.SubItems[1].Text.ToLower().Contains("github"))
                                 {
                                     try
                                     {
@@ -958,8 +958,8 @@ namespace TerrariaDepotDownloader
                                         Directory.CreateDirectory(OutDir);
 
                                         // Extract the owwner and repo names.
-                                        string repoOwner = itemRow.SubItems[1].Text.Split('/')[1];
-                                        string repoName = itemRow.SubItems[1].Text.Split('/')[2];
+                                        string repoOwner = itemRow.SubItems[1].Text.Split('\t')[2].Split('/')[1]; // Fix 1.8.5.4: Added Filter For "\t" To Seperate Git From GUI
+                                        string repoName = itemRow.SubItems[1].Text.Split('\t')[2].Split('/')[2]; // Fix 1.8.5.4: Added Filter For "\t" To Seperate Git From GUI
 
                                         // Get the path name to the desired repo sub-directory.
                                         Octokit.GitHubClient client = new Octokit.GitHubClient(new Octokit.ProductHeaderValue(repoName));
@@ -1169,7 +1169,7 @@ namespace TerrariaDepotDownloader
                             }
 
                             // Check to see if this is a github repo.
-                            if (itemRow.SubItems[1].Text.Contains("github"))
+                            if (itemRow.SubItems[1].Text.ToLower().Contains("github"))
                             {
                                 try
                                 {
@@ -1183,8 +1183,8 @@ namespace TerrariaDepotDownloader
                                     Directory.CreateDirectory(OutDir);
 
                                     // Extract the owwner and repo names.
-                                    string repoOwner = itemRow.SubItems[1].Text.Split('/')[1];
-                                    string repoName = itemRow.SubItems[1].Text.Split('/')[2];
+                                    string repoOwner = itemRow.SubItems[1].Text.Split('\t')[2].Split('/')[1]; // Fix 1.8.5.4: Added Filter For "\t" To Seperate Git From GUI
+                                    string repoName = itemRow.SubItems[1].Text.Split('\t')[2].Split('/')[2]; // Fix 1.8.5.4: Added Filter For "\t" To Seperate Git From GUI
 
                                     // Get the path name to the desired repo sub-directory.
                                     Octokit.GitHubClient client = new Octokit.GitHubClient(new Octokit.ProductHeaderValue(repoName));
