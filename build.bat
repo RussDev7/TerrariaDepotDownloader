@@ -1,12 +1,12 @@
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ::Install TerrariaDepotDownloader Via MSBuild                    ::
 ::Gihub https://github.com/RussDev7/TerrariaDepotDownloader      ::
-::Devoloped, Maintained, And Sponsored By D.RUSS#2430            ::
+::Devoloped, Maintained, And Sponsored By Discord:dannyruss      ::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 @ECHO OFF
 
 Rem | Set Params
-Set "VersionPrefix=1.8.5.4"
+Set "VersionPrefix=1.8.5.5"
 Set "filename=TerrariaDepotDownloader-%VersionPrefix%"
 
 Rem | Install SLN Under x64 Profile
