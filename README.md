@@ -135,11 +135,18 @@ For some people, steam will try to keep Terraria up to date automatically. This 
 </details>
 <details><summary>Changelog</summary>
 
-    v1.8.5.4
-     - Orginized the projects forms with new names.
-     - Fixed all intelsense project warning messages.
-     - Added an save login option.
+    v1.8.5.5
+     - Added an "Use Steam Directory" checkbox to fix "Please launch the game from your steam client".
+     - Added dark mode theme.
+     - Fixed refreshing not disabling the download button.
+
+    v​1.8.5.4
+     - Added the ability to download via GitHub links.
      - Added resilience to non-default install locations.
+     - Added an save login option.
+     - Fixed intelsense project warning messages.
+     - Updated decompiler messages.
+     - Fixed some GUI text.
 
     v1.8.5.3
      - Fixed an issue where the launch button was not correctly launching desired versions.
