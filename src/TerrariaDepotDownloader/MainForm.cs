@@ -1601,7 +1601,7 @@ namespace TerrariaDepotDownloader
             if (checkBox2.Checked && Properties.Settings.Default.UseSteamDir == false)
             {
                 // Show Warning
-                if (MessageBox.Show("This will overwrite your game within steamapps." + "\n" + "Do you want to continue ?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                if (MessageBox.Show("This will download game versions to your steamapps." + "\n" + "Do you want to continue ?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 {
                     // Cancle Prompt
                     checkBox2.Checked = false;
