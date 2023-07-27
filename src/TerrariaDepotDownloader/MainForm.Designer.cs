@@ -218,7 +218,7 @@ namespace TerrariaDepotDownloader
             this.checkBox5.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox5.Location = new System.Drawing.Point(109, 20);
             this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(131, 20);
+            this.checkBox5.Size = new System.Drawing.Size(130, 20);
             this.checkBox5.TabIndex = 16;
             this.checkBox5.Text = "Remember Login";
             this.checkBox5.UseVisualStyleBackColor = true;
@@ -229,7 +229,7 @@ namespace TerrariaDepotDownloader
             this.checkBox4.AutoSize = true;
             this.checkBox4.Location = new System.Drawing.Point(364, 20);
             this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(143, 20);
+            this.checkBox4.Size = new System.Drawing.Size(142, 20);
             this.checkBox4.TabIndex = 15;
             this.checkBox4.Text = "Skip Update Check";
             this.checkBox4.UseVisualStyleBackColor = true;
@@ -242,7 +242,7 @@ namespace TerrariaDepotDownloader
             this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox1.Location = new System.Drawing.Point(6, 20);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(97, 20);
+            this.checkBox1.Size = new System.Drawing.Size(96, 20);
             this.checkBox1.TabIndex = 12;
             this.checkBox1.Text = "Log Actions";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -255,7 +255,7 @@ namespace TerrariaDepotDownloader
             this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox3.Location = new System.Drawing.Point(246, 20);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(112, 20);
+            this.checkBox3.Size = new System.Drawing.Size(111, 20);
             this.checkBox3.TabIndex = 13;
             this.checkBox3.Text = "Show Tooltips";
             this.checkBox3.UseVisualStyleBackColor = true;
@@ -264,11 +264,13 @@ namespace TerrariaDepotDownloader
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
+            this.checkBox2.Checked = true;
+            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox2.Location = new System.Drawing.Point(6, 41);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(182, 20);
+            this.checkBox2.Size = new System.Drawing.Size(150, 20);
             this.checkBox2.TabIndex = 14;
-            this.checkBox2.Text = "Overwrite Steam Directory";
+            this.checkBox2.Text = "Use Steam Directory";
             this.checkBox2.UseVisualStyleBackColor = true;
             this.checkBox2.CheckedChanged += new System.EventHandler(this.CheckBox2_CheckedChanged);
             // 
@@ -328,7 +330,7 @@ namespace TerrariaDepotDownloader
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(6, 31);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 16);
+            this.label2.Size = new System.Drawing.Size(98, 16);
             this.label2.TabIndex = 3;
             this.label2.Text = "Account Name:";
             // 
@@ -359,7 +361,7 @@ namespace TerrariaDepotDownloader
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 62);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 16);
+            this.label3.Size = new System.Drawing.Size(70, 16);
             this.label3.TabIndex = 5;
             this.label3.Text = "Password:";
             // 

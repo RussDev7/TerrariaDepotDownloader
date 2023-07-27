@@ -161,7 +161,7 @@ namespace TerrariaDepotDownloader
 
             // Update Checkboxes
             checkBox1.Checked = Properties.Settings.Default.LogActions;
-            checkBox2.Checked = Properties.Settings.Default.OverwriteSteam;
+            checkBox2.Checked = Properties.Settings.Default.UseSteamDir;
             checkBox3.Checked = Properties.Settings.Default.ToolTips;
             checkBox4.Checked = Properties.Settings.Default.SkipUpdate;
             checkBox5.Checked = Properties.Settings.Default.SaveLogin;
@@ -522,6 +522,13 @@ namespace TerrariaDepotDownloader
             // Check If Directory Contains A ChangeLog If Overwrite Steam Directory Is Enabled
             if (checkBox2.Checked)
             {
+                // Ensure directory exists.
+                if (!Directory.Exists(Properties.Settings.Default.DepotPath))
+                {
+                    Directory.CreateDirectory(Properties.Settings.Default.DepotPath);
+                    Console.WriteLine("Terraria steam directory not found! Generating a new one.");
+                }
+
                 // Check If Directory Contains A ChangeLog
                 if (!File.Exists(Properties.Settings.Default.DepotPath + @"\changelog.txt"))
                 {
@@ -564,17 +571,52 @@ namespace TerrariaDepotDownloader
                             // Check If Overwrite Steam Directory Is Enabled
                             if (checkBox2.Checked)
                             {
-                                // Check Game Version Via ChangeLog
-                                // Added Check For 1.3 == 1.3.0.1 & 1.4 == 1.4.0.1 - Update 1.8.4 // if changelog.txt reads 1.3 & array version reads 1.3.0.1
-                                if (File.ReadLines(Properties.Settings.Default.DepotPath + @"\changelog.txt").First().Split(' ')[1].ToString() == String.Concat(line.TakeWhile(c => c != ',')) || File.ReadLines(Properties.Settings.Default.DepotPath + @"\changelog.txt").First().Split(' ')[1].ToString() == "1.3" && String.Concat(line.TakeWhile(c => c != ',')) == "1.3.0.1" || File.ReadLines(Properties.Settings.Default.DepotPath + @"\changelog.txt").First().Split(' ')[1].ToString() == "1.4" && String.Concat(line.TakeWhile(c => c != ',')) == "1.4.0.1")
+                                // Check for backup folders.
+                                if (Directory.Exists(Directory.GetParent(Properties.Settings.Default.DepotPath) + @"\Terraria-v" + String.Concat(line.TakeWhile(c => c != ','))) || Directory.Exists(Properties.Settings.Default.DepotPath + @"\Terraria"))
                                 {
-                                    // String Does Not Contain "null", Record Like Normal
-                                    listView1.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("github") ? "GitHub - Unofficial Patch\t                    \t" + line.Substring(line.LastIndexOf(' ') + 1) : line.Substring(line.LastIndexOf(' ') + 1), "Yes" })); // Fix v1.8.5.4: Add Check For GitHub Links.
+                                    // Check If Folder Is Not Empty - Update Feature
+                                    if (Directory.EnumerateFileSystemEntries(Directory.GetParent(Properties.Settings.Default.DepotPath) + @"\Terraria-v" + String.Concat(line.TakeWhile(c => c != ','))).Any())
+                                    {
+                                        // String Does Not Contain "null", Record Like Normal
+                                        listView1.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("github") ? "GitHub - Unofficial Patch\t                    \t" + line.Substring(line.LastIndexOf(' ') + 1) : line.Substring(line.LastIndexOf(' ') + 1), "Yes" })); // Fix v1.8.5.4: Add Check For GitHub Links.
+                                    }
+                                    else
+                                    {
+                                        if (Directory.Exists(Properties.Settings.Default.DepotPath) && File.ReadLines(Properties.Settings.Default.DepotPath + @"\changelog.txt").First().Split(' ')[1].ToString() == String.Concat(line.TakeWhile(c => c != ',')) || File.ReadLines(Properties.Settings.Default.DepotPath + @"\changelog.txt").First().Split(' ')[1].ToString() == "1.3" && String.Concat(line.TakeWhile(c => c != ',')) == "1.3.0.1" || File.ReadLines(Properties.Settings.Default.DepotPath + @"\changelog.txt").First().Split(' ')[1].ToString() == "1.4" && String.Concat(line.TakeWhile(c => c != ',')) == "1.4.0.1")
+                                        {
+                                            // String Does Not Contain "null", Record Like Normal
+                                            listView1.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("github") ? "GitHub - Unofficial Patch\t                    \t" + line.Substring(line.LastIndexOf(' ') + 1) : line.Substring(line.LastIndexOf(' ') + 1), "Yes" })); // Fix v1.8.5.4: Add Check For GitHub Links.
+                                        }
+                                        else
+                                        {
+                                            // Delete Folder
+                                            Directory.Delete(Directory.GetParent(Properties.Settings.Default.DepotPath) + @"\Terraria-v" + String.Concat(line.TakeWhile(c => c != ',')), true);
+
+                                            // Log Item
+                                            if (checkBox1.Checked)
+                                            {
+                                                Console.WriteLine("Removed empty folder: " + Directory.GetParent(Properties.Settings.Default.DepotPath) + @"\Terraria-v" + String.Concat(line.TakeWhile(c => c != ',')));
+                                            }
+
+                                            // String Does Not Contain "null", Record Like Normal
+                                            listView1.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("github") ? "GitHub - Unofficial Patch\t                    \t" + line.Substring(line.LastIndexOf(' ') + 1) : line.Substring(line.LastIndexOf(' ') + 1), "No" })); // Fix v1.8.5.4: Add Check For GitHub Links.
+                                        }
+                                    }
                                 }
                                 else
                                 {
-                                    // String Does Not Contain "null", Record Like Normal
-                                    listView1.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("github") ? "GitHub - Unofficial Patch\t                    \t" + line.Substring(line.LastIndexOf(' ') + 1) : line.Substring(line.LastIndexOf(' ') + 1), "No" })); // Fix v1.8.5.4: Add Check For GitHub Links.
+                                    // Added Check For 1.3 == 1.3.0.1 & 1.4 == 1.4.0.1 - Update 1.8.4 // if changelog.txt reads 1.3 & array version reads 1.3.0.1
+                                    if (File.ReadLines(Properties.Settings.Default.DepotPath + @"\changelog.txt").First().Split(' ')[1].ToString() == String.Concat(line.TakeWhile(c => c != ',')) || File.ReadLines(Properties.Settings.Default.DepotPath + @"\changelog.txt").First().Split(' ')[1].ToString() == "1.3" && String.Concat(line.TakeWhile(c => c != ',')) == "1.3.0.1" || File.ReadLines(Properties.Settings.Default.DepotPath + @"\changelog.txt").First().Split(' ')[1].ToString() == "1.4" && String.Concat(line.TakeWhile(c => c != ',')) == "1.4.0.1")
+                                    {
+                                        // String Does Not Contain "null", Record Like Normal
+                                        listView1.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("github") ? "GitHub - Unofficial Patch\t                    \t" + line.Substring(line.LastIndexOf(' ') + 1) : line.Substring(line.LastIndexOf(' ') + 1), "Yes" })); // Fix v1.8.5.4: Add Check For GitHub Links.
+                                    }
+                                    else
+                                    {
+                                        // String Does Not Contain "null", Record Like Normal
+                                        listView1.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("github") ? "GitHub - Unofficial Patch\t                    \t" + line.Substring(line.LastIndexOf(' ') + 1) : line.Substring(line.LastIndexOf(' ') + 1), "No" })); // Fix v1.8.5.4: Add Check For GitHub Links.
+
+                                    }
                                 }
                             }
                             else
@@ -832,6 +874,24 @@ namespace TerrariaDepotDownloader
             // Edit Button
             button5.Enabled = false;
         }
+
+        // Function for renaming active folders.
+        public void RenameFolder(string sourcePath, string targetPath)
+        {
+            var files = Directory.EnumerateFiles(sourcePath, "*", SearchOption.AllDirectories)
+                                 .GroupBy(s => Path.GetDirectoryName(s));
+            foreach (var folder in files)
+            {
+                var targetFolder = folder.Key.Replace(sourcePath, targetPath);
+                Directory.CreateDirectory(targetFolder);
+                foreach (var file in folder)
+                {
+                    var targetFile = Path.Combine(targetFolder, Path.GetFileName(file));
+                    if (File.Exists(targetFile)) File.Delete(targetFile);
+                    File.Move(file, targetFile);
+                }
+            }
+        }
         #endregion
 
         #region Launch / Download
@@ -855,6 +915,46 @@ namespace TerrariaDepotDownloader
                         {
                             try
                             {
+                                // Get the correct directory and move it to "Terraria".
+                                string OutDir = Properties.Settings.Default.DepotPath;
+                                string OutDirParent = Directory.GetParent(OutDir).ToString();
+
+                                // Get the current games version. Check For 1.3 == 1.3.0.1 & 1.4 == 1.4.0.1.
+                                string currentVersion = File.ReadLines(OutDir + @"\changelog.txt").First().Split(' ')[1].ToString();
+                                currentVersion = currentVersion == "1.3" ? "1.3.0.1" : currentVersion == "1.4" ? "1.4.0.1" : currentVersion;
+
+                                // Check if version is different from the selected.
+                                if (currentVersion != itemRow.SubItems[0].Text)
+                                {
+                                    try
+                                    {
+                                        // Check if the existing game version already exists or not.
+                                        if (!Directory.Exists(OutDirParent + @"\Terraria-v" + currentVersion))
+                                        {
+                                            // Move to a backup.
+                                            DirectoryInfo dir = new DirectoryInfo(OutDir);
+                                            dir.MoveTo(OutDirParent + @"\Terraria-v" + currentVersion);
+                                            Directory.Delete(OutDir, true); // Encase any files where left behind.
+                                        }
+                                        else
+                                        {
+                                            // This version already exists, delete parent.
+                                            Directory.Delete(OutDir, true);
+                                        }
+                                    }
+                                    catch (Exception) { }
+
+                                    // Grab and move desired version.
+                                    try
+                                    {
+                                        // Rename target version to "Terraria".
+                                        DirectoryInfo dir = new DirectoryInfo(OutDirParent + @"\Terraria-v" + itemRow.SubItems[0].Text);
+                                        dir.MoveTo(OutDir);
+                                        Directory.Delete(OutDirParent + @"\Terraria-v" + itemRow.SubItems[0].Text, true); // Encase any files where left behind.
+                                    }
+                                    catch (Exception) { }
+                                }
+
                                 // Start Terraria Though Steam
                                 Process.Start("steam://rungameid/105600");
 
@@ -916,6 +1016,7 @@ namespace TerrariaDepotDownloader
                                 if (checkBox2.Checked) // Overwrite Steam Directory
                                 {
                                     OutDir = Properties.Settings.Default.DepotPath;
+                                    string OutDirParent = Directory.GetParent(OutDir).ToString();
 
                                     // Check If Client Is Already Running - Update 1.8.3
                                     bool isRunning = Process.GetProcessesByName("Terraria").FirstOrDefault(p => p.MainModule.FileName.StartsWith(OutDir, StringComparison.InvariantCultureIgnoreCase)) != default(Process);
@@ -934,13 +1035,47 @@ namespace TerrariaDepotDownloader
                                         }
                                     }
 
+                                    // Get the current games version. Check For 1.3 == 1.3.0.1 & 1.4 == 1.4.0.1.
+                                    string currentVersion = File.ReadLines(OutDir + @"\changelog.txt").First().Split(' ')[1].ToString();
+                                    currentVersion = currentVersion == "1.3" ? "1.3.0.1" : currentVersion == "1.4" ? "1.4.0.1" : currentVersion;
+
                                     // Delete Folder
                                     try
                                     {
-                                        Directory.Delete(OutDir, true);
+                                        // Ensure the target directory does not already exist.
+                                        if (!Directory.Exists(OutDirParent + @"\Terraria-v" + currentVersion))
+                                        {
+                                            DirectoryInfo dir = new DirectoryInfo(OutDir);
+                                            dir.MoveTo(OutDirParent + @"\Terraria-v" + currentVersion);
+                                            Directory.Delete(OutDir, true); // Encase any files where left behind.
+                                        }
+                                        else
+                                        {
+                                            // This version already exists, delete parent.
+                                            Directory.Delete(OutDir, true);
+                                        }
                                     }
                                     catch (Exception) { }
                                     Directory.CreateDirectory(OutDir); // Update 1.8.2 Fix
+
+                                    // Check if the desired version already exists, otherwise download it.
+                                    if (Directory.Exists(OutDirParent + @"\Terraria-v" + itemRow.SubItems[0].Text))
+                                    {
+                                        try
+                                        {
+                                            // Rename target version to "Terraria".
+                                            DirectoryInfo dir = new DirectoryInfo(OutDirParent + @"\Terraria-v" + itemRow.SubItems[0].Text);
+                                            dir.MoveTo(OutDir);
+                                            Directory.Delete(OutDir, true); // Encase any files where left behind.
+                                        }
+                                        catch (Exception) { }
+                                        Directory.CreateDirectory(OutDir); // Update 1.8.2 Fix
+
+                                        // Reload List
+                                        ReloadList();
+
+                                        // End the sub and prevent further downloads.
+                                    }
                                 }
 
                                 // Check to see if this is a github repo.
@@ -1000,7 +1135,7 @@ namespace TerrariaDepotDownloader
 
                                         // Start github download.
                                         WebClient webClient = new WebClient();
-                                        //webClient.Headers.Add("user-agent", "Anything");
+                                        // webClient.Headers.Add("user-agent", "Anything");
                                         await webClient.DownloadFileTaskAsync(new Uri(downloadUrl), OutDir + @"\" + directoryName + ".zip");
 
                                         // Extract ZIP Into Dir
@@ -1018,21 +1153,7 @@ namespace TerrariaDepotDownloader
                                             // Move files out of downloaded sub-directory.
                                             if (Directory.Exists(OutDir + @"\" + directoryName))
                                             {
-                                                var sourcePath = (OutDir + @"\" + directoryName).TrimEnd('\\', ' ');
-                                                var targetPath = OutDir.TrimEnd('\\', ' ');
-                                                var files = Directory.EnumerateFiles(sourcePath, "*", SearchOption.AllDirectories)
-                                                                     .GroupBy(s => Path.GetDirectoryName(s));
-                                                foreach (var folder in files)
-                                                {
-                                                    var targetFolder = folder.Key.Replace(sourcePath, targetPath);
-                                                    Directory.CreateDirectory(targetFolder);
-                                                    foreach (var file in folder)
-                                                    {
-                                                        var targetFile = Path.Combine(targetFolder, Path.GetFileName(file));
-                                                        if (File.Exists(targetFile)) File.Delete(targetFile);
-                                                        File.Move(file, targetFile);
-                                                    }
-                                                }
+                                                RenameFolder((OutDir + @"\" + directoryName).TrimEnd('\\', ' '), OutDir.TrimEnd('\\', ' '));
                                                 Directory.Delete(OutDir + @"\" + directoryName, true);
                                             }
                                             else
@@ -1225,7 +1346,7 @@ namespace TerrariaDepotDownloader
 
                                     // Start github download.
                                     WebClient webClient = new WebClient();
-                                    //webClient.Headers.Add("user-agent", "Anything");
+                                    // webClient.Headers.Add("user-agent", "Anything");
                                     await webClient.DownloadFileTaskAsync(new Uri(downloadUrl), OutDir + @"\" + directoryName + ".zip");
 
                                     // Extract ZIP Into Dir
@@ -1243,21 +1364,7 @@ namespace TerrariaDepotDownloader
                                         // Move files out of downloaded sub-directory.
                                         if (Directory.Exists(OutDir + @"\" + directoryName))
                                         {
-                                            var sourcePath = (OutDir + @"\" + directoryName).TrimEnd('\\', ' ');
-                                            var targetPath = OutDir.TrimEnd('\\', ' ');
-                                            var files = Directory.EnumerateFiles(sourcePath, "*", SearchOption.AllDirectories)
-                                                                 .GroupBy(s => Path.GetDirectoryName(s));
-                                            foreach (var folder in files)
-                                            {
-                                                var targetFolder = folder.Key.Replace(sourcePath, targetPath);
-                                                Directory.CreateDirectory(targetFolder);
-                                                foreach (var file in folder)
-                                                {
-                                                    var targetFile = Path.Combine(targetFolder, Path.GetFileName(file));
-                                                    if (File.Exists(targetFile)) File.Delete(targetFile);
-                                                    File.Move(file, targetFile);
-                                                }
-                                            }
+                                            RenameFolder((OutDir + @"\" + directoryName).TrimEnd('\\', ' '), OutDir.TrimEnd('\\', ' '));
                                             Directory.Delete(OutDir + @"\" + directoryName, true);
                                         }
                                         else
@@ -1356,7 +1463,7 @@ namespace TerrariaDepotDownloader
         // Show Prompt Warning
         private void CheckBox2_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox2.Checked && Properties.Settings.Default.OverwriteSteam == false)
+            if (checkBox2.Checked && Properties.Settings.Default.UseSteamDir == false)
             {
                 // Show Warning
                 if (MessageBox.Show("This will overwrite your game within steamapps." + "\n" + "Do you want to continue ?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
@@ -1368,7 +1475,7 @@ namespace TerrariaDepotDownloader
                     button6.Enabled = true;
 
                     // Update Settings
-                    Properties.Settings.Default.OverwriteSteam = false;
+                    Properties.Settings.Default.UseSteamDir = false;
                     Properties.Settings.Default.PathChangeEnabled = true;
 
                     // Update Forum
@@ -1445,7 +1552,7 @@ namespace TerrariaDepotDownloader
 
                     // Update Settings
                     Properties.Settings.Default.DepotPath = Directory.GetParent(installLocation).FullName;
-                    Properties.Settings.Default.OverwriteSteam = true;
+                    Properties.Settings.Default.UseSteamDir = true;
                     Properties.Settings.Default.PathChangeEnabled = false;
 
                     // Update Forum
@@ -1458,7 +1565,7 @@ namespace TerrariaDepotDownloader
                     ReloadList();
                 }
             }
-            if (!checkBox2.Checked && Properties.Settings.Default.OverwriteSteam == true)
+            if (!checkBox2.Checked && Properties.Settings.Default.UseSteamDir == true)
             {
                 // Checkbox Unchecked, Reset Textbox To Defualt Dir
                 textBox1.Text = Application.StartupPath + @"\TerrariaDepots";
@@ -1468,7 +1575,7 @@ namespace TerrariaDepotDownloader
 
                 // Update Settings
                 Properties.Settings.Default.DepotPath = Application.StartupPath + @"\TerrariaDepots";
-                Properties.Settings.Default.OverwriteSteam = false;
+                Properties.Settings.Default.UseSteamDir = false;
                 Properties.Settings.Default.PathChangeEnabled = true;
 
                 // Update Forum

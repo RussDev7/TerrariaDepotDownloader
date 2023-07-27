@@ -14,8 +14,8 @@
     <Setting Name="LogActions" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="OverwriteSteam" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+    <Setting Name="UseSteamDir" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="PathChangeEnabled" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
