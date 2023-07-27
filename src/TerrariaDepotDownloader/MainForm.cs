@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using Ionic.Zip;
 using Microsoft.Win32;
 
@@ -23,6 +25,17 @@ namespace TerrariaDepotDownloader
         {
             InitializeComponent();
             Console.SetOut(new MultiTextWriter(new ControlWriter(richTextBox1), Console.Out));
+        }
+
+        // Toggle the forms darkmode.
+        private void MainForm_Shown(object sender, EventArgs e)
+        {
+            // Toggle darkmode.
+            if (Properties.Settings.Default.DarkMode)
+                DarkMode(true);
+
+            // Update checkboxes.
+            checkBox6.Checked = Properties.Settings.Default.DarkMode;
         }
 
         // Do Loading Events
@@ -179,10 +192,11 @@ namespace TerrariaDepotDownloader
             Tooltips.SetToolTip(button9, "Open current base directory");
 
             Tooltips.SetToolTip(checkBox1, "Log all actions to the output log");
-            Tooltips.SetToolTip(checkBox2, "All installs overwrites Steam directory");
+            Tooltips.SetToolTip(checkBox2, "All installs use the Steam directory");
             Tooltips.SetToolTip(checkBox3, "Show or hide tooltips");
             Tooltips.SetToolTip(checkBox4, "Skip API update check");
             Tooltips.SetToolTip(checkBox5, "Remember the password and steam key for this user");
+            Tooltips.SetToolTip(checkBox6, "Enable or disable the dark mode theme");
 
             // Enable or Disable Tooltips
             if (checkBox3.Checked)
@@ -549,6 +563,7 @@ namespace TerrariaDepotDownloader
 
             // Reset Controls
             button2.Text = "Download";
+            button2.Enabled = false; // Fix 1.8.5.5.
             button5.Enabled = false;
 
             // Make Sure Database Is Populated
@@ -890,6 +905,126 @@ namespace TerrariaDepotDownloader
                     if (File.Exists(targetFile)) File.Delete(targetFile);
                     File.Move(file, targetFile);
                 }
+            }
+        }
+
+        public void DarkMode(bool enable)
+        {
+            if (enable)
+            {
+                // Color pallets.
+                var formBackColor = Color.FromArgb(35, 36, 40);        // Mid-Dark.
+                var tabControlBackColor = Color.FromArgb(43, 45, 49);  // Lightest.
+                var controlBackColor = Color.FromArgb(56, 58, 64);     // Darkest.
+                var controlForeColor = Color.White;                    // White.
+                var listViewGridColor = Color.LightGray;               // LightGray.
+
+                // Turn on dark mode for maiin form.
+                MainForm.ActiveForm.BackColor = formBackColor;
+                MainForm.ActiveForm.ForeColor = controlForeColor;
+
+                // Turn on dark mode for remaining controls.
+                foreach (Control component in this.Controls)
+                {
+                    // Check if componet is a picturebox.
+                    if (component is PictureBox)
+                    {
+                        pictureBox1.BackColor = formBackColor;
+                    }
+                    else
+                    {
+                        // All other controls.
+                        component.BackColor = controlBackColor;
+                        component.ForeColor = controlForeColor;
+                    }
+                }
+
+                // Recolor each tabpage.
+                for (int a = 0; a < tabControl1.TabPages.Count; a++)
+                {
+                    tabControl1.TabPages[a].BackColor = tabControlBackColor;
+                    tabControl1.TabPages[a].ForeColor = controlForeColor;
+                }
+
+                // Turn on dark mode for remaining controls.
+                foreach (TabPage tab in tabControl1.TabPages)
+                    foreach (Control component in tab.Controls)
+                    {
+                        // Change groupbox controls.
+                        component.BackColor = tabControlBackColor;
+
+                        // Change listview text control containers.
+                        if (component is ListView)
+                            component.ForeColor = listViewGridColor;
+                        else
+                            component.ForeColor = controlForeColor;
+
+                        // Change textbox control containers.
+                        foreach (TextBox textBox in component.Controls.OfType<TextBox>().ToList())
+                        {
+                            textBox.BackColor = controlBackColor;
+                            textBox.ForeColor = controlForeColor;
+                        }
+
+                        // Change button control containers.
+                        foreach (Button button in component.Controls.OfType<Button>().ToList())
+                        {
+                            button.BackColor = controlBackColor;
+                            button.ForeColor = controlForeColor;
+                        }
+                    }
+            }
+            else
+            {
+                // Turn off dark mode for maiin form.
+                MainForm.ActiveForm.BackColor = DefaultBackColor;
+                MainForm.ActiveForm.ForeColor = DefaultForeColor;
+
+                // Turn off dark mode for remaining controls.
+                foreach (Control component in MainForm.ActiveForm.Controls)
+                {
+                    component.BackColor = DefaultBackColor;
+                    component.ForeColor = DefaultForeColor;
+
+                    if (component is Button && !component.Enabled)
+                    {
+                        component.BackColor = SystemColors.ScrollBar;
+                    }
+
+                    component.Invalidate();
+                }
+
+                // Recolor each tabpage.
+                for (int a = 0; a < tabControl1.TabPages.Count; a++)
+                {
+                    tabControl1.TabPages[a].BackColor = DefaultBackColor;
+                    tabControl1.TabPages[a].ForeColor = DefaultForeColor;
+                }
+
+                // Turn on dark mode for remaining controls.
+                foreach (TabPage tab in tabControl1.TabPages)
+                    foreach (Control component in tab.Controls)
+                    {
+                        // Change groupbox controls.
+                        component.BackColor = DefaultBackColor;
+                        component.ForeColor = DefaultForeColor;
+
+                        // Change textbox control containers.
+                        foreach (TextBox textBox in component.Controls.OfType<TextBox>().ToList())
+                        {
+                            textBox.BackColor = DefaultBackColor;
+                            textBox.ForeColor = DefaultForeColor;
+                        }
+
+                        // Change textbox control containers.
+                        foreach (Button button in component.Controls.OfType<Button>().ToList())
+                        {
+                            button.BackColor = DefaultBackColor;
+                            button.ForeColor = DefaultForeColor;
+                        }
+
+                        component.Invalidate();
+                    }
             }
         }
         #endregion
@@ -1636,6 +1771,28 @@ namespace TerrariaDepotDownloader
             {
                 // Disable SaveLogin
                 Properties.Settings.Default.SaveLogin = false;
+            }
+        }
+
+        // Update darkmode.
+        private void CheckBox6_CheckedChanged(object sender, EventArgs e)
+        {
+            // Check if checkbox was checked or not.
+            if (checkBox6.Checked)
+            {
+                // Enable darkmode.
+                DarkMode(true);
+
+                // Save darkmode setting.
+                Properties.Settings.Default.DarkMode = true;
+            }
+            else
+            {
+                // Disable darkmode.
+                DarkMode(false);
+
+                // Save darkmode setting.
+                Properties.Settings.Default.DarkMode = false;
             }
         }
         #endregion
