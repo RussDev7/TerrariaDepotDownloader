@@ -135,6 +135,10 @@ For some people, steam will try to keep Terraria up to date automatically. This 
 </details>
 <details><summary>Changelog</summary>
 
+    v1.8.5.6
+     - Fixed "overwrite steam directory" is now "use steam directory".
+     - Fixed issues that existed in the old vs new config by bumping config version.
+     - Fixed the "Remove game" buttons for "Use steam directory".
     v1.8.5.5
      - Added an "Use Steam Directory" checkbox to fix "Please launch the game from your steam client".
      - Added dark mode theme.
