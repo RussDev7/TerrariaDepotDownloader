@@ -8,7 +8,6 @@ using System.Linq;
 using System.Net;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using System.Xml.Linq;
 using Ionic.Zip;
 using Microsoft.Win32;
 
@@ -152,15 +151,15 @@ namespace TerrariaDepotDownloader
             // Populate Depot Setting Path
             if (Directory.Exists(Application.StartupPath + @"\TerrariaDepots") && Properties.Settings.Default.DepotPath == "")
             {
-                // Check If Overwrite Steam Directory Is Enabled
+                // Check If Use Steam Directory Is Enabled
                 if (checkBox2.Checked)
                 {
-                    // Overwrite Steam Directory Enabled
+                    // Use Steam Directory Enabled
                     Properties.Settings.Default.DepotPath = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + @"\Steam\steamapps\common\Terraria";
                 }
                 else
                 {
-                    // Overwrite Steam Directory Disabled
+                    // Use Steam Directory Disabled
                     Properties.Settings.Default.DepotPath = Application.StartupPath + @"\TerrariaDepots";
                 }
             }
@@ -533,7 +532,7 @@ namespace TerrariaDepotDownloader
             listView1.Items.Clear();
             listView1.Refresh();
 
-            // Check If Directory Contains A ChangeLog If Overwrite Steam Directory Is Enabled
+            // Check If Directory Contains A ChangeLog If Use Steam Directory Is Enabled
             if (checkBox2.Checked)
             {
                 // Ensure directory exists.
@@ -583,7 +582,7 @@ namespace TerrariaDepotDownloader
                         }
                         else
                         {
-                            // Check If Overwrite Steam Directory Is Enabled
+                            // Check If Use Steam Directory Is Enabled
                             if (checkBox2.Checked)
                             {
                                 // Check for backup folders.
@@ -693,10 +692,10 @@ namespace TerrariaDepotDownloader
                 return;
             }
 
-            // Disable If Overwrite Steam Directory Enabled
+            // Disable If Use Steam Directory Enabled
             if (checkBox2.Checked)
             {
-                MessageBox.Show("You cannot use this feature while \"Overwrite Steam Directory\" feature is enabled.", "TerrariaDepotDownloader v" + FileVersionInfo.GetVersionInfo(Path.GetFileName(System.Windows.Forms.Application.ExecutablePath)).FileVersion, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                MessageBox.Show("You cannot use this feature while \"Use Steam Directory\" feature is enabled.", "TerrariaDepotDownloader v" + FileVersionInfo.GetVersionInfo(Path.GetFileName(System.Windows.Forms.Application.ExecutablePath)).FileVersion, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 return;
             }
 
@@ -798,10 +797,10 @@ namespace TerrariaDepotDownloader
                 }
             }
 
-            // Disable If Overwrite Steam Directory Enabled
+            // Disable If Use Steam Directory Enabled
             if (checkBox2.Checked)
             {
-                MessageBox.Show("You cannot use this feature while \"Overwrite Steam Directory\" feature is enabled.", "TerrariaDepotDownloader v" + FileVersionInfo.GetVersionInfo(Path.GetFileName(System.Windows.Forms.Application.ExecutablePath)).FileVersion, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                MessageBox.Show("You cannot use this feature while \"Use Steam Directory\" feature is enabled.", "TerrariaDepotDownloader v" + FileVersionInfo.GetVersionInfo(Path.GetFileName(System.Windows.Forms.Application.ExecutablePath)).FileVersion, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 return;
             }
 
@@ -838,10 +837,10 @@ namespace TerrariaDepotDownloader
         // Remove App
         private void Button5_Click(object sender, EventArgs e)
         {
-            // Disable If Overwrite Steam Directory Enabled
+            // Disable If Use Steam Directory Enabled
             if (checkBox2.Checked)
             {
-                MessageBox.Show("You cannot use this feature while \"Overwrite Steam Directory\" feature is enabled.", "TerrariaDepotDownloader v" + FileVersionInfo.GetVersionInfo(Path.GetFileName(System.Windows.Forms.Application.ExecutablePath)).FileVersion, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                MessageBox.Show("You cannot use this feature while \"Use Steam Directory\" feature is enabled.", "TerrariaDepotDownloader v" + FileVersionInfo.GetVersionInfo(Path.GetFileName(System.Windows.Forms.Application.ExecutablePath)).FileVersion, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 return;
             }
 
@@ -1045,7 +1044,7 @@ namespace TerrariaDepotDownloader
                     {
                         // Launch App
                         //
-                        // Check If Overwrite Steam Directory Is Enabled
+                        // Check If Use Steam Directory Is Enabled
                         if (checkBox2.Checked)
                         {
                             try
@@ -1148,7 +1147,7 @@ namespace TerrariaDepotDownloader
                                 String DotNetLocation = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + @"\dotnet\dotnet.exe";
                                 // Update 1.5.0, Check If Everwrite To Steam Directory Is Enabled
                                 String OutDir = Properties.Settings.Default.DepotPath + @"\Terraria-v" + itemRow.SubItems[0].Text;
-                                if (checkBox2.Checked) // Overwrite Steam Directory
+                                if (checkBox2.Checked) // Use Steam Directory
                                 {
                                     OutDir = Properties.Settings.Default.DepotPath;
                                     string OutDirParent = Directory.GetParent(OutDir).ToString();
@@ -1395,7 +1394,7 @@ namespace TerrariaDepotDownloader
                             String DotNetLocation = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + @"\dotnet\dotnet.exe";
                             // Update 1.5.0, Check If Everwrite To Steam Directory Is Enabled
                             String OutDir = Properties.Settings.Default.DepotPath + @"\Terraria-v" + itemRow.SubItems[0].Text;
-                            if (checkBox2.Checked) // Overwrite Steam Directory
+                            if (checkBox2.Checked) // Use Steam Directory
                             {
                                 OutDir = Properties.Settings.Default.DepotPath;
 
@@ -1618,7 +1617,7 @@ namespace TerrariaDepotDownloader
                     // Log Item
                     if (checkBox1.Checked)
                     {
-                        Console.WriteLine("Overwrite steam directory mode cancled.");
+                        Console.WriteLine("Use steam directory mode cancled.");
                     }
                     ReloadList();
                 }
@@ -1695,7 +1694,7 @@ namespace TerrariaDepotDownloader
                     // Log Item
                     if (checkBox1.Checked)
                     {
-                        Console.WriteLine("Overwrite steam directory mode enabled!");
+                        Console.WriteLine("Use steam directory mode enabled!");
                     }
                     ReloadList();
                 }
@@ -1718,7 +1717,7 @@ namespace TerrariaDepotDownloader
                 // Log Item
                 if (checkBox1.Checked)
                 {
-                    Console.WriteLine("Overwrite steam directory mode disabled!");
+                    Console.WriteLine("Use steam directory mode disabled!");
                 }
                 ReloadList();
             }
