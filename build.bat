@@ -6,7 +6,7 @@
 @ECHO OFF
 
 Rem | Set Params
-Set "VersionPrefix=1.8.5.6"
+Set "VersionPrefix=1.8.5.7"
 Set "filename=TerrariaDepotDownloader-%VersionPrefix%"
 
 Rem | Install SLN Under x64 Profile
