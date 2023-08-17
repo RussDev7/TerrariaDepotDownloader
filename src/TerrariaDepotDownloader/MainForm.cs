@@ -773,6 +773,9 @@ namespace TerrariaDepotDownloader
                     {
                         button2.Text = "N/A";
                         button2.Enabled = false;
+
+                        // Edit Remove Button // Fix 1.8.5.7.
+                        button5.Enabled = false;
                     }
                 }
             }
