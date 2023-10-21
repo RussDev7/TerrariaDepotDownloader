@@ -155,12 +155,45 @@ namespace TerrariaDepotDownloader
                 if (checkBox2.Checked)
                 {
                     // Use Steam Directory Enabled
-                    Properties.Settings.Default.DepotPath = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + @"\Steam\steamapps\common\Terraria";
+                    if (GetGameLocation() != "")
+                    {
+                        // Update install location.
+                        Properties.Settings.Default.DepotPath = GetGameLocation();
+                    }
+                    else
+                    {
+                        // Steam game not found, use startup path instead!
+                        checkBox2.Checked = false;
+                        Properties.Settings.Default.DepotPath = Application.StartupPath + @"\TerrariaDepots";
+
+                        // Log Item
+                        if (checkBox1.Checked)
+                        {
+                            Console.WriteLine("ERROR: No game install location was found upon the first load checks!");
+                        }
+                    }
                 }
                 else
                 {
                     // Use Steam Directory Disabled
                     Properties.Settings.Default.DepotPath = Application.StartupPath + @"\TerrariaDepots";
+                }
+            }
+
+            // Check if steam location is still valid!
+            if (!Properties.Settings.Default.PathChangeEnabled)
+            {
+                if (GetGameLocation() == "")
+                {
+                    // Update install location.
+                    checkBox2.Checked = false;
+                    Properties.Settings.Default.DepotPath = Application.StartupPath + @"\TerrariaDepots";
+
+                    // Log Item
+                    if (checkBox1.Checked)
+                    {
+                        Console.WriteLine("ERROR: The existing game install location appears to no longer exist!");
+                    }
                 }
             }
 
@@ -210,7 +243,7 @@ namespace TerrariaDepotDownloader
             }
 
             // Update Buttons
-            button6.Enabled = Properties.Settings.Default.PathChangeEnabled;
+            // button6.Enabled = Properties.Settings.Default.PathChangeEnabled;
 
             // Create Database File
             if (!File.Exists(Application.StartupPath + @"\ManifestVersions.cfg"))
@@ -378,14 +411,36 @@ namespace TerrariaDepotDownloader
         // Open Browse Dialogue
         private void Button6_Click(object sender, EventArgs e)
         {
-            using (var fbd = new FolderBrowserDialog())
+            // Check if steam directory is enabled or not. // Fix 1.8.5.7: Allow people to change their default steam location.
+            if (!Properties.Settings.Default.PathChangeEnabled)
             {
-                DialogResult result = fbd.ShowDialog();
-
-                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                // Conformation Box
+                if (MessageBox.Show("Warning! Are you sure you want to force change your defualt steam location? TerrariaDepotDownloader is supposed to automatically find your games correct location!\n\nThis is only reccomended for advanced users!\nYes or No", "WARNING: TerrariaDepotDownloader v" + FileVersionInfo.GetVersionInfo(Path.GetFileName(System.Windows.Forms.Application.ExecutablePath)).FileVersion, MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes)
                 {
-                    textBox1.Text = fbd.SelectedPath;
-                    Properties.Settings.Default.DepotPath = fbd.SelectedPath;
+                    // Launch path dialog.
+                    using (var fbd = new FolderBrowserDialog())
+                    {
+                        DialogResult result = fbd.ShowDialog();
+
+                        if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                        {
+                            textBox1.Text = fbd.SelectedPath;
+                            Properties.Settings.Default.DepotPath = fbd.SelectedPath;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                using (var fbd = new FolderBrowserDialog())
+                {
+                    DialogResult result = fbd.ShowDialog();
+
+                    if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                    {
+                        textBox1.Text = fbd.SelectedPath;
+                        Properties.Settings.Default.DepotPath = fbd.SelectedPath;
+                    }
                 }
             }
         }
@@ -960,6 +1015,7 @@ namespace TerrariaDepotDownloader
             }
         }
 
+        // Set dark mode.
         public void DarkMode(bool enable)
         {
             if (enable)
@@ -1077,6 +1133,36 @@ namespace TerrariaDepotDownloader
 
                         component.Invalidate();
                     }
+            }
+        }
+
+        // Get game location.
+        public string GetGameLocation()
+        {
+            using (var root = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64))
+            {
+                string subKey = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Steam App 105600";
+                using (var key = root.OpenSubKey(subKey)) // False is important!
+                {
+                    var s = key.GetValue("InstallLocation") as string;
+                    if (!string.IsNullOrWhiteSpace(s))
+                    {
+                        // Define path; should be the games initial install directory.
+                        return s + @"\Terraria";
+                    }
+                    else
+                    {
+                        // Key does not exist, log item.
+                        if (checkBox1.Checked)
+                        {
+                            // Console.WriteLine("ERROR: Unable to find the default install location! Try reinstalling your game!");
+                        }
+
+                        // Cancle operations and exit void.
+                        // checkBox2.Checked = false;
+                        return "";
+                    }
+                }
             }
         }
         #endregion
@@ -1659,7 +1745,7 @@ namespace TerrariaDepotDownloader
                     checkBox2.Checked = false;
 
                     // Enable Path Changing
-                    button6.Enabled = true;
+                    // button6.Enabled = true;
 
                     // Update Settings
                     Properties.Settings.Default.UseSteamDir = false;
@@ -1681,37 +1767,34 @@ namespace TerrariaDepotDownloader
 
                     // Define varibles.
                     string backupLocation = textBox1.Text;
-                    string installLocation = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + @"\Steam\steamapps\common\Terraria";
+                    string installLocation;
 
                     // Try to read registry key.
                     try
                     {
-                        using (var root = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64))
+                        // Check if game location is found.
+                        if (GetGameLocation() != "")
                         {
-                            string subKey = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Steam App 105600";
-                            using (var key = root.OpenSubKey(subKey)) // False is important!
-                            {
-                                var s = key.GetValue("InstallLocation") as string;
-                                if (!string.IsNullOrWhiteSpace(s))
-                                {
-                                    // Define path; should be the games initial install directory.
-                                    installLocation = s + @"\Terraria";
-                                }
-                                else
-                                {
-                                    // Key does not exist, log item.
-                                    if (checkBox1.Checked)
-                                    {
-                                        Console.WriteLine("ERROR: Unable to find the default install location!");
-                                    }
-
-                                    // Cancle operations and exit void.
-                                    checkBox2.Checked = false;
-                                    textBox1.Text = backupLocation;
-                                    return;
-                                }
-                            }
+                            // Update install location.
+                            installLocation = GetGameLocation();
                         }
+                        else
+                        {
+                            // Cancle operations and exit void.
+                            MessageBox.Show("ERROR: Unable to find the default install location! Try reinstalling your game!", "ERROR: TerrariaDepotDownloader v" + FileVersionInfo.GetVersionInfo(Path.GetFileName(System.Windows.Forms.Application.ExecutablePath)).FileVersion, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                            // Key does not exist, log item.
+                            if (checkBox1.Checked)
+                            {
+                                Console.WriteLine("ERROR: Unable to find the default install location! Try reinstalling your game!");
+                            }
+
+                            checkBox2.Checked = false;
+                            textBox1.Text = backupLocation;
+                            return;
+                        }
+
+                        textBox1.Text = backupLocation;
                     }
                     catch (Exception) // Handle exception.
                     {
@@ -1735,7 +1818,7 @@ namespace TerrariaDepotDownloader
                     textBox1.Text = Directory.GetParent(installLocation).FullName;
 
                     // Disable Path Changing
-                    button6.Enabled = false;
+                    // button6.Enabled = false;
 
                     // Update Settings
                     Properties.Settings.Default.DepotPath = Directory.GetParent(installLocation).FullName;
