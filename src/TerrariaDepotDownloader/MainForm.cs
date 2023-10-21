@@ -1801,7 +1801,7 @@ namespace TerrariaDepotDownloader
                         // Key does not exist, log item.
                         if (checkBox1.Checked)
                         {
-                            Console.WriteLine("ERROR: Something went wrong while reading the registry!");
+                            Console.WriteLine("ERROR: Something went wrong while reading the registry! Try reinstalling your game!");
                         }
 
                         // Cancle operations and exit void.
