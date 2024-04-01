@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Ionic.Zip;
 using Microsoft.Win32;
@@ -998,21 +999,50 @@ namespace TerrariaDepotDownloader
         }
 
         // Function for renaming active folders.
-        public void RenameFolder(string sourcePath, string targetPath)
+        public async Task RenameFolderAsync(string sourcePath, string targetPath)
         {
+            // Get files in sourcePath and group them by directory.
             var files = Directory.EnumerateFiles(sourcePath, "*", SearchOption.AllDirectories)
                                  .GroupBy(s => Path.GetDirectoryName(s));
+
+            // Iterate through each directory group.
             foreach (var folder in files)
             {
+                // Create target folder based on the corresponding source folder.
                 var targetFolder = folder.Key.Replace(sourcePath, targetPath);
                 Directory.CreateDirectory(targetFolder);
+
+                // Iterate through each file in the current directory.
                 foreach (var file in folder)
                 {
+                    // Generate target file path.
                     var targetFile = Path.Combine(targetFolder, Path.GetFileName(file));
+
+                    // If target file exists, delete it.
                     if (File.Exists(targetFile)) File.Delete(targetFile);
-                    File.Move(file, targetFile);
+
+                    // Move file asynchronously.
+                    await MoveFileAsync(file, targetFile).ConfigureAwait(false);
                 }
             }
+        }
+
+        // Method to move file asynchronously.
+        private async Task MoveFileAsync(string sourceFile, string targetFile)
+        {
+            // Open source file stream.
+            using (var sourceStream = new FileStream(sourceFile, FileMode.Open))
+            {
+                // Create or overwrite target file.
+                using (var targetStream = new FileStream(targetFile, FileMode.CreateNew))
+                {
+                    // Asynchronously copy source file contents to target file.
+                    await sourceStream.CopyToAsync(targetStream).ConfigureAwait(false);
+                }
+            }
+
+            // Delete source file after copying is done.
+            File.Delete(sourceFile);
         }
 
         // Set dark mode.
@@ -1414,20 +1444,24 @@ namespace TerrariaDepotDownloader
                                         // Extract ZIP Into Dir
                                         using (ZipFile archive = new ZipFile(@"" + OutDir + @"\" + directoryName + ".zip"))
                                         {
-                                            archive.ExtractAll(@"" + OutDir, ExtractExistingFileAction.OverwriteSilently);
+                                            // Async file extraction.
+                                            await Task.Run(() => archive.ExtractAll(@"" + OutDir, ExtractExistingFileAction.OverwriteSilently));
                                         }
 
                                         // Clean zip files.
                                         try
                                         {
-                                            // Remove zip file.
-                                            File.Delete(OutDir + @"\" + directoryName + ".zip");
+                                            // Async remove zip file.
+                                            await Task.Run(() => File.Delete(OutDir + @"\" + directoryName + ".zip"));
 
                                             // Move files out of downloaded sub-directory.
                                             if (Directory.Exists(OutDir + @"\" + directoryName))
                                             {
-                                                RenameFolder((OutDir + @"\" + directoryName).TrimEnd('\\', ' '), OutDir.TrimEnd('\\', ' '));
-                                                Directory.Delete(OutDir + @"\" + directoryName, true);
+                                                // Async file renaming.
+                                                await Task.Run(() => RenameFolderAsync((OutDir + @"\" + directoryName).TrimEnd('\\', ' '), OutDir.TrimEnd('\\', ' ')));
+
+                                                // Async delete directory.
+                                                await Task.Run(() => Directory.Delete(OutDir + @"\" + directoryName, true));
                                             }
                                             else
                                             {
@@ -1456,7 +1490,7 @@ namespace TerrariaDepotDownloader
                                             Directory.Delete(OutDir, true);
                                         }
                                         catch (Exception) { }
-                                        Directory.CreateDirectory(OutDir); // Update 1.8.2 Fix}
+                                        Directory.CreateDirectory(OutDir); // Update 1.8.2 Fix.
                                     }
                                 }
                                 else
@@ -1625,20 +1659,24 @@ namespace TerrariaDepotDownloader
                                     // Extract ZIP Into Dir
                                     using (ZipFile archive = new ZipFile(@"" + OutDir + @"\" + directoryName + ".zip"))
                                     {
-                                        archive.ExtractAll(@"" + OutDir, ExtractExistingFileAction.OverwriteSilently);
+                                        // Async file extraction.
+                                        await Task.Run(() => archive.ExtractAll(@"" + OutDir, ExtractExistingFileAction.OverwriteSilently));
                                     }
 
                                     // Clean zip files.
                                     try
                                     {
-                                        // Remove zip file.
-                                        File.Delete(OutDir + @"\" + directoryName + ".zip");
+                                        // Async remove zip file.
+                                        await Task.Run(() => File.Delete(OutDir + @"\" + directoryName + ".zip"));
 
                                         // Move files out of downloaded sub-directory.
                                         if (Directory.Exists(OutDir + @"\" + directoryName))
                                         {
-                                            RenameFolder((OutDir + @"\" + directoryName).TrimEnd('\\', ' '), OutDir.TrimEnd('\\', ' '));
-                                            Directory.Delete(OutDir + @"\" + directoryName, true);
+                                            // Async file renaming.
+                                            await Task.Run(() => RenameFolderAsync((OutDir + @"\" + directoryName).TrimEnd('\\', ' '), OutDir.TrimEnd('\\', ' ')));
+
+                                            // Async delete directory.
+                                            await Task.Run(() => Directory.Delete(OutDir + @"\" + directoryName, true));
                                         }
                                         else
                                         {
