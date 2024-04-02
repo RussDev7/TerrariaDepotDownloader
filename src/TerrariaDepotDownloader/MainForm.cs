@@ -212,6 +212,49 @@ namespace TerrariaDepotDownloader
             checkBox4.Checked = Properties.Settings.Default.SkipUpdate;
             checkBox5.Checked = Properties.Settings.Default.SaveLogin;
 
+            // Check if collectors edition is already enabled.
+
+            // Define the registry paths.
+            const string keyPath = @"Software\Terraria";
+            const string subKeyName = "Bunny";
+
+            // Open the parent key
+            using (RegistryKey key = Registry.CurrentUser.OpenSubKey(keyPath))
+            {
+                // Check if the parent key exists
+                if (key != null)
+                {
+                    // Check if the subkey exists
+                    if (key.GetValue(subKeyName) != null)
+                    {
+                        // Get the value of the subkey
+                        string value = key.GetValue(subKeyName).ToString();
+
+                        // Check if the value matches the expected value
+                        if (value == "1")
+                        {
+                            // Value already exists. Enable checkbox.
+                            checkBox7.Checked = true;
+                        }
+                        else
+                        {
+                            // Value does not exists. Disable checkbox.
+                            checkBox7.Checked = false;
+                        }
+                    }
+                    else
+                    {
+                        // Value does not exists. Disable checkbox.
+                        checkBox7.Checked = false;
+                    }
+                }
+                else
+                {
+                    // Value does not exists. Disable checkbox.
+                    checkBox7.Checked = false;
+                }
+            }
+
             // Add Tooltips - Update 1.8.5
             Tooltips.InitialDelay = 1000;
             Tooltips.SetToolTip(button1, "Close game and application");
@@ -230,6 +273,7 @@ namespace TerrariaDepotDownloader
             Tooltips.SetToolTip(checkBox4, "Skip API update check");
             Tooltips.SetToolTip(checkBox5, "Remember the password and steam key for this user");
             Tooltips.SetToolTip(checkBox6, "Enable or disable the dark mode theme");
+            Tooltips.SetToolTip(checkBox7, "Enable or disable the collectors edition");
 
             // Enable or Disable Tooltips
             if (checkBox3.Checked)
@@ -1966,6 +2010,62 @@ namespace TerrariaDepotDownloader
 
                 // Save darkmode setting.
                 Properties.Settings.Default.DarkMode = false;
+            }
+        }
+
+        // Enable or disable collectors edition.
+        private void CheckBox7_CheckedChanged(object sender, EventArgs e)
+        {
+            // Define the registry paths.
+            const string keyPath = @"Software\Terraria";
+            const string subKeyName = "Bunny";
+
+            // Check if checkbox was checked or not.
+            if (checkBox7.Checked)
+            {
+                // Enable collectors edition.
+
+                // Open the parent key.
+                using (RegistryKey key = Registry.CurrentUser.OpenSubKey(keyPath, true))
+                {
+                    if (key == null)
+                    {
+                        // The key doesn't exist, create it.
+                        using (RegistryKey newKey = Registry.CurrentUser.CreateSubKey(keyPath))
+                        {
+                            // Add the value under the new subkey.
+                            newKey.SetValue(subKeyName, "1");
+
+                            // Close the registry.
+                            newKey.Close();
+                        }
+                    }
+                    else
+                    {
+                        // The key already exists, just set the value.
+                        key.SetValue(subKeyName, "1");
+
+                        // Close the registry.
+                        key.Close();
+                    }
+                }
+            }
+            else
+            {
+                // Disable collectors edition.
+
+                // Open the parent key.
+                using (RegistryKey key = Registry.CurrentUser.OpenSubKey(keyPath, true))
+                {
+                    if (key != null)
+                    {
+                        // Add the value under the new subkey.
+                        key.DeleteValue(subKeyName, false);
+
+                        // Close the registry key.
+                        key.Close();
+                    }
+                }
             }
         }
         #endregion
