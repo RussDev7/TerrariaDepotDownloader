@@ -1355,7 +1355,7 @@ namespace TerrariaDepotDownloader
                                         // Original was already backed up. Lets switch versions.
 
                                         // Ensure the desired config already exist.
-                                        if (Directory.Exists(configPath + @"\Terraria-v" + currentVersion))
+                                        if (Directory.Exists(configPath + @"\Terraria-v" + itemRow.SubItems[0].Text))
                                         {
                                             // Ensure this is not a first time config load.
                                             if (lastGameVersion != "0.0.0.0")
@@ -1368,17 +1368,17 @@ namespace TerrariaDepotDownloader
                                             await Task.Run(() => Directory.Delete(configPath + @"\Terraria", true));
 
                                             // Now rename the desired version to Terraria.
-                                            await Task.Run(() => RenameFolderAsync(configPath + @"\Terraria-v" + currentVersion, configPath + @"\Terraria"));
+                                            await Task.Run(() => RenameFolderAsync(configPath + @"\Terraria-v" + itemRow.SubItems[0].Text, configPath + @"\Terraria"));
 
                                             // Async delete directory.
-                                            await Task.Run(() => Directory.Delete(configPath + @"\Terraria-v" + currentVersion, true));
+                                            await Task.Run(() => Directory.Delete(configPath + @"\Terraria-v" + itemRow.SubItems[0].Text, true));
                                         }
                                         else
                                         {
                                             // No configuration for this version found. Create new directory.
 
                                             // If desired config is different then last config, backup directory.
-                                            if (lastGameVersion != currentVersion && lastGameVersion != "0.0.0.0")
+                                            if (lastGameVersion != itemRow.SubItems[0].Text && lastGameVersion != "0.0.0.0")
                                             {
                                                 // Rename the existing config to its previous version.
                                                 await Task.Run(() => RenameFolderAsync(configPath + @"\Terraria", configPath + @"\Terraria-v" + lastGameVersion));
@@ -1395,7 +1395,7 @@ namespace TerrariaDepotDownloader
                                         using (StreamWriter writer = new StreamWriter(configPath + @"\TerrariaDepotDownloaderData.txt", false))
                                         {
                                             // Write the last loaded game version to file.
-                                            writer.WriteLine(currentVersion);
+                                            writer.WriteLine(itemRow.SubItems[0].Text);
 
                                             // Close the writer.
                                             writer.Close();
@@ -1404,67 +1404,16 @@ namespace TerrariaDepotDownloader
                                         // Log Item
                                         if (checkBox1.Checked)
                                         {
-                                            Console.WriteLine("Switched game config from Terraria-v" + lastGameVersion + " to Terraria-v" + currentVersion + "!");
+                                            // If last config was 0.0.0.0 state it as the original. // Dont log switching from and to same versions.
+                                            if (lastGameVersion != itemRow.SubItems[0].Text)
+                                                Console.WriteLine("Switched game config from Terraria" + ((lastGameVersion != "0.0.0.0") ? "-v" + lastGameVersion : "-Original") + " to Terraria-v" + itemRow.SubItems[0].Text + "!");
                                         }
                                     }
-                                    catch (Exception f) { MessageBox.Show(f.ToString()); }
-                                }
-                                else
-                                {
-                                    // Switch back to the original games config.
-                                    try
+                                    catch (Exception)
                                     {
-                                        // Ensure the desired config already exist.
-                                        if (!Directory.Exists(configPath + @"\Terraria-v" + lastGameVersion) && lastGameVersion != "0.0.0.0")
-                                        {
-                                            // Rename the existing config to its previous version.
-                                            await Task.Run(() => RenameFolderAsync(configPath + @"\Terraria", configPath + @"\Terraria-v" + lastGameVersion));
-
-                                            // Async delete directory.
-                                            await Task.Run(() => Directory.Delete(configPath + @"\Terraria", true));
-                                        }
-                                        else
-                                        {
-                                            // It already has a backup, ignore.
-
-                                            // Async delete directory.
-                                            if (lastGameVersion != "0.0.0.0")
-                                                await Task.Run(() => Directory.Delete(configPath + @"\Terraria", true));
-                                        }
-
-                                        // Restore the original directory.
-                                        // Check if the desired config folder exists or not.
-                                        if (Directory.Exists(configPath + @"\Terraria-Original"))
-                                        {
-                                            // Async file renaming.
-                                            await Task.Run(() => RenameFolderAsync(configPath + @"\Terraria-Original", configPath + @"\Terraria"));
-
-                                            // Async delete directory.
-                                            await Task.Run(() => Directory.Delete(configPath + @"\Terraria-Original", true));
-                                        }
-                                        else
-                                        {
-                                            // No defualt directory found. Create one.
-                                            await Task.Run(() => Directory.CreateDirectory(configPath + @"\Terraria"));
-                                        }
-
-                                        // Log last config loaded.
-                                        using (StreamWriter writer = new StreamWriter(configPath + @"\TerrariaDepotDownloaderData.txt", false))
-                                        {
-                                            // Write the last loaded game version to file.
-                                            writer.WriteLine("0.0.0.0");
-
-                                            // Close the writer.
-                                            writer.Close();
-                                        }
-
                                         // Log Item
-                                        if (checkBox1.Checked)
-                                        {
-                                            Console.WriteLine("Switched game config from Terraria-v" + currentVersion + " to Terraria-Original!");
-                                        }
+                                        Console.WriteLine("Failed to switch the game configs!");
                                     }
-                                    catch (Exception f) { MessageBox.Show(f.ToString()); }
                                 }
                                 #endregion
 
@@ -1586,67 +1535,16 @@ namespace TerrariaDepotDownloader
                                         // Log Item
                                         if (checkBox1.Checked)
                                         {
-                                            Console.WriteLine("Switched game config from Terraria-v" + lastGameVersion + " to Terraria-v" + itemRow.SubItems[0].Text + "!");
+                                            // If last config was 0.0.0.0 state it as the original. // Dont log switching from and to same versions.
+                                            if (lastGameVersion != itemRow.SubItems[0].Text)
+                                                Console.WriteLine("Switched game config from Terraria" + ((lastGameVersion != "0.0.0.0") ? "-v" + lastGameVersion : "-Original") + " to Terraria-v" + itemRow.SubItems[0].Text + "!");
                                         }
                                     }
-                                    catch (Exception f) { MessageBox.Show(f.ToString()); }
-                                }
-                                else
-                                {
-                                    // Switch back to the original games config.
-                                    try
+                                    catch (Exception)
                                     {
-                                        // Ensure the desired config already exist.
-                                        if (!Directory.Exists(configPath + @"\Terraria-v" + lastGameVersion) && lastGameVersion != "0.0.0.0")
-                                        {
-                                            // Rename the existing config to its previous version.
-                                            await Task.Run(() => RenameFolderAsync(configPath + @"\Terraria", configPath + @"\Terraria-v" + lastGameVersion));
-
-                                            // Async delete directory.
-                                            await Task.Run(() => Directory.Delete(configPath + @"\Terraria", true));
-                                        }
-                                        else
-                                        {
-                                            // It already has a backup, ignore.
-
-                                            // Async delete directory.
-                                            if (lastGameVersion != "0.0.0.0")
-                                                await Task.Run(() => Directory.Delete(configPath + @"\Terraria", true));
-                                        }
-
-                                        // Restore the original directory.
-                                        // Check if the desired config folder exists or not.
-                                        if (Directory.Exists(configPath + @"\Terraria-Original"))
-                                        {
-                                            // Async file renaming.
-                                            await Task.Run(() => RenameFolderAsync(configPath + @"\Terraria-Original", configPath + @"\Terraria"));
-
-                                            // Async delete directory.
-                                            await Task.Run(() => Directory.Delete(configPath + @"\Terraria-Original", true));
-                                        }
-                                        else
-                                        {
-                                            // No defualt directory found. Create one.
-                                            await Task.Run(() => Directory.CreateDirectory(configPath + @"\Terraria"));
-                                        }
-
-                                        // Log last config loaded.
-                                        using (StreamWriter writer = new StreamWriter(configPath + @"\TerrariaDepotDownloaderData.txt", false))
-                                        {
-                                            // Write the last loaded game version to file.
-                                            writer.WriteLine("0.0.0.0");
-
-                                            // Close the writer.
-                                            writer.Close();
-                                        }
-
                                         // Log Item
-                                        if (checkBox1.Checked)
-                                        {
-                                            Console.WriteLine("Switched game config from Terraria-v" + itemRow.SubItems[0].Text + " to Terraria-Original!");
-                                        }
+                                        Console.WriteLine("Failed to switch the game configs!");
                                     }
-                                    catch (Exception f) { MessageBox.Show(f.ToString()); }
                                 }
                                 #endregion
 
@@ -2367,17 +2265,28 @@ namespace TerrariaDepotDownloader
                             // Add the value under the new subkey.
                             newKey.SetValue(subKeyName, "1");
 
-                            // Close the registry.
-                            newKey.Close();
+                            // Do Logging If Enabled
+                            if (checkBox1.Checked)
+                            {
+                                Console.WriteLine("Successfully enabled the collectors edition!");
+                            }
                         }
                     }
                     else
                     {
-                        // The key already exists, just set the value.
-                        key.SetValue(subKeyName, "1");
+                        // Check if the value "Bunny" exists.
+                        object value = key.GetValue(subKeyName);
+                        if (value == null)
+                        {
+                            // The subkey doesn't exist, create it and set its value.
+                            key.SetValue(subKeyName, "1");
 
-                        // Close the registry.
-                        key.Close();
+                            // Do Logging If Enabled
+                            if (checkBox1.Checked)
+                            {
+                                Console.WriteLine("Successfully enabled the collectors edition!");
+                            }
+                        }
                     }
                 }
             }
@@ -2393,15 +2302,18 @@ namespace TerrariaDepotDownloader
                         // Add the value under the new subkey.
                         key.DeleteValue(subKeyName, false);
 
-                        // Close the registry key.
-                        key.Close();
+                        // Do Logging If Enabled
+                        if (checkBox1.Checked)
+                        {
+                            Console.WriteLine("Successfully disabled the collectors edition!");
+                        }
                     }
                 }
             }
         }
 
         // User separate configs for each verison.
-        private void CheckBox8_CheckedChanged(object sender, EventArgs e)
+        private async void CheckBox8_CheckedChanged(object sender, EventArgs e)
         {
             // Enable or Disable Tooltips
             if (checkBox8.Checked)
@@ -2413,6 +2325,73 @@ namespace TerrariaDepotDownloader
             {
                 // Disable Tooltips
                 Properties.Settings.Default.UseSeparateConfigs = false;
+
+                #region Load Defualt Configuration
+
+                // Define config directory path.
+                string configPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\My Games";
+                string lastGameVersion = "0.0.0.0";
+
+                // Switch back to the original games config.
+                try
+                {
+                    // Ensure the desired config already exist.
+                    if (!Directory.Exists(configPath + @"\Terraria-v" + lastGameVersion) && lastGameVersion != "0.0.0.0")
+                    {
+                        // Rename the existing config to its previous version.
+                        await Task.Run(() => RenameFolderAsync(configPath + @"\Terraria", configPath + @"\Terraria-v" + lastGameVersion));
+
+                        // Async delete directory.
+                        await Task.Run(() => Directory.Delete(configPath + @"\Terraria", true));
+                    }
+                    else
+                    {
+                        // It already has a backup, ignore.
+
+                        // Async delete directory.
+                        if (lastGameVersion != "0.0.0.0")
+                            await Task.Run(() => Directory.Delete(configPath + @"\Terraria", true));
+                    }
+
+                    // Restore the original directory.
+                    // Check if the desired config folder exists or not.
+                    if (Directory.Exists(configPath + @"\Terraria-Original"))
+                    {
+                        // Async file renaming.
+                        await Task.Run(() => RenameFolderAsync(configPath + @"\Terraria-Original", configPath + @"\Terraria"));
+
+                        // Async delete directory.
+                        await Task.Run(() => Directory.Delete(configPath + @"\Terraria-Original", true));
+                    }
+                    else
+                    {
+                        // No defualt directory found. Create one.
+                        await Task.Run(() => Directory.CreateDirectory(configPath + @"\Terraria"));
+                    }
+
+                    // Log Item
+                    if (checkBox1.Checked)
+                    {
+                        if (lastGameVersion != "0.0.0.0")
+                            Console.WriteLine("Switched game config from Terraria-v" + lastGameVersion + " to Terraria-Original!");
+                    }
+
+                    // Log last config loaded.
+                    using (StreamWriter writer = new StreamWriter(configPath + @"\TerrariaDepotDownloaderData.txt", false))
+                    {
+                        // Write the last loaded game version to file.
+                        writer.WriteLine("0.0.0.0");
+
+                        // Close the writer.
+                        writer.Close();
+                    }
+                }
+                catch (Exception)
+                {
+                    // Log Item
+                    Console.WriteLine("Failed to switch the game configs!");
+                }
+                #endregion
             }
         }
         #endregion
