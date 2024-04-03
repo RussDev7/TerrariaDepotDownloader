@@ -2332,6 +2332,25 @@ namespace TerrariaDepotDownloader
                 string configPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\My Games";
                 string lastGameVersion = "0.0.0.0";
 
+                // Read the last loaded configuration version.
+                if (File.Exists(configPath + @"\TerrariaDepotDownloaderData.txt"))
+                {
+                    // Open the file for reading
+                    using (StreamReader reader = new StreamReader(configPath + @"\TerrariaDepotDownloaderData.txt"))
+                    {
+                        // Read the first line.
+                        lastGameVersion = reader.ReadLine();
+
+                        // Close the reader.
+                        reader.Close();
+                    }
+                }
+                else
+                {
+                    // No data file found. Create new file.
+                    await Task.Run(() => File.Create(configPath + @"\TerrariaDepotDownloaderData.txt"));
+                }
+
                 // Switch back to the original games config.
                 try
                 {
