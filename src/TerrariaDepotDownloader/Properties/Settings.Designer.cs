@@ -142,5 +142,17 @@ namespace TerrariaDepotDownloader.Properties {
                 this["DarkMode"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool UseSeparateConfigs {
+            get {
+                return ((bool)(this["UseSeparateConfigs"]));
+            }
+            set {
+                this["UseSeparateConfigs"] = value;
+            }
+        }
     }
 }
