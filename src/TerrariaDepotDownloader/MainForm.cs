@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Security.Cryptography;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,6 +23,9 @@ namespace TerrariaDepotDownloader
         private static readonly string HelloThere = "Hello There Fellow Decompiler, This Program Was Made By Discord:dannyruss (xXCrypticNightXx).";
 
         #region Form Load
+
+        // Define encryption key. // Uses the user.config file path as a key string.
+        readonly string EncryptionKey = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.PerUserRoamingAndLocal).ToString();
 
         public MainForm()
         {
@@ -138,8 +144,8 @@ namespace TerrariaDepotDownloader
             }
 
             // Load Steam Textbox Data
-            textBox2.Text = Properties.Settings.Default.SteamUser;
-            textBox3.Text = Properties.Settings.Default.SteamPass;
+            textBox2.Text = IsBase64String(Properties.Settings.Default.SteamUser) ? DecryptString(Properties.Settings.Default.SteamUser, EncryptionKey) : ""; // Decrypt username. Return blank if invalid key.
+            textBox3.Text = IsBase64String(Properties.Settings.Default.SteamPass) ? DecryptString(Properties.Settings.Default.SteamPass, EncryptionKey) : ""; // Decrypt password. Return blank if invalid key.
 
             // Create Depot Folder
             if (!Directory.Exists(Application.StartupPath + @"\TerrariaDepots"))
@@ -506,8 +512,8 @@ namespace TerrariaDepotDownloader
             }
 
             // Gather Steam Data
-            Properties.Settings.Default.SteamUser = textBox2.Text;
-            Properties.Settings.Default.SteamPass = textBox3.Text;
+            Properties.Settings.Default.SteamUser = EncryptString(textBox2.Text, EncryptionKey); // Encrypt username.
+            Properties.Settings.Default.SteamPass = EncryptString(textBox3.Text, EncryptionKey); // Encrypt password.
 
             // Save Settings
             Properties.Settings.Default.Save();
@@ -520,8 +526,8 @@ namespace TerrariaDepotDownloader
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             // Gather Steam Data
-            Properties.Settings.Default.SteamUser = textBox2.Text;
-            Properties.Settings.Default.SteamPass = textBox3.Text;
+            Properties.Settings.Default.SteamUser = EncryptString(textBox2.Text, EncryptionKey); // Encrypt username.
+            Properties.Settings.Default.SteamPass = EncryptString(textBox3.Text, EncryptionKey); // Encrypt password.
 
             // Save Settings
             Properties.Settings.Default.Save();
@@ -541,8 +547,8 @@ namespace TerrariaDepotDownloader
         private void ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             // Gather Steam Data
-            Properties.Settings.Default.SteamUser = textBox2.Text;
-            Properties.Settings.Default.SteamPass = textBox3.Text;
+            Properties.Settings.Default.SteamUser = EncryptString(textBox2.Text, EncryptionKey); // Encrypt username.
+            Properties.Settings.Default.SteamPass = EncryptString(textBox3.Text, EncryptionKey); // Encrypt password.
 
             // Save Settings
             Properties.Settings.Default.Save();
@@ -2411,6 +2417,117 @@ namespace TerrariaDepotDownloader
                     Console.WriteLine("Failed to switch the game configs!");
                 }
                 #endregion
+            }
+        }
+        #endregion
+
+        #region Password Manager
+
+        // Encrypts a string using AES encryption with a given key.
+        public static string EncryptString(string plainText, string key)
+        {
+            byte[] encryptedBytes;
+            using (Aes aesAlg = Aes.Create())
+            {
+                // Derive a fixed-size key from the input key using PBKDF2.
+                aesAlg.Key = DeriveKey(key, aesAlg.KeySize / 8);
+                aesAlg.GenerateIV(); // Generate a random initialization vector (IV).
+
+                // Create an encryptor to perform the stream transform.
+                ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
+
+                // Create the streams used for encryption.
+                using (MemoryStream msEncrypt = new MemoryStream())
+                {
+                    // Prepend the IV to the encrypted bytes.
+                    msEncrypt.Write(aesAlg.IV, 0, aesAlg.IV.Length);
+                    using (CryptoStream csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
+                    {
+                        using (StreamWriter swEncrypt = new StreamWriter(csEncrypt))
+                        {
+                            // Write the plaintext data to the stream, which gets encrypted.
+                            swEncrypt.Write(plainText);
+                        }
+                    }
+                    // Get the encrypted bytes from the memory stream.
+                    encryptedBytes = msEncrypt.ToArray();
+                }
+            }
+            // Return the encrypted bytes as a base64 encoded string.
+            return Convert.ToBase64String(encryptedBytes);
+        }
+
+        // Decrypts a string encrypted with AES encryption using a given key.
+        static string DecryptString(string cipherText, string key)
+        {
+            try
+            {
+                // Convert the base64 encoded ciphertext to bytes.
+                byte[] cipherTextBytes = Convert.FromBase64String(cipherText);
+                string plaintext;
+
+                // Create a new AES instance.
+                using (Aes aesAlg = Aes.Create())
+                {
+                    // Derive the encryption key using PBKDF2.
+                    aesAlg.Key = DeriveKey(key, aesAlg.KeySize / 8);
+
+                    // Extract the initialization vector (IV) from the beginning of the ciphertext.
+                    byte[] iv = new byte[aesAlg.BlockSize / 8];
+                    Array.Copy(cipherTextBytes, iv, iv.Length);
+                    aesAlg.IV = iv;
+
+                    // Create a decryptor to perform the decryption operation.
+                    ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);
+
+                    // Create streams for decryption.
+                    using (MemoryStream msDecrypt = new MemoryStream(cipherTextBytes, iv.Length, cipherTextBytes.Length - iv.Length))
+                    {
+                        using (CryptoStream csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read))
+                        {
+                            using (StreamReader srDecrypt = new StreamReader(csDecrypt))
+                            {
+                                // Read the decrypted plaintext from the stream.
+                                plaintext = srDecrypt.ReadToEnd();
+                            }
+                        }
+                    }
+                }
+                // Return the decrypted plaintext.
+                return plaintext;
+            }
+            catch (Exception)
+            {
+                // Return a blank string if decryption fails.
+                return string.Empty;
+            }
+        }
+
+        // Derive a fixed-size key from the input key using PBKDF2.
+        static byte[] DeriveKey(string key, int keySize)
+        {
+            const int iterations = 10000; // Number of iterations for PBKDF2.
+            byte[] salt = Encoding.UTF8.GetBytes("salt123456"); // Salt should be at least 8 bytes.
+            using (Rfc2898DeriveBytes pbkdf2 = new Rfc2898DeriveBytes(key, salt, iterations))
+            {
+                return pbkdf2.GetBytes(keySize);
+            }
+        }
+
+        // Function to check if a string is base64 encoded.
+        public static bool IsBase64String(string base64String)
+        {
+            try
+            {
+                // Decoding the base64 string.
+                byte[] data = Convert.FromBase64String(base64String);
+                // If decoding succeeds, then it's a valid base64 string.
+                return true;
+            }
+            catch (FormatException)
+            {
+                // If decoding fails, then it's not a valid base64 string.
+                return false;
             }
         }
         #endregion
