@@ -54,9 +54,27 @@ namespace TerrariaDepotDownloader
             var dotnet86SDK = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + @"\dotnet\sdk";
             var dotnet64SDK = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + @"\dotnet\sdk";
 
+            // Initiate the log.
+            try
+            {
+                // Open the file in append mode using StreamWriter.
+                using (StreamWriter writer = new StreamWriter(Application.StartupPath + @"\TDD-Log.txt", true))
+                {
+                    // Write the character to the file.
+                    await writer.WriteLineAsync("[" + DateTime.Now.ToString("h:ss:ff tt") + "] " + "TerrariaDepotDownloader Initiated.");
+                    await writer.WriteLineAsync("==================================================");
+                }
+            }
+            catch (Exception)
+            { }
+
             // Check If A Single Paths Exists
             if (!Directory.Exists(dotnet86) && !Directory.Exists(dotnet64) && !Directory.Exists(dotnet86SDK) && !Directory.Exists(dotnet64SDK))
             {
+                // Write error.
+                Console.WriteLine(".NET 6.0 Is Required! Please Install And Try Agian. \n \n https://dotnet.microsoft.com/download/dotnet/6.0");
+
+                // Display error.
                 MessageBox.Show(".NET 6.0 Is Required! Please Install And Try Agian. \n \n https://dotnet.microsoft.com/download/dotnet/6.0", "ERROR: TerrariaDepotDownloader v" + FileVersionInfo.GetVersionInfo(Path.GetFileName(System.Windows.Forms.Application.ExecutablePath)).FileVersion, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
                 // Close Application

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using System.Windows.Forms;
 
 namespace TerrariaDepotDownloader
 {
@@ -16,17 +17,23 @@ namespace TerrariaDepotDownloader
             {
                 // create the ProcessStartInfo using "cmd" as the program to be run, and "/c " as the parameters.
                 // Incidentally, /c tells cmd that we want it to execute the command that follows, and then exit.
-                System.Diagnostics.ProcessStartInfo procStartInfo = new System.Diagnostics.ProcessStartInfo("cmd", "/c " + command);
-                // The following commands are needed to redirect the standard output. 
-                // This means that it will be redirected to the Process.StandardOutput StreamReader.
-                procStartInfo.RedirectStandardOutput = false;
-                procStartInfo.RedirectStandardError = false;
-                procStartInfo.UseShellExecute = false;
-                // Do not create the black window.
-                procStartInfo.CreateNoWindow = false;
-                // Now we create a process, assign its ProcessStartInfo and start it
-                System.Diagnostics.Process proc = new System.Diagnostics.Process();
-                proc.StartInfo = procStartInfo;
+                System.Diagnostics.ProcessStartInfo procStartInfo = new System.Diagnostics.ProcessStartInfo("cmd", "/c " + command)
+                {
+                    // The following commands are needed to redirect the standard output. 
+                    // This means that it will be redirected to the Process.StandardOutput StreamReader.
+                    RedirectStandardOutput = false,
+                    RedirectStandardError = false,
+                    UseShellExecute = false,
+
+                    // Do not create the black window.
+                    CreateNoWindow = false
+                };
+
+                // Now we create a process, assign its ProcessStartInfo and start it.
+                System.Diagnostics.Process proc = new System.Diagnostics.Process
+                {
+                    StartInfo = procStartInfo
+                };
                 proc.Start();
 
                 // Get the output into a string
@@ -51,11 +58,15 @@ namespace TerrariaDepotDownloader
             try
             {
                 //Asynchronously start the Thread to process the Execute command request.
-                Thread objThread = new Thread(new ParameterizedThreadStart(ExecuteCommandSync));
-                //Make the thread as background thread.
-                objThread.IsBackground = true;
-                //Set the Priority of the thread.
-                objThread.Priority = ThreadPriority.AboveNormal;
+                Thread objThread = new Thread(new ParameterizedThreadStart(ExecuteCommandSync))
+                {
+                    //Make the thread as background thread.
+                    IsBackground = true,
+
+                    //Set the Priority of the thread.
+                    Priority = ThreadPriority.AboveNormal
+                };
+
                 //Start the thread.
                 objThread.Start(command);
             }

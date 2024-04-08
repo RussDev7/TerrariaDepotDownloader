@@ -9,14 +9,27 @@ namespace TerrariaDepotDownloader
 {
     public class ControlWriter : TextWriter
     {
-        private Control textbox;
+        private readonly Control textbox;
         public ControlWriter(Control textbox)
         {
             this.textbox = textbox;
         }
 
-        public override void Write(char value)
+        public async override void Write(char value)
         {
+            // Append each character to the file.
+            try
+            {
+                // Open the file in append mode using StreamWriter.
+                using (StreamWriter writer = new StreamWriter(Application.StartupPath + @"\TDD-Log.txt", true))
+                {
+                    // Write the character to the file.
+                    await writer.WriteAsync(value);
+                }
+            }
+            catch (Exception)
+            { }
+
             textbox.Text += value;
         }
 
@@ -33,7 +46,7 @@ namespace TerrariaDepotDownloader
 
     public class MultiTextWriter : TextWriter
     {
-        private IEnumerable<TextWriter> writers;
+        private readonly IEnumerable<TextWriter> writers;
         public MultiTextWriter(IEnumerable<TextWriter> writers)
         {
             this.writers = writers.ToList();
