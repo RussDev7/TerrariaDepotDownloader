@@ -134,16 +134,26 @@ For some people, steam will try to keep Terraria up to date automatically. This 
   </details>
 </details>
 <details><summary>Changelog</summary>
-
+  
+    v1.8.5.7
+     - Fixed button UI for NA depot items.
+     - Fixed steam default location issues.
+     - Unofficial patch installations are now async.
+     - Added an option to enable or disable collectors edition.
+     - Added an option to use separate configs for each version.
+     - Stored steam usernames and passwords are now encrypted.
+     - Added an external log.
+     
     v1.8.5.6
      - Fixed "overwrite steam directory" is now "use steam directory".
      - Fixed issues that existed in the old vs new config by bumping config version.
      - Fixed the "Remove game" buttons for "Use steam directory".
+     
     v1.8.5.5
      - Added an "Use Steam Directory" checkbox to fix "Please launch the game from your steam client".
      - Added dark mode theme.
      - Fixed refreshing not disabling the download button.
-
+     
     v​1.8.5.4
      - Added the ability to download via GitHub links.
      - Added resilience to non-default install locations.
@@ -151,7 +161,7 @@ For some people, steam will try to keep Terraria up to date automatically. This 
      - Fixed intelsense project warning messages.
      - Updated decompiler messages.
      - Fixed some GUI text.
-
+     
     v1.8.5.3
      - Fixed an issue where the launch button was not correctly launching desired versions.
      
