@@ -219,7 +219,7 @@ For some people, steam will try to keep Terraria up to date automatically. This 
 
 - [Forums Link](https://forums.terraria.org/index.php?threads/terrariadepotdownloader-downgrade-to-any-version.107519/)
 - [Startup Guide](https://forums.terraria.org/index.php?threads/terrariadepotdownloader-downgrade-to-any-version.107519/)
-- [Discord](https://discord.gg/fEK6eE7W)
+- [Discord](https://discord.gg/6vxutTGxFb)
 
 ## Download
 
