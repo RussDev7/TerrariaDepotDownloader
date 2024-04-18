@@ -143,6 +143,7 @@ For some people, steam will try to keep Terraria up to date automatically. This 
      - Added an option to use separate configs for each version.
      - Stored steam usernames and passwords are now encrypted.
      - Added an external log.
+     - Fixed outdated code for removing apps via the toolstrip.
      
     v1.8.5.6
      - Fixed "overwrite steam directory" is now "use steam directory".
