@@ -2148,7 +2148,7 @@ namespace TerrariaDepotDownloader
                     // Log Item
                     if (checkBox1.Checked)
                     {
-                        Console.WriteLine("Use steam directory mode cancled.");
+                        Console.WriteLine("Use steam directory mode cancelled!");
                     }
                     ReloadList();
                 }
