@@ -58,7 +58,7 @@ namespace TerrariaDepotDownloader
             try
             {
                 // Open the file in append mode using StreamWriter.
-                using (StreamWriter writer = new StreamWriter(Application.StartupPath + @"\TDD-Log.txt", true))
+                using (StreamWriter writer = new StreamWriter(Application.StartupPath + @"\Log.txt", true))
                 {
                     // Write the character to the file.
                     await writer.WriteLineAsync("[" + DateTime.Now.ToString("h:ss:ff tt") + "] " + "TerrariaDepotDownloader Initiated.");
