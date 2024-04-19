@@ -613,18 +613,47 @@ namespace TerrariaDepotDownloader
         {
             try
             {
-                // Open Folder
-                Process.Start(Properties.Settings.Default.DepotPath);
+                // Check if use steam directory is enabled. // Fix: v1.8.5.7.
+                if (checkBox2.Checked)
+                {
+                    // Define folder path.
+                    string folderPath = Properties.Settings.Default.DepotPath;
+
+                    if (folderPath.EndsWith("\\Terraria"))
+                    {
+                        // Remove the last directory from the string.
+                        folderPath = folderPath.Replace("\\Terraria", "");
+
+                        // Open steam depot path folder.
+                        Process.Start(folderPath);
+                    }
+                    else
+                    {
+                        // Log error.
+                        if (checkBox1.Checked)
+                        {
+                            Console.WriteLine("Could not find the steam directory. Launching defualt path instead.");
+                        }
+
+                        // Open defualt depot path folder.
+                        Process.Start(Properties.Settings.Default.DepotPath);
+                    }
+                }
+                else
+                {
+                    // Open defualt depot path folder.
+                    Process.Start(Properties.Settings.Default.DepotPath);
+                }
 
                 // Log Action
                 if (checkBox1.Checked)
                 {
-                    Console.WriteLine("Opened depot directory");
+                    Console.WriteLine("Opened depot directory.");
                 }
             }
             catch (Win32Exception win32Exception)
             {
-                //The system cannot find the file specified...
+                // The system cannot find the file specified.
                 Console.WriteLine(win32Exception.Message);
             }
         }
