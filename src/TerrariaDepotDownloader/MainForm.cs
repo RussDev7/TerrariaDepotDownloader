@@ -61,7 +61,7 @@ namespace TerrariaDepotDownloader
                 using (StreamWriter writer = new StreamWriter(Application.StartupPath + @"\Log.txt", true))
                 {
                     // Write the character to the file.
-                    await writer.WriteLineAsync("[" + DateTime.Now.ToString("h:ss:ff tt") + "] " + "TerrariaDepotDownloader Initiated.");
+                    await writer.WriteLineAsync("[" + DateTime.Now.ToString("h:mm:ss tt") + "] " + "TerrariaDepotDownloader Initiated.");
                     await writer.WriteLineAsync("==================================================");
                 }
             }
