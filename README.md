@@ -144,6 +144,7 @@ For some people, steam will try to keep Terraria up to date automatically. This 
      - Stored steam usernames and passwords are now encrypted.
      - Added an external log.
      - Fixed outdated code for removing apps via the toolstrip.
+     - Fixed "Open Depots" not launching the correct directory if steam-dir was enabled.
      
     v1.8.5.6
      - Fixed "overwrite steam directory" is now "use steam directory".
