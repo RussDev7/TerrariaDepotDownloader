@@ -26,6 +26,7 @@ copy ".\src\TerrariaDepotDownloader\DepotDownloader\protobuf-net.dll" ".\release
 copy ".\src\TerrariaDepotDownloader\DepotDownloader\SteamKit2.dll" ".\release\%filename%\"
 copy ".\src\TerrariaDepotDownloader\DepotDownloader\DepotDownloader.runtimeconfig.json" ".\release\%filename%\"
 copy ".\src\TerrariaDepotDownloader\DepotDownloader\DepotDownloader.deps.json" ".\release\%filename%\"
+copy ".\src\TerrariaDepotDownloader\DepotDownloader\System.IO.Hashing.dll" ".\release\%filename%\"
 
 Rem | Clean Up Files
 del /f /q /s ".\release\*.xml"
