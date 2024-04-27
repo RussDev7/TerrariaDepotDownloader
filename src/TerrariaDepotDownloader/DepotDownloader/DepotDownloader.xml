@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DepotDownloader</name>
+    </assembly>
+    <members>
+        <member name="T:DepotDownloader.CDNClientPool">
+            <summary>
+            CDNClientPool provides a pool of connections to CDN endpoints, requesting CDN tokens as needed
+            </summary>
+        </member>
+        <member name="P:DepotDownloader.ProtoManifest.FileData.Chunks">
+            <summary>
+            Gets the chunks that this file is composed of.
+            </summary>
+        </member>
+        <member name="P:DepotDownloader.ProtoManifest.FileData.Flags">
+            <summary>
+            Gets the file flags
+            </summary>
+        </member>
+        <member name="P:DepotDownloader.ProtoManifest.FileData.TotalSize">
+            <summary>
+            Gets the total size of this file.
+            </summary>
+        </member>
+        <member name="P:DepotDownloader.ProtoManifest.FileData.FileHash">
+            <summary>
+            Gets the hash of this file.
+            </summary>
+        </member>
+        <member name="P:DepotDownloader.ProtoManifest.ChunkData.ChunkID">
+            <summary>
+            Gets the SHA-1 hash chunk id.
+            </summary>
+        </member>
+        <member name="P:DepotDownloader.ProtoManifest.ChunkData.Checksum">
+            <summary>
+            Gets the expected Adler32 checksum of this chunk.
+            </summary>
+        </member>
+        <member name="P:DepotDownloader.ProtoManifest.ChunkData.Offset">
+            <summary>
+            Gets the chunk offset.
+            </summary>
+        </member>
+        <member name="P:DepotDownloader.ProtoManifest.ChunkData.CompressedLength">
+            <summary>
+            Gets the compressed length of this chunk.
+            </summary>
+        </member>
+        <member name="P:DepotDownloader.ProtoManifest.ChunkData.UncompressedLength">
+            <summary>
+            Gets the decompressed length of this chunk.
+            </summary>
+        </member>
+    </members>
+</doc>
