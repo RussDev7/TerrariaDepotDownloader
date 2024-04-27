@@ -76,8 +76,8 @@
     <Reference Include="DotNetZip, Version=1.16.0.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
       <HintPath>..\packages\DotNetZip.1.16.0\lib\net40\DotNetZip.dll</HintPath>
     </Reference>
-    <Reference Include="Octokit, Version=11.0.1.0, Culture=neutral, PublicKeyToken=0be8860aee462442, processorArchitecture=MSIL">
-      <HintPath>..\packages\Octokit.11.0.1\lib\netstandard2.0\Octokit.dll</HintPath>
+    <Reference Include="Octokit, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Octokit.1.0.1\lib\net46\Octokit.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <Private>False</Private>
