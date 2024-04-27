@@ -48,12 +48,6 @@ namespace TerrariaDepotDownloader
         public ToolTip Tooltips = new ToolTip();
         private async void Form1_Load(object sender, EventArgs e)
         {
-            // Varify .NET 6.0 Or Later Exists - Update 1.8.3
-            var dotnet86 = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + @"\dotnet\host\fxr";
-            var dotnet64 = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + @"\dotnet\host\fxr";
-            var dotnet86SDK = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + @"\dotnet\sdk";
-            var dotnet64SDK = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + @"\dotnet\sdk";
-
             // Initiate the log.
             try
             {
@@ -68,14 +62,22 @@ namespace TerrariaDepotDownloader
             catch (Exception)
             { }
 
+            #region Load .NET
+
+            // Varify .NET 8.0 Or Later Exists - Update 1.8.3
+            var dotnet86 = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + @"\dotnet\host\fxr";
+            var dotnet64 = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + @"\dotnet\host\fxr";
+            var dotnet86SDK = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + @"\dotnet\sdk";
+            var dotnet64SDK = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + @"\dotnet\sdk";
+
             // Check If A Single Paths Exists
             if (!Directory.Exists(dotnet86) && !Directory.Exists(dotnet64) && !Directory.Exists(dotnet86SDK) && !Directory.Exists(dotnet64SDK))
             {
                 // Write error.
-                Console.WriteLine(".NET 6.0 Is Required! Please Install And Try Agian. \n \n https://dotnet.microsoft.com/download/dotnet/6.0");
+                Console.WriteLine(".NET 8.0 Is Required! Please Install And Try Agian. \n \n https://dotnet.microsoft.com/download/dotnet/6.0");
 
                 // Display error.
-                MessageBox.Show(".NET 6.0 Is Required! Please Install And Try Agian. \n \n https://dotnet.microsoft.com/download/dotnet/6.0", "ERROR: TerrariaDepotDownloader v" + FileVersionInfo.GetVersionInfo(Path.GetFileName(System.Windows.Forms.Application.ExecutablePath)).FileVersion, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                MessageBox.Show(".NET 8.0 Is Required! Please Install And Try Agian. \n \n https://dotnet.microsoft.com/download/dotnet/6.0", "ERROR: TerrariaDepotDownloader v" + FileVersionInfo.GetVersionInfo(Path.GetFileName(System.Windows.Forms.Application.ExecutablePath)).FileVersion, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
                 // Close Application
                 Application.Exit();
@@ -84,61 +86,41 @@ namespace TerrariaDepotDownloader
             // Check Value
             try
             {
-                // Create A List For Versions
+                // Create A List For Versions.
                 List<String> versionList = new List<string> { };
 
-                // Check If x86 Path Exists
-                if (Directory.Exists(dotnet86))
+                // Combine all paths.
+                string[] allPaths = { dotnet86, dotnet64, dotnet86SDK, dotnet64SDK };
+
+                // Iterate through each path.
+                foreach (string path in allPaths)
                 {
-                    // Add Folder Names To List
-                    foreach (string version in Directory.GetDirectories(dotnet86).Select(Path.GetFileName).ToArray())
+                    if (Directory.Exists(path))
                     {
-                        // Remove Any "-" From Name
-                        versionList.Add(version.Split('-')[0]);
+                        // Add Folder Names To List.
+                        foreach (string version in Directory.GetDirectories(path))
+                        {
+                            // Get the last part of the directory path which is the version number.
+                            string versionName = new DirectoryInfo(version).Name;
+
+                            // Remove Any "-" From Name.
+                            versionList.Add(versionName.Split('-')[0]);
+                        }
                     }
                 }
 
-                // Check If x64 Path Exists
-                if (Directory.Exists(dotnet64))
-                {
-                    // Add Folder Names To List
-                    foreach (string version in Directory.GetDirectories(dotnet64).Select(Path.GetFileName).ToArray())
-                    {
-                        // Remove Any "-" From Name
-                        versionList.Add(version.Split('-')[0]);
-                    }
-                }
+                // Debugging; Show each avaliable .net version.
+                // Console.WriteLine(".NET Versions: " + String.Join(", ", versionList.ToArray()));
 
-                // Check If x86 SDK Path Exists
-                if (Directory.Exists(dotnet86SDK))
-                {
-                    // Add Folder Names To List
-                    foreach (string version in Directory.GetDirectories(dotnet86SDK).Select(Path.GetFileName).ToArray())
-                    {
-                        // Remove Any "-" From Name
-                        versionList.Add(version.Split('-')[0]);
-                    }
-                }
-
-                // Check If x64 SDK Path Exists
-                if (Directory.Exists(dotnet64SDK))
-                {
-                    // Add Folder Names To List
-                    foreach (string version in Directory.GetDirectories(dotnet64SDK).Select(Path.GetFileName).ToArray())
-                    {
-                        // Remove Any "-" From Name
-                        versionList.Add(version.Split('-')[0]);
-                    }
-                }
-
-                // Check If Version Is Above or Equal 6.0.0
-                if (!versionList.Any(x => Version.Parse(x) >= Version.Parse("6.0.0")))
+                // Check If Version Is Above or Equal 8.0.0 // Depot DL 2.6.0 API is now .net 8.0.
+                var maxVersion = versionList.Select(v => Version.Parse(v)).Max();
+                if (maxVersion < new Version("8.0.0"))
                 {
                     // Log .NET Version
                     Console.WriteLine("ERROR: Highest .NET version found: " + versionList.Max());
 
                     // Version Not Found
-                    MessageBox.Show(".NET 6.0+ is required! Please install and try agian. \n \n https://dotnet.microsoft.com/download/dotnet/6.0 \n \n Highest .NET version found: " + versionList.Max(), "ERROR: TerrariaDepotDownloader v" + FileVersionInfo.GetVersionInfo(Path.GetFileName(System.Windows.Forms.Application.ExecutablePath)).FileVersion, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    MessageBox.Show(".NET 8.0+ is required! Please install and try agian. \n \n https://dotnet.microsoft.com/download/dotnet/8.0 \n \n Highest .NET version found: " + versionList.Max(), "ERROR: TerrariaDepotDownloader v" + FileVersionInfo.GetVersionInfo(Path.GetFileName(System.Windows.Forms.Application.ExecutablePath)).FileVersion, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
                     // Close Application
                     Application.Exit();
@@ -160,6 +142,9 @@ namespace TerrariaDepotDownloader
                 // Close Application
                 Application.Exit();
             }
+            #endregion
+
+            #region Load Controls
 
             // Load Steam Textbox Data
             textBox2.Text = IsBase64String(Properties.Settings.Default.SteamUser) ? DecryptString(Properties.Settings.Default.SteamUser, EncryptionKey) : ""; // Decrypt username. Return blank if invalid key.
@@ -237,6 +222,10 @@ namespace TerrariaDepotDownloader
             checkBox5.Checked = Properties.Settings.Default.SaveLogin;
             checkBox8.Checked = Properties.Settings.Default.UseSeparateConfigs;
 
+            #endregion
+
+            #region Load Collectors Edition
+
             // Check if collectors edition is already enabled.
 
             // Define the registry paths.
@@ -279,6 +268,9 @@ namespace TerrariaDepotDownloader
                     checkBox7.Checked = false;
                 }
             }
+            #endregion
+
+            #region Load Tooltips
 
             // Add Tooltips - Update 1.8.5
             Tooltips.InitialDelay = 1000;
@@ -300,7 +292,7 @@ namespace TerrariaDepotDownloader
             Tooltips.SetToolTip(checkBox6, "Enable or disable the dark mode theme");
             Tooltips.SetToolTip(checkBox7, "Enable or disable the collectors edition");
             Tooltips.SetToolTip(checkBox8, "Use a separate config folder for each game version");
-
+           
             // Enable or Disable Tooltips
             if (checkBox3.Checked)
             {
@@ -312,6 +304,9 @@ namespace TerrariaDepotDownloader
                 // Disable Tooltips
                 Tooltips.Active = false;
             }
+            #endregion
+
+            #region Update Buttons
 
             // Update Buttons
             // button6.Enabled = Properties.Settings.Default.PathChangeEnabled;
@@ -378,22 +373,30 @@ namespace TerrariaDepotDownloader
             // Reload List
             ReloadList();
 
+            #endregion
+
+            #region Check For API Updates
+
             // Check For Updates
             if (!Properties.Settings.Default.SkipUpdate)
             {
                 try
                 {
-                    // Check Github For DepotDownloader Update
+                    // Check Github For DepotDownloader Update.
                     Octokit.GitHubClient client = new Octokit.GitHubClient(new Octokit.ProductHeaderValue("DepotDownloader"));
                     var releases = await client.Repository.Release.GetAll("SteamRE", "DepotDownloader");
                     var latestGithubRelease = releases[0].TagName;
 
-                    // Get Current DepotDownload.dll Version
+                    // Get Current DepotDownload.dll Version.
                     var currentVersionInfo = FileVersionInfo.GetVersionInfo(Application.StartupPath + @"\DepotDownloader.dll");
-                    // Console.WriteLine(latestGithubRelease.ToString() + " | " + "DepotDownloader_" + currentVersionInfo.ProductVersion.ToString());
+                    var currentFileVersion = new Version(currentVersionInfo.FileVersion);
+                    var currentFileVersionWithoutBuild = new Version(currentFileVersion.Major, currentFileVersion.Minor, currentFileVersion.Build); // Only consider major, minor, and build. Leave off revision.
+
+                    // Debugging; Compare both versions.
+                    // Console.WriteLine(latestGithubRelease.ToString() + " | " + "DepotDownloader_" + currentFileVersionWithoutBuild.ToString());
 
                     // Do Version Check
-                    if (latestGithubRelease.ToString() != "DepotDownloader_" + currentVersionInfo.ProductVersion.ToString())
+                    if (latestGithubRelease.ToString() != "DepotDownloader_" + currentFileVersionWithoutBuild.ToString())
                     {
                         // New Version Found
                         // Log Item
@@ -474,6 +477,7 @@ namespace TerrariaDepotDownloader
                     Console.WriteLine("DepotDownloader API new vesion check was skipped!");
                 }
             }
+            #endregion
         }
         #endregion
 
