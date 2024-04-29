@@ -19,7 +19,7 @@ Included in this application's directory is a file named `ManifestVersions.cfg`.
   
   ![custom-terraria-logo (1)](https://user-images.githubusercontent.com/33048298/203858054-033ec2e0-ac09-40a2-bda5-b42c7ccabe8e.png)
   
-  **Step 1)** Make sure you have [.NET 6.0 Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/6.0) installed on your computer.
+  **Step 1)** Make sure you have [.NET 8.0 Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) installed on your computer.
   
   ![05v2](https://user-images.githubusercontent.com/33048298/203858119-6d572a85-b2c9-40b0-bb35-1cc88b81b805.PNG)
   
@@ -67,7 +67,7 @@ Ensure both username & password are correct in the settings tab.
   ![USERANDPASS](https://user-images.githubusercontent.com/33048298/203860279-0def82b9-7d9d-4108-aee4-59998103e476.JPG)
 
 `Fix #2:`\
-Try installing [.NET 6.0 Runtime -> Run console apps](https://dotnet.microsoft.com/en-us/download/dotnet/6.0/runtime?cid=getdotnetcore).\
+Try installing [.NET 8.0 Runtime -> Run console apps](https://dotnet.microsoft.com/en-us/download/dotnet/8.0/runtime?cid=getdotnetcore).\
 IMPORTANT: Make sure to download the correct x64 / x86 version for your system.
     
    ![ConsoleApps](https://user-images.githubusercontent.com/33048298/203860302-f68c6761-2d78-490d-8133-c6e46d3b9d70.JPG)
@@ -200,7 +200,7 @@ For some people, steam will try to keep Terraria up to date automatically. This 
      - Loading application now checks for DepotDownloader API updates.
      - Overwrite Steam Directory bug not removing previous versions prior to installing a new copy.
      
-    v1.6.0 - v1.8.1
+    v1.8.0 - v1.8.1
      - Updated DepotDownloader API.
      - General bug fixes.
      
