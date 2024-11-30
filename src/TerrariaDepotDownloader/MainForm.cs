@@ -65,6 +65,7 @@ namespace TerrariaDepotDownloader
             #region Load .NET
 
             // Varify .NET 8.0 Or Later Exists - Update 1.8.3
+			// Varify .NET 9.0 Or Later Exists - Update 1.8.5.6
             var dotnet86 = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + @"\dotnet\host\fxr";
             var dotnet64 = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + @"\dotnet\host\fxr";
             var dotnet86SDK = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + @"\dotnet\sdk";
@@ -74,10 +75,10 @@ namespace TerrariaDepotDownloader
             if (!Directory.Exists(dotnet86) && !Directory.Exists(dotnet64) && !Directory.Exists(dotnet86SDK) && !Directory.Exists(dotnet64SDK))
             {
                 // Write error.
-                Console.WriteLine(".NET 8.0 Is Required! Please Install And Try Agian. \n \n https://dotnet.microsoft.com/download/dotnet/6.0");
+                Console.WriteLine(".NET 9.0 Is Required! Please Install And Try Agian. \n \n https://dotnet.microsoft.com/download/dotnet/9.0");
 
                 // Display error.
-                MessageBox.Show(".NET 8.0 Is Required! Please Install And Try Agian. \n \n https://dotnet.microsoft.com/download/dotnet/6.0", "ERROR: TerrariaDepotDownloader v" + FileVersionInfo.GetVersionInfo(Path.GetFileName(System.Windows.Forms.Application.ExecutablePath)).FileVersion, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                MessageBox.Show(".NET 9.0 Is Required! Please Install And Try Agian. \n \n https://dotnet.microsoft.com/download/dotnet/9.0", "ERROR: TerrariaDepotDownloader v" + FileVersionInfo.GetVersionInfo(Path.GetFileName(System.Windows.Forms.Application.ExecutablePath)).FileVersion, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
                 // Close Application
                 Application.Exit();
@@ -113,14 +114,15 @@ namespace TerrariaDepotDownloader
                 // Console.WriteLine(".NET Versions: " + String.Join(", ", versionList.ToArray()));
 
                 // Check If Version Is Above or Equal 8.0.0 // Depot DL 2.6.0 API is now .net 8.0.
+				// Check If Version Is Above or Equal 9.0.0 // Depot DL 2.7.4 API is now .net 9.0.
                 var maxVersion = versionList.Select(v => Version.Parse(v)).Max();
-                if (maxVersion < new Version("8.0.0"))
+                if (maxVersion < new Version("9.0.0"))
                 {
                     // Log .NET Version
                     Console.WriteLine("ERROR: Highest .NET version found: " + versionList.Max());
 
                     // Version Not Found
-                    MessageBox.Show(".NET 8.0+ is required! Please install and try agian. \n \n https://dotnet.microsoft.com/download/dotnet/8.0 \n \n Highest .NET version found: " + versionList.Max(), "ERROR: TerrariaDepotDownloader v" + FileVersionInfo.GetVersionInfo(Path.GetFileName(System.Windows.Forms.Application.ExecutablePath)).FileVersion, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    MessageBox.Show(".NET 9.0+ is required! Please install and try agian. \n \n https://dotnet.microsoft.com/download/dotnet/9.0 \n \n Highest .NET version found: " + versionList.Max(), "ERROR: TerrariaDepotDownloader v" + FileVersionInfo.GetVersionInfo(Path.GetFileName(System.Windows.Forms.Application.ExecutablePath)).FileVersion, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
                     // Close Application
                     Application.Exit();
