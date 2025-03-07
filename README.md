@@ -146,6 +146,7 @@ For some people, steam will try to keep Terraria up to date automatically. This 
      - Fixed outdated code for removing apps via the toolstrip.
      - Fixed "Open Depots" not launching the correct directory if steam-dir was enabled.
      - Fixed github downloads from deleting steams main terraria directory.
+     - Added a check for the required .NET version 9.0.X.
      
     v1.8.5.6
      - Fixed "overwrite steam directory" is now "use steam directory".
