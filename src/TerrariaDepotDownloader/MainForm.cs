@@ -2044,7 +2044,7 @@ namespace TerrariaDepotDownloader
                                     // Proceed to download through steam.
                                     String ManifestID = itemRow.SubItems[1].Text;
                                     String EscapedPassword = Regex.Replace(Password_TextBox.Text, @"[%|<>&^]", @"^$&"); // Escape Any CMD Special Characters If Any Exist // Update 1.8.5.2 Fix
-                                    String Arg = "dotnet " + "\"" + DLLLocation + "\"" + " -app 105600 -depot 105601 -manifest " + ManifestID + " -username " + AccountName_TextBox.Text + " -password " + EscapedPassword + " -dir " + "\"" + OutDir + "\"" + ((RememberLogin_CheckBox.Checked) ? " -remember-password" : "");
+                                    String Arg = "dotnet " + "\"" + DLLLocation + "\"" + " -app 105600 -depot 105601 -manifest " + ManifestID + " -username " + AccountName_TextBox.Text + " -password " + EscapedPassword + " -dir " + "\"" + Path.Combine(Properties.Settings.Default.DepotPath, "Terraria") + "\"" + ((RememberLogin_CheckBox.Checked) ? " -remember-password" : "");
 
                                     // Start Download
                                     try
@@ -2311,7 +2311,7 @@ namespace TerrariaDepotDownloader
                                 // Proceed to download through steam.
                                 String ManifestID = itemRow.SubItems[1].Text;
                                 String EscapedPassword = Regex.Replace(Password_TextBox.Text, @"[%|<>&^]", @"^$&"); // Escape Any CMD Special Characters If Any Exist // Update 1.8.5.2 Fix
-                                String Arg = "dotnet " + "\"" + DLLLocation + "\"" + " -app 105600 -depot 105601 -manifest " + ManifestID + " -username " + AccountName_TextBox.Text + " -password " + EscapedPassword + " -dir " + "\"" + OutDir + "\"" + ((RememberLogin_CheckBox.Checked) ? " -remember-password" : "");
+                                String Arg = "dotnet " + "\"" + DLLLocation + "\"" + " -app 105600 -depot 105601 -manifest " + ManifestID + " -username " + AccountName_TextBox.Text + " -password " + EscapedPassword + " -dir " + "\"" + Path.Combine(Properties.Settings.Default.DepotPath, "Terraria") + "\"" + ((RememberLogin_CheckBox.Checked) ? " -remember-password" : "");
 
                                 // Start Download
                                 try
