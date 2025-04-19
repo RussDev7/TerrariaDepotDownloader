@@ -138,15 +138,20 @@ For some people, steam will try to keep Terraria up to date automatically. This 
     v1.8.5.7
      - Fixed button UI for NA depot items.
      - Fixed steam default location issues.
-     - Unofficial patch installations are now async.
-     - Added an option to enable or disable collectors edition.
-     - Added an option to use separate configs for each version.
-     - Stored steam usernames and passwords are now encrypted.
-     - Added an external log.
      - Fixed outdated code for removing apps via the toolstrip.
      - Fixed "Open Depots" not launching the correct directory if steam-dir was enabled.
      - Fixed github downloads from deleting steams main terraria directory.
+     - Fixed issues with "Use Steam Directory" throwing manifest errors.
+     - Fixed "Use Steam Directory" throwing manifest errors.
+     - Fixed wrong tabindexes across multiple forms.
+     - Stored steam usernames and passwords are now encrypted.
+     - Unofficial patch installations are now async.
+     - Updated all controls across all forms with new names.
+     - Added an external log.
+     - Added an option to enable or disable collectors edition.
+     - Added an option to use separate configs for each version.
      - Added a check for the required .NET version 9.0.X.
+     - Completely rehauled and cleaned sections of the code.
      
     v1.8.5.6
      - Fixed "overwrite steam directory" is now "use steam directory".
