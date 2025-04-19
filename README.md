@@ -144,6 +144,7 @@ For some people, steam will try to keep Terraria up to date automatically. This 
      - Fixed issues with "Use Steam Directory" throwing manifest errors.
      - Fixed "Use Steam Directory" throwing manifest errors.
      - Fixed wrong tabindexes across multiple forms.
+     - Fixed typos across multiple forms.
      - Stored steam usernames and passwords are now encrypted.
      - Unofficial patch installations are now async.
      - Updated all controls across all forms with new names.
