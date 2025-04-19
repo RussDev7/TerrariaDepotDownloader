@@ -1,7 +1,7 @@
-﻿using System;
+﻿using System.Windows.Forms;
 using System.Diagnostics;
 using System.IO;
-using System.Windows.Forms;
+using System;
 
 namespace TerrariaDepotDownloader
 {
@@ -12,35 +12,40 @@ namespace TerrariaDepotDownloader
             InitializeComponent();
         }
 
+        #region Form Load
+
         // Update Stats
-        private void Form2_Load(object sender, EventArgs e)
+        private void About_Load(object sender, EventArgs e)
         {
-            label8.Text = FileVersionInfo.GetVersionInfo(Path.GetFileName(System.Windows.Forms.Application.ExecutablePath)).FileVersion; // Version
-            label7.Text = FileVersionInfo.GetVersionInfo(Path.GetFileName(System.Windows.Forms.Application.ExecutablePath)).LegalCopyright; // Copyright
+            VersionData_Label.Text = FileVersionInfo.GetVersionInfo(Path.GetFileName(System.Windows.Forms.Application.ExecutablePath)).FileVersion;    // Version.
+            CopyrightData_Label.Text = FileVersionInfo.GetVersionInfo(Path.GetFileName(System.Windows.Forms.Application.ExecutablePath)).LegalCopyright; // Copyright.
         }
+        #endregion
+
+        #region Form Controls
 
         // Discord Link
-        private void LinkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void Author_LinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            linkLabel2.LinkVisited = true;
+            Author_LinkLabel.LinkVisited = true;
             System.Diagnostics.Process.Start("https://discordapp.com/users/840645038466793498/");
         }
 
         // Game Thread
-        private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void GameThread_LinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            linkLabel1.LinkVisited = true;
+            GameThread_LinkLabel.LinkVisited = true;
             System.Diagnostics.Process.Start("https://forums.terraria.org/index.php?threads/terrariadepotdownloader-downgrade-to-any-version.107519/");
         }
 
         // Close Form2
-        private void Button1_Click(object sender, EventArgs e)
+        private void Ok_Button_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
         // Donate
-        private void Button2_Click(object sender, EventArgs e)
+        private void Donate_Button_Click(object sender, EventArgs e)
         {
             string url = "";
             string business = "imthedude030@gmail.com";
@@ -63,5 +68,6 @@ namespace TerrariaDepotDownloader
             });
             Process.Start(url);
         }
+        #endregion
     }
 }

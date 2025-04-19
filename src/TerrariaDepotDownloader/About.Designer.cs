@@ -30,173 +30,173 @@ namespace TerrariaDepotDownloader
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(About));
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.Version_Label = new System.Windows.Forms.Label();
+            this.Copyright_Label = new System.Windows.Forms.Label();
+            this.Author_Label = new System.Windows.Forms.Label();
+            this.GameThread_Label = new System.Windows.Forms.Label();
+            this.Ok_Button = new System.Windows.Forms.Button();
+            this.CopyrightData_Label = new System.Windows.Forms.Label();
+            this.VersionData_Label = new System.Windows.Forms.Label();
+            this.GameThread_LinkLabel = new System.Windows.Forms.LinkLabel();
+            this.Author_LinkLabel = new System.Windows.Forms.LinkLabel();
+            this.DonateText_Label = new System.Windows.Forms.Label();
+            this.Donate_Button = new System.Windows.Forms.Button();
+            this.Main_PictureBox = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.Main_PictureBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // Version_Label
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 120);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 16);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Version";
+            this.Version_Label.AutoSize = true;
+            this.Version_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Version_Label.Location = new System.Drawing.Point(12, 120);
+            this.Version_Label.Name = "Version_Label";
+            this.Version_Label.Size = new System.Drawing.Size(53, 16);
+            this.Version_Label.TabIndex = 0;
+            this.Version_Label.Text = "Version";
             // 
-            // label2
+            // Copyright_Label
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 146);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 16);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Copyright";
+            this.Copyright_Label.AutoSize = true;
+            this.Copyright_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Copyright_Label.Location = new System.Drawing.Point(12, 146);
+            this.Copyright_Label.Name = "Copyright_Label";
+            this.Copyright_Label.Size = new System.Drawing.Size(64, 16);
+            this.Copyright_Label.TabIndex = 0;
+            this.Copyright_Label.Text = "Copyright";
             // 
-            // label3
+            // Author_Label
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 172);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 16);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Author";
+            this.Author_Label.AutoSize = true;
+            this.Author_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Author_Label.Location = new System.Drawing.Point(12, 172);
+            this.Author_Label.Name = "Author_Label";
+            this.Author_Label.Size = new System.Drawing.Size(45, 16);
+            this.Author_Label.TabIndex = 0;
+            this.Author_Label.Text = "Author";
             // 
-            // label4
+            // GameThread_Label
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 197);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(91, 16);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Game Thread";
+            this.GameThread_Label.AutoSize = true;
+            this.GameThread_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GameThread_Label.Location = new System.Drawing.Point(12, 197);
+            this.GameThread_Label.Name = "GameThread_Label";
+            this.GameThread_Label.Size = new System.Drawing.Size(91, 16);
+            this.GameThread_Label.TabIndex = 0;
+            this.GameThread_Label.Text = "Game Thread";
             // 
-            // button1
+            // Ok_Button
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(435, 333);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(85, 27);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "OK";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            this.Ok_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Ok_Button.Location = new System.Drawing.Point(435, 333);
+            this.Ok_Button.Name = "Ok_Button";
+            this.Ok_Button.Size = new System.Drawing.Size(85, 27);
+            this.Ok_Button.TabIndex = 4;
+            this.Ok_Button.Text = "OK";
+            this.Ok_Button.UseVisualStyleBackColor = true;
+            this.Ok_Button.Click += new System.EventHandler(this.Ok_Button_Click);
             // 
-            // label7
+            // CopyrightData_Label
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(136, 146);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(30, 16);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "Null";
+            this.CopyrightData_Label.AutoSize = true;
+            this.CopyrightData_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CopyrightData_Label.Location = new System.Drawing.Point(136, 146);
+            this.CopyrightData_Label.Name = "CopyrightData_Label";
+            this.CopyrightData_Label.Size = new System.Drawing.Size(30, 16);
+            this.CopyrightData_Label.TabIndex = 0;
+            this.CopyrightData_Label.Text = "Null";
             // 
-            // label8
+            // VersionData_Label
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(136, 120);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(30, 16);
-            this.label8.TabIndex = 13;
-            this.label8.Text = "Null";
+            this.VersionData_Label.AutoSize = true;
+            this.VersionData_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VersionData_Label.Location = new System.Drawing.Point(136, 120);
+            this.VersionData_Label.Name = "VersionData_Label";
+            this.VersionData_Label.Size = new System.Drawing.Size(30, 16);
+            this.VersionData_Label.TabIndex = 0;
+            this.VersionData_Label.Text = "Null";
             // 
-            // linkLabel1
+            // GameThread_LinkLabel
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(136, 199);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(132, 13);
-            this.linkLabel1.TabIndex = 14;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "https://forums.terraria.org/";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel1_LinkClicked);
+            this.GameThread_LinkLabel.AutoSize = true;
+            this.GameThread_LinkLabel.Location = new System.Drawing.Point(136, 199);
+            this.GameThread_LinkLabel.Name = "GameThread_LinkLabel";
+            this.GameThread_LinkLabel.Size = new System.Drawing.Size(132, 13);
+            this.GameThread_LinkLabel.TabIndex = 2;
+            this.GameThread_LinkLabel.TabStop = true;
+            this.GameThread_LinkLabel.Text = "https://forums.terraria.org/";
+            this.GameThread_LinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.GameThread_LinkLabel_LinkClicked);
             // 
-            // linkLabel2
+            // Author_LinkLabel
             // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(136, 175);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(97, 13);
-            this.linkLabel2.TabIndex = 15;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Discord: dannyruss";
-            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel2_LinkClicked);
+            this.Author_LinkLabel.AutoSize = true;
+            this.Author_LinkLabel.Location = new System.Drawing.Point(136, 175);
+            this.Author_LinkLabel.Name = "Author_LinkLabel";
+            this.Author_LinkLabel.Size = new System.Drawing.Size(97, 13);
+            this.Author_LinkLabel.TabIndex = 1;
+            this.Author_LinkLabel.TabStop = true;
+            this.Author_LinkLabel.Text = "Discord: dannyruss";
+            this.Author_LinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Author_LinkLabel_LinkClicked);
             // 
-            // label5
+            // DonateText_Label
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(146, 253);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(373, 48);
-            this.label5.TabIndex = 16;
-            this.label5.Text = "If you want to show your support or just like my work feel\r\nfree to donate some B" +
+            this.DonateText_Label.AutoSize = true;
+            this.DonateText_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DonateText_Label.Location = new System.Drawing.Point(146, 253);
+            this.DonateText_Label.Name = "DonateText_Label";
+            this.DonateText_Label.Size = new System.Drawing.Size(373, 48);
+            this.DonateText_Label.TabIndex = 0;
+            this.DonateText_Label.Text = "If you want to show your support or just like my work feel\r\nfree to donate some B" +
     "ucks. To donate simply click the Paypal\r\nButton to the left. Thanks :)";
             // 
-            // button2
+            // Donate_Button
             // 
-            this.button2.BackgroundImage = global::TerrariaDepotDownloader.Properties.Resources.paypal3;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.Location = new System.Drawing.Point(15, 243);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(125, 66);
-            this.button2.TabIndex = 17;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.Button2_Click);
+            this.Donate_Button.BackgroundImage = global::TerrariaDepotDownloader.Properties.Resources.paypal3;
+            this.Donate_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Donate_Button.Location = new System.Drawing.Point(15, 243);
+            this.Donate_Button.Name = "Donate_Button";
+            this.Donate_Button.Size = new System.Drawing.Size(125, 66);
+            this.Donate_Button.TabIndex = 3;
+            this.Donate_Button.UseVisualStyleBackColor = true;
+            this.Donate_Button.Click += new System.EventHandler(this.Donate_Button_Click);
             // 
-            // pictureBox1
+            // Main_PictureBox
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.Main_PictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(508, 105);
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
+            this.Main_PictureBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Main_PictureBox.BackgroundImage")));
+            this.Main_PictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Main_PictureBox.Location = new System.Drawing.Point(12, 12);
+            this.Main_PictureBox.Name = "Main_PictureBox";
+            this.Main_PictureBox.Size = new System.Drawing.Size(508, 105);
+            this.Main_PictureBox.TabIndex = 4;
+            this.Main_PictureBox.TabStop = false;
             // 
             // About
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(532, 372);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.linkLabel2);
-            this.Controls.Add(this.linkLabel1);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.Donate_Button);
+            this.Controls.Add(this.DonateText_Label);
+            this.Controls.Add(this.Author_LinkLabel);
+            this.Controls.Add(this.GameThread_LinkLabel);
+            this.Controls.Add(this.VersionData_Label);
+            this.Controls.Add(this.CopyrightData_Label);
+            this.Controls.Add(this.Ok_Button);
+            this.Controls.Add(this.GameThread_Label);
+            this.Controls.Add(this.Author_Label);
+            this.Controls.Add(this.Copyright_Label);
+            this.Controls.Add(this.Version_Label);
+            this.Controls.Add(this.Main_PictureBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "About";
             this.ShowIcon = false;
             this.Text = "Terraria Depot Downloader Info";
-            this.Load += new System.EventHandler(this.Form2_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Load += new System.EventHandler(this.About_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.Main_PictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -204,17 +204,17 @@ namespace TerrariaDepotDownloader
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.LinkLabel linkLabel2;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.PictureBox Main_PictureBox;
+        private System.Windows.Forms.Label Version_Label;
+        private System.Windows.Forms.Label Copyright_Label;
+        private System.Windows.Forms.Label Author_Label;
+        private System.Windows.Forms.Label GameThread_Label;
+        private System.Windows.Forms.Button Ok_Button;
+        private System.Windows.Forms.Label CopyrightData_Label;
+        private System.Windows.Forms.Label VersionData_Label;
+        private System.Windows.Forms.LinkLabel GameThread_LinkLabel;
+        private System.Windows.Forms.LinkLabel Author_LinkLabel;
+        private System.Windows.Forms.Label DonateText_Label;
+        private System.Windows.Forms.Button Donate_Button;
     }
 }
