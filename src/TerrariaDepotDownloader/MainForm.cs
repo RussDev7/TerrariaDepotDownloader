@@ -20,7 +20,7 @@ namespace TerrariaDepotDownloader
     public partial class MainForm : Form
     {
         // Say Hello To Decompilers
-        private static readonly string HelloThere = "Hello There Fellow Decompiler, This Program Was Made By Discord:dannyruss (xXCrypticNightXx).";
+        private static readonly string HelloThere = "Hello There Fellow Decompiler, This Program Was Made By Discord:dannyruss.";
 
         #region Form Load
 
@@ -65,7 +65,7 @@ namespace TerrariaDepotDownloader
             #region Load .NET
 
             // Verify .NET 8.0 Or Later Exists - Update 1.8.3
-			// Verify .NET 9.0 Or Later Exists - Update 1.8.5.6
+            // Verify .NET 9.0 Or Later Exists - Update 1.8.5.6
             var dotnet86 = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + @"\dotnet\host\fxr";
             var dotnet64 = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + @"\dotnet\host\fxr";
             var dotnet86SDK = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + @"\dotnet\sdk";
@@ -114,7 +114,7 @@ namespace TerrariaDepotDownloader
                 // Console.WriteLine(".NET Versions: " + String.Join(", ", versionList.ToArray()));
 
                 // Check If Version Is Above or Equal 8.0.0 // Depot DL 2.6.0 API is now .net 8.0.
-				// Check If Version Is Above or Equal 9.0.0 // Depot DL 2.7.4 API is now .net 9.0.
+                // Check If Version Is Above or Equal 9.0.0 // Depot DL 2.7.4 API is now .net 9.0.
                 var maxVersion = versionList.Select(v => Version.Parse(v)).Max();
                 if (maxVersion < new Version("9.0.0"))
                 {
@@ -167,10 +167,11 @@ namespace TerrariaDepotDownloader
                 if (UseSteamDirectory_CheckBox.Checked)
                 {
                     // Use Steam Directory Enabled
-                    if (GetGameLocation() != "")
+                    string gameLocation = GetGameLocation();
+                    if (gameLocation != "" && gameLocation != "null" && gameLocation != "missing")
                     {
                         // Update install location.
-                        Properties.Settings.Default.DepotPath = GetGameLocation();
+                        Properties.Settings.Default.DepotPath = Directory.GetParent(gameLocation).FullName;
                     }
                     else
                     {
