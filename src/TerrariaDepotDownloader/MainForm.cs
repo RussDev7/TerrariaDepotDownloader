@@ -64,8 +64,8 @@ namespace TerrariaDepotDownloader
 
             #region Load .NET
 
-            // Varify .NET 8.0 Or Later Exists - Update 1.8.3
-			// Varify .NET 9.0 Or Later Exists - Update 1.8.5.6
+            // Verify .NET 8.0 Or Later Exists - Update 1.8.3
+			// Verify .NET 9.0 Or Later Exists - Update 1.8.5.6
             var dotnet86 = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + @"\dotnet\host\fxr";
             var dotnet64 = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + @"\dotnet\host\fxr";
             var dotnet86SDK = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + @"\dotnet\sdk";
@@ -75,10 +75,10 @@ namespace TerrariaDepotDownloader
             if (!Directory.Exists(dotnet86) && !Directory.Exists(dotnet64) && !Directory.Exists(dotnet86SDK) && !Directory.Exists(dotnet64SDK))
             {
                 // Write error.
-                Console.WriteLine(".NET 9.0 Is Required! Please Install And Try Agian. \n \n https://dotnet.microsoft.com/download/dotnet/9.0");
+                Console.WriteLine(".NET 9.0 Is Required! Please Install And Try Again. \n \n https://dotnet.microsoft.com/download/dotnet/9.0");
 
                 // Display error.
-                MessageBox.Show(".NET 9.0 Is Required! Please Install And Try Agian. \n \n https://dotnet.microsoft.com/download/dotnet/9.0", "ERROR: TerrariaDepotDownloader v" + FileVersionInfo.GetVersionInfo(Path.GetFileName(System.Windows.Forms.Application.ExecutablePath)).FileVersion, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                MessageBox.Show(".NET 9.0 Is Required! Please Install And Try Again. \n \n https://dotnet.microsoft.com/download/dotnet/9.0", "ERROR: TerrariaDepotDownloader v" + FileVersionInfo.GetVersionInfo(Path.GetFileName(System.Windows.Forms.Application.ExecutablePath)).FileVersion, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
                 // Close Application
                 Application.Exit();
@@ -110,7 +110,7 @@ namespace TerrariaDepotDownloader
                     }
                 }
 
-                // Debugging; Show each avaliable .net version.
+                // Debugging; Show each available .net version.
                 // Console.WriteLine(".NET Versions: " + String.Join(", ", versionList.ToArray()));
 
                 // Check If Version Is Above or Equal 8.0.0 // Depot DL 2.6.0 API is now .net 8.0.
@@ -122,7 +122,7 @@ namespace TerrariaDepotDownloader
                     Console.WriteLine("ERROR: Highest .NET version found: " + versionList.Max());
 
                     // Version Not Found
-                    MessageBox.Show(".NET 9.0+ is required! Please install and try agian. \n \n https://dotnet.microsoft.com/download/dotnet/9.0 \n \n Highest .NET version found: " + versionList.Max(), "ERROR: TerrariaDepotDownloader v" + FileVersionInfo.GetVersionInfo(Path.GetFileName(System.Windows.Forms.Application.ExecutablePath)).FileVersion, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    MessageBox.Show(".NET 9.0+ is required! Please install and try Again. \n \n https://dotnet.microsoft.com/download/dotnet/9.0 \n \n Highest .NET version found: " + versionList.Max(), "ERROR: TerrariaDepotDownloader v" + FileVersionInfo.GetVersionInfo(Path.GetFileName(System.Windows.Forms.Application.ExecutablePath)).FileVersion, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
                     // Close Application
                     Application.Exit();
@@ -222,7 +222,7 @@ namespace TerrariaDepotDownloader
             ShowTooltips_CheckBox.Checked = Properties.Settings.Default.ToolTips;
             SkipUpdateCheck_CheckBox.Checked = Properties.Settings.Default.SkipUpdate;
             RememberLogin_CheckBox.Checked = Properties.Settings.Default.SaveLogin;
-            UseSeperateConfigs_CheckBox.Checked = Properties.Settings.Default.UseSeparateConfigs;
+            UseSeparateConfigs_CheckBox.Checked = Properties.Settings.Default.UseSeparateConfigs;
 
             #endregion
 
@@ -293,7 +293,7 @@ namespace TerrariaDepotDownloader
             Tooltips.SetToolTip(RememberLogin_CheckBox, "Remember the password and steam key for this user");
             Tooltips.SetToolTip(DarkMode_CheckBox, "Enable or disable the dark mode theme");
             Tooltips.SetToolTip(EnableCollectorsEdition_CheckBox, "Enable or disable the collectors edition");
-            Tooltips.SetToolTip(UseSeperateConfigs_CheckBox, "Use a separate config folder for each game version");
+            Tooltips.SetToolTip(UseSeparateConfigs_CheckBox, "Use a separate config folder for each game version");
            
             // Enable or Disable Tooltips
             if (ShowTooltips_CheckBox.Checked)
@@ -344,12 +344,12 @@ namespace TerrariaDepotDownloader
                             if (Directory.Exists(Properties.Settings.Default.DepotPath + @"\Terraria-v" + String.Concat(line.TakeWhile(c => c != ','))))
                             {
                                 // String Does Not Contain "null", Record Like Normal
-                                Main_ListView.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("github") ? "GitHub - Unofficial Patch\t                    \t" + line.Substring(line.LastIndexOf(' ') + 1) : line.Substring(line.LastIndexOf(' ') + 1), "Yes" })); // Fix v1.8.5.4: Add Check For GitHub Links.
+                                Main_ListView.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("GitHub") ? "GitHub - Unofficial Patch\t                    \t" + line.Substring(line.LastIndexOf(' ') + 1) : line.Substring(line.LastIndexOf(' ') + 1), "Yes" })); // Fix v1.8.5.4: Add Check For GitHub Links.
                             }
                             else
                             {
                                 // String Does Not Contain "null", Record Like Normal
-                                Main_ListView.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("github") ? "GitHub - Unofficial Patch\t                    \t" + line.Substring(line.LastIndexOf(' ') + 1) : line.Substring(line.LastIndexOf(' ') + 1), "No" })); // Fix v1.8.5.4: Add Check For GitHub Links.
+                                Main_ListView.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("GitHub") ? "GitHub - Unofficial Patch\t                    \t" + line.Substring(line.LastIndexOf(' ') + 1) : line.Substring(line.LastIndexOf(' ') + 1), "No" })); // Fix v1.8.5.4: Add Check For GitHub Links.
                             }
                         }
                     }
@@ -384,10 +384,10 @@ namespace TerrariaDepotDownloader
             {
                 try
                 {
-                    // Check Github For DepotDownloader Update.
+                    // Check GitHub For DepotDownloader Update.
                     Octokit.GitHubClient client = new Octokit.GitHubClient(new Octokit.ProductHeaderValue("DepotDownloader"));
                     var releases = await client.Repository.Release.GetAll("SteamRE", "DepotDownloader");
-                    var latestGithubRelease = releases[0].TagName;
+                    var latestGitHubRelease = releases[0].TagName;
 
                     // Get Current DepotDownload.dll Version.
                     var currentVersionInfo = FileVersionInfo.GetVersionInfo(Application.StartupPath + @"\DepotDownloader.dll");
@@ -395,10 +395,10 @@ namespace TerrariaDepotDownloader
                     var currentFileVersionWithoutBuild = new Version(currentFileVersion.Major, currentFileVersion.Minor, currentFileVersion.Build); // Only consider major, minor, and build. Leave off revision.
 
                     // Debugging; Compare both versions.
-                    // Console.WriteLine(latestGithubRelease.ToString() + " | " + "DepotDownloader_" + currentFileVersionWithoutBuild.ToString());
+                    // Console.WriteLine(latestGitHubRelease.ToString() + " | " + "DepotDownloader_" + currentFileVersionWithoutBuild.ToString());
 
                     // Do Version Check
-                    if (latestGithubRelease.ToString() != "DepotDownloader_" + currentFileVersionWithoutBuild.ToString())
+                    if (latestGitHubRelease.ToString() != "DepotDownloader_" + currentFileVersionWithoutBuild.ToString())
                     {
                         // New Version Found
                         // Log Item
@@ -413,7 +413,7 @@ namespace TerrariaDepotDownloader
                             // Install Update
                             try
                             {
-                                // Download From Github
+                                // Download From GitHub
                                 var latestAsset = await client.Repository.Release.GetAllAssets("SteamRE", "DepotDownloader", releases[0].Id);
                                 WebClient webClient = new WebClient();
                                 webClient.Headers.Add("user-agent", "Anything");
@@ -467,7 +467,7 @@ namespace TerrariaDepotDownloader
                 catch (Exception)
                 {
                     // Error Checking Version
-                    Console.WriteLine("ERROR: Unable to check DepotDownloader API's Github version!");
+                    Console.WriteLine("ERROR: Unable to check DepotDownloader API's GitHub version!");
                     return;
                 }
             }
@@ -476,7 +476,7 @@ namespace TerrariaDepotDownloader
                 // Log Event
                 if (LogActions_CheckBox.Checked)
                 {
-                    Console.WriteLine("DepotDownloader API new vesion check was skipped!");
+                    Console.WriteLine("DepotDownloader API new vision check was skipped!");
                 }
             }
             #endregion
@@ -496,7 +496,7 @@ namespace TerrariaDepotDownloader
             if (!Properties.Settings.Default.PathChangeEnabled)
             {
                 // Conformation Box
-                if (MessageBox.Show("Warning! Are you sure you want to force change your defualt steam location? TerrariaDepotDownloader is supposed to automatically find your games correct location!\n\nThis is only reccomended for advanced users!\nYes or No", "WARNING: TerrariaDepotDownloader v" + FileVersionInfo.GetVersionInfo(Path.GetFileName(System.Windows.Forms.Application.ExecutablePath)).FileVersion, MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes)
+                if (MessageBox.Show("Warning! Are you sure you want to force change your default steam location? TerrariaDepotDownloader is supposed to automatically find your games correct location!\n\nThis is only reccomended for advanced users!\nYes or No", "WARNING: TerrariaDepotDownloader v" + FileVersionInfo.GetVersionInfo(Path.GetFileName(System.Windows.Forms.Application.ExecutablePath)).FileVersion, MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes)
                 {
                     // Launch path dialog.
                     using (var fbd = new FolderBrowserDialog())
@@ -553,16 +553,16 @@ namespace TerrariaDepotDownloader
                         // Log error.
                         if (LogActions_CheckBox.Checked)
                         {
-                            Console.WriteLine("Could not find the steam directory. Launching defualt path instead.");
+                            Console.WriteLine("Could not find the steam directory. Launching default path instead.");
                         }
 
-                        // Open defualt depot path folder.
+                        // Open default depot path folder.
                         Process.Start(Properties.Settings.Default.DepotPath);
                     }
                 }
                 else
                 {
-                    // Open defualt depot path folder.
+                    // Open default depot path folder.
                     Process.Start(Properties.Settings.Default.DepotPath);
                 }
 
@@ -597,7 +597,7 @@ namespace TerrariaDepotDownloader
 
             // Gather Steam Data
             Properties.Settings.Default.SteamUser = EncryptString(AccountName_TextBox.Text, EncryptionKey); // Encrypt username.
-            Properties.Settings.Default.SteamPass = EncryptString(Password_TextBox.Text, EncryptionKey); // Encrypt password.
+            Properties.Settings.Default.SteamPass = EncryptString(Password_TextBox.Text, EncryptionKey);    // Encrypt password.
 
             // Save Settings
             Properties.Settings.Default.Save();
@@ -777,7 +777,7 @@ namespace TerrariaDepotDownloader
                             // Check If Use Steam Directory Is Enabled
                             if (UseSteamDirectory_CheckBox.Checked)
                             {
-                                var versionDir = Path.Combine(Properties.Settings.Default.DepotPath, $"Terraria-v{String.Concat(line.TakeWhile(c => c != ','))}");
+                                var versionDir = Path.Combine(Properties.Settings.Default.DepotPath, "Terraria-v" + String.Concat(line.TakeWhile(c => c != ',')));
                                 var genericDir = Path.Combine(Properties.Settings.Default.DepotPath, "Terraria");
 
                                 string dirToInspect = null;
@@ -797,7 +797,7 @@ namespace TerrariaDepotDownloader
                                         if (Directory.EnumerateFileSystemEntries(versionDir).Any())
                                         {
                                             // Valid record, record like normal.
-                                            Main_ListView.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("github") ? "GitHub - Unofficial Patch\t                    \t" + line.Substring(line.LastIndexOf(' ') + 1) : line.Substring(line.LastIndexOf(' ') + 1), "Yes" })); // Fix v1.8.5.4: Add Check For GitHub Links.
+                                            Main_ListView.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("GitHub") ? "GitHub - Unofficial Patch\t                    \t" + line.Substring(line.LastIndexOf(' ') + 1) : line.Substring(line.LastIndexOf(' ') + 1), "Yes" })); // Fix v1.8.5.4: Add Check For GitHub Links.
                                         }
                                         else
                                         {
@@ -811,7 +811,7 @@ namespace TerrariaDepotDownloader
                                             }
 
                                             // Invalid record, record like normal.
-                                            Main_ListView.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("github") ? "GitHub - Unofficial Patch\t                    \t" + line.Substring(line.LastIndexOf(' ') + 1) : line.Substring(line.LastIndexOf(' ') + 1), "No" })); // Fix v1.8.5.4: Add Check For GitHub Links.
+                                            Main_ListView.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("GitHub") ? "GitHub - Unofficial Patch\t                    \t" + line.Substring(line.LastIndexOf(' ') + 1) : line.Substring(line.LastIndexOf(' ') + 1), "No" })); // Fix v1.8.5.4: Add Check For GitHub Links.
                                         }
                                         continue;
                                     }
@@ -830,12 +830,12 @@ namespace TerrariaDepotDownloader
                                             File.ReadLines(genericDir + @"\changelog.txt").First().Split(' ')[1].ToString() == "1.4" && String.Concat(line.TakeWhile(c => c != ',')) == "1.4.0.1")
                                             {
                                                 // Valid record, record like normal.
-                                                Main_ListView.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("github") ? "GitHub - Unofficial Patch\t                    \t" + line.Substring(line.LastIndexOf(' ') + 1) : line.Substring(line.LastIndexOf(' ') + 1), "Yes" })); // Fix v1.8.5.4: Add Check For GitHub Links.
+                                                Main_ListView.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("GitHub") ? "GitHub - Unofficial Patch\t                    \t" + line.Substring(line.LastIndexOf(' ') + 1) : line.Substring(line.LastIndexOf(' ') + 1), "Yes" })); // Fix v1.8.5.4: Add Check For GitHub Links.
                                             }
                                             else
                                             {
                                                 // Invalid record, record like normal.
-                                                Main_ListView.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("github") ? "GitHub - Unofficial Patch\t                    \t" + line.Substring(line.LastIndexOf(' ') + 1) : line.Substring(line.LastIndexOf(' ') + 1), "No" })); // Fix v1.8.5.4: Add Check For GitHub Links.
+                                                Main_ListView.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("GitHub") ? "GitHub - Unofficial Patch\t                    \t" + line.Substring(line.LastIndexOf(' ') + 1) : line.Substring(line.LastIndexOf(' ') + 1), "No" })); // Fix v1.8.5.4: Add Check For GitHub Links.
                                             }
                                         }
                                         else
@@ -850,7 +850,7 @@ namespace TerrariaDepotDownloader
                                             }
 
                                             // Invalid record, record like normal.
-                                            Main_ListView.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("github") ? "GitHub - Unofficial Patch\t                    \t" + line.Substring(line.LastIndexOf(' ') + 1) : line.Substring(line.LastIndexOf(' ') + 1), "No" })); // Fix v1.8.5.4: Add Check For GitHub Links.
+                                            Main_ListView.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("GitHub") ? "GitHub - Unofficial Patch\t                    \t" + line.Substring(line.LastIndexOf(' ') + 1) : line.Substring(line.LastIndexOf(' ') + 1), "No" })); // Fix v1.8.5.4: Add Check For GitHub Links.
                                         }
                                         continue;
                                     }
@@ -859,12 +859,12 @@ namespace TerrariaDepotDownloader
                                 else
                                 {
                                     // Version does not exist what so ever, record like normal.
-                                    Main_ListView.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("github") ? "GitHub - Unofficial Patch\t                    \t" + line.Substring(line.LastIndexOf(' ') + 1) : line.Substring(line.LastIndexOf(' ') + 1), "No" })); // Fix v1.8.5.4: Add Check For GitHub Links.
+                                    Main_ListView.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("GitHub") ? "GitHub - Unofficial Patch\t                    \t" + line.Substring(line.LastIndexOf(' ') + 1) : line.Substring(line.LastIndexOf(' ') + 1), "No" })); // Fix v1.8.5.4: Add Check For GitHub Links.
                                 }
                             }
                             else
                             {
-                                var versionDir = Path.Combine(Properties.Settings.Default.DepotPath, $"Terraria-v{String.Concat(line.TakeWhile(c => c != ','))}");
+                                var versionDir = Path.Combine(Properties.Settings.Default.DepotPath, "Terraria-v" + String.Concat(line.TakeWhile(c => c != ',')));
 
                                 #region Non-Steam Version Folder
 
@@ -875,7 +875,7 @@ namespace TerrariaDepotDownloader
                                     if (Directory.EnumerateFileSystemEntries(versionDir).Any())
                                     {
                                         // String Does Not Contain "null", Record Like Normal
-                                        Main_ListView.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("github") ? "GitHub - Unofficial Patch\t                    \t" + line.Substring(line.LastIndexOf(' ') + 1) : line.Substring(line.LastIndexOf(' ') + 1), "Yes" })); // Fix v1.8.5.4: Add Check For GitHub Links.
+                                        Main_ListView.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("GitHub") ? "GitHub - Unofficial Patch\t                    \t" + line.Substring(line.LastIndexOf(' ') + 1) : line.Substring(line.LastIndexOf(' ') + 1), "Yes" })); // Fix v1.8.5.4: Add Check For GitHub Links.
                                     }
                                     else
                                     {
@@ -889,13 +889,13 @@ namespace TerrariaDepotDownloader
                                         }
 
                                         // Invalid record, record like normal.
-                                        Main_ListView.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("github") ? "GitHub - Unofficial Patch\t                    \t" + line.Substring(line.LastIndexOf(' ') + 1) : line.Substring(line.LastIndexOf(' ') + 1), "No" })); // Fix v1.8.5.4: Add Check For GitHub Links.
+                                        Main_ListView.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("GitHub") ? "GitHub - Unofficial Patch\t                    \t" + line.Substring(line.LastIndexOf(' ') + 1) : line.Substring(line.LastIndexOf(' ') + 1), "No" })); // Fix v1.8.5.4: Add Check For GitHub Links.
                                     }
                                 }
                                 else
                                 {
                                     // Version folder does not exist, record like normal.
-                                    Main_ListView.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("github") ? "GitHub - Unofficial Patch\t                    \t" + line.Substring(line.LastIndexOf(' ') + 1) : line.Substring(line.LastIndexOf(' ') + 1), "No" })); // Fix v1.8.5.4: Add Check For GitHub Links.
+                                    Main_ListView.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("GitHub") ? "GitHub - Unofficial Patch\t                    \t" + line.Substring(line.LastIndexOf(' ') + 1) : line.Substring(line.LastIndexOf(' ') + 1), "No" })); // Fix v1.8.5.4: Add Check For GitHub Links.
                                 }
                                 #endregion
                             }
@@ -997,12 +997,12 @@ namespace TerrariaDepotDownloader
                                     }
                                     else
                                     {
-                                        // User cancled.
+                                        // User canceled.
                                         //
                                         // Log Item
                                         if (LogActions_CheckBox.Checked)
                                         {
-                                            Console.WriteLine("Active steam directory version removal cancled. : v" + itemRow.SubItems[0].Text);
+                                            Console.WriteLine("Active steam directory version removal canceled. : v" + itemRow.SubItems[0].Text);
                                         }
                                     }
                                 }
@@ -1120,12 +1120,12 @@ namespace TerrariaDepotDownloader
                                     }
                                     else
                                     {
-                                        // User cancled.
+                                        // User canceled.
                                         //
                                         // Log Item
                                         if (LogActions_CheckBox.Checked)
                                         {
-                                            Console.WriteLine("Active steam directory version removal cancled. : v" + itemRow.SubItems[0].Text);
+                                            Console.WriteLine("Active steam directory version removal canceled. : v" + itemRow.SubItems[0].Text);
                                         }
                                     }
                                 }
@@ -1272,14 +1272,14 @@ namespace TerrariaDepotDownloader
                 var controlForeColor = Color.White;                    // White.
                 var listViewGridColor = Color.LightGray;               // LightGray.
 
-                // Turn on dark mode for maiin form.
+                // Turn on dark mode for main form.
                 MainForm.ActiveForm.BackColor = formBackColor;
                 MainForm.ActiveForm.ForeColor = controlForeColor;
 
                 // Turn on dark mode for remaining controls.
                 foreach (Control component in this.Controls)
                 {
-                    // Check if componet is a picturebox.
+                    // Check if component is a picturebox.
                     if (component is PictureBox)
                     {
                         Logo_PictureBox.BackColor = formBackColor;
@@ -1329,7 +1329,7 @@ namespace TerrariaDepotDownloader
             }
             else
             {
-                // Turn off dark mode for maiin form.
+                // Turn off dark mode for main form.
                 MainForm.ActiveForm.BackColor = DefaultBackColor;
                 MainForm.ActiveForm.ForeColor = DefaultForeColor;
 
@@ -1564,7 +1564,7 @@ namespace TerrariaDepotDownloader
                                     catch (Exception) { }
                                 }
 
-                                #region Load Seperate Configurations
+                                #region Load Separate Configurations
 
                                 // Define config directory path.
                                 string configPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\My Games";
@@ -1590,12 +1590,12 @@ namespace TerrariaDepotDownloader
                                 }
 
                                 // Check if checkbox was checked or not.
-                                if (UseSeperateConfigs_CheckBox.Checked)
+                                if (UseSeparateConfigs_CheckBox.Checked)
                                 {
                                     // Switch to the defined games config.
                                     try
                                     {
-                                        // Check if defualt folder exists or not already.
+                                        // Check if default folder exists or not already.
                                         if (!Directory.Exists(configPath + @"\Terraria-Original"))
                                         {
                                             // Ensure an original even exists.
@@ -1607,7 +1607,7 @@ namespace TerrariaDepotDownloader
                                                 // Async delete directory.
                                                 await Task.Run(() => Directory.Delete(configPath + @"\Terraria", true));
 
-                                                // Asyn create directory.
+                                                // Async create directory.
                                                 await Task.Run(() => Directory.CreateDirectory(configPath + @"\Terraria"));
                                             }
                                         }
@@ -1647,7 +1647,7 @@ namespace TerrariaDepotDownloader
                                                 await Task.Run(() => Directory.Delete(configPath + @"\Terraria", true));
                                             }
 
-                                            // Asyn create directory.
+                                            // Async create directory.
                                             await Task.Run(() => Directory.CreateDirectory(configPath + @"\Terraria"));
                                         }
 
@@ -1695,7 +1695,7 @@ namespace TerrariaDepotDownloader
                         {
                             try
                             {
-                                #region Load Seperate Configurations
+                                #region Load Separate Configurations
 
                                 // Define config directory path.
                                 string configPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\My Games";
@@ -1721,12 +1721,12 @@ namespace TerrariaDepotDownloader
                                 }
 
                                 // Check if checkbox was checked or not.
-                                if (UseSeperateConfigs_CheckBox.Checked)
+                                if (UseSeparateConfigs_CheckBox.Checked)
                                 {
                                     // Switch to the defined games config.
                                     try
                                     {
-                                        // Check if defualt folder exists or not already.
+                                        // Check if default folder exists or not already.
                                         if (!Directory.Exists(configPath + @"\Terraria-Original"))
                                         {
                                             // Ensure an original even exists.
@@ -1738,7 +1738,7 @@ namespace TerrariaDepotDownloader
                                                 // Async delete directory.
                                                 await Task.Run(() => Directory.Delete(configPath + @"\Terraria", true));
 
-                                                // Asyn create directory.
+                                                // Async create directory.
                                                 await Task.Run(() => Directory.CreateDirectory(configPath + @"\Terraria"));
                                             }
                                         }
@@ -1778,7 +1778,7 @@ namespace TerrariaDepotDownloader
                                                 await Task.Run(() => Directory.Delete(configPath + @"\Terraria", true));
                                             }
 
-                                            // Asyn create directory.
+                                            // Async create directory.
                                             await Task.Run(() => Directory.CreateDirectory(configPath + @"\Terraria"));
                                         }
 
@@ -1846,7 +1846,7 @@ namespace TerrariaDepotDownloader
                                 // Download Version
                                 String DLLLocation = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\DepotDownloader.dll";
                                 String DotNetLocation = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + @"\dotnet\dotnet.exe";
-                                // Update 1.5.0, Check If Everwrite To Steam Directory Is Enabled
+                                // Update 1.5.0, Check If Overwrite To Steam Directory Is Enabled
                                 String OutDir = Properties.Settings.Default.DepotPath + @"\Terraria-v" + itemRow.SubItems[0].Text;
 
                                 // Use Steam Directory.
@@ -1916,15 +1916,15 @@ namespace TerrariaDepotDownloader
                                     }
                                 }
 
-                                // Check to see if this is a github repo.
-                                if (itemRow.SubItems[1].Text.ToLower().Contains("github"))
+                                // Check to see if this is a GitHub repo.
+                                if (itemRow.SubItems[1].Text.ToLower().Contains("GitHub"))
                                 {
                                     try
                                     {
                                         // Log Item
                                         if (LogActions_CheckBox.Checked)
                                         {
-                                            Console.WriteLine("Github download for Terraria-v" + itemRow.SubItems[0].Text + " initiated.");
+                                            Console.WriteLine("GitHub download for Terraria-v" + itemRow.SubItems[0].Text + " initiated.");
                                         }
 
                                         if (UseSteamDirectory_CheckBox.Checked) // Use Steam Directory
@@ -1934,12 +1934,12 @@ namespace TerrariaDepotDownloader
                                             OutDir = Path.Combine(Properties.Settings.Default.DepotPath, "Terraria");
                                         }
 
-                                        // Create an outpath.
+                                        // Create an out path.
                                         Directory.CreateDirectory(OutDir);
 
-                                        // Extract the owwner and repo names.
-                                        string repoOwner = itemRow.SubItems[1].Text.Split('\t')[2].Split('/')[1]; // Fix 1.8.5.4: Added Filter For "\t" To Seperate Git From GUI
-                                        string repoName = itemRow.SubItems[1].Text.Split('\t')[2].Split('/')[2]; // Fix 1.8.5.4: Added Filter For "\t" To Seperate Git From GUI
+                                        // Extract the owner and repo names.
+                                        string repoOwner = itemRow.SubItems[1].Text.Split('\t')[2].Split('/')[1]; // Fix 1.8.5.4: Added Filter For "\t" To Separate Git From GUI
+                                        string repoName = itemRow.SubItems[1].Text.Split('\t')[2].Split('/')[2];  // Fix 1.8.5.4: Added Filter For "\t" To Separate Git From GUI
 
                                         // Get the path name to the desired repo sub-directory.
                                         Octokit.GitHubClient client = new Octokit.GitHubClient(new Octokit.ProductHeaderValue(repoName));
@@ -1981,7 +1981,7 @@ namespace TerrariaDepotDownloader
                                             Console.WriteLine("Terraria-v" + itemRow.SubItems[0].Text + " found! Downloading." + downloadUrl);
                                         }
 
-                                        // Start github download.
+                                        // Start GitHub download.
                                         WebClient webClient = new WebClient();
                                         // webClient.Headers.Add("user-agent", "Anything");
                                         await webClient.DownloadFileTaskAsync(new Uri(downloadUrl), OutDir + @"\" + directoryName + ".zip");
@@ -2026,7 +2026,7 @@ namespace TerrariaDepotDownloader
                                         // No repo file found, log it.
                                         if (LogActions_CheckBox.Checked)
                                         {
-                                            Console.WriteLine("ERROR: This repository contans no versions that match: \"" + itemRow.SubItems[0].Text + "\"!");
+                                            Console.WriteLine("ERROR: This repository contains no versions that match: \"" + itemRow.SubItems[0].Text + "\"!");
                                         }
 
                                         // Process Failed, Delete Folder
@@ -2113,7 +2113,7 @@ namespace TerrariaDepotDownloader
                             // Download Version
                             String DLLLocation = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\DepotDownloader.dll";
                             String DotNetLocation = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + @"\dotnet\dotnet.exe";
-                            // Update 1.5.0, Check If Everwrite To Steam Directory Is Enabled
+                            // Update 1.5.0, Check If Overwrite To Steam Directory Is Enabled
                             String OutDir = Properties.Settings.Default.DepotPath + @"\Terraria-v" + itemRow.SubItems[0].Text;
 
                             // Use Steam Directory.
@@ -2183,15 +2183,15 @@ namespace TerrariaDepotDownloader
                                 }
                             }
 
-                            // Check to see if this is a github repo.
-                            if (itemRow.SubItems[1].Text.ToLower().Contains("github"))
+                            // Check to see if this is a GitHub repo.
+                            if (itemRow.SubItems[1].Text.ToLower().Contains("GitHub"))
                             {
                                 try
                                 {
                                     // Log Item
                                     if (LogActions_CheckBox.Checked)
                                     {
-                                        Console.WriteLine("Github download for Terraria-v" + itemRow.SubItems[0].Text + " initiated.");
+                                        Console.WriteLine("GitHub download for Terraria-v" + itemRow.SubItems[0].Text + " initiated.");
                                     }
 
                                     if (UseSteamDirectory_CheckBox.Checked) // Use Steam Directory
@@ -2201,12 +2201,12 @@ namespace TerrariaDepotDownloader
                                         OutDir = Path.Combine(Properties.Settings.Default.DepotPath, "Terraria");
                                     }
 
-                                    // Create an outpath.
+                                    // Create an out path.
                                     Directory.CreateDirectory(OutDir);
 
-                                    // Extract the owwner and repo names.
-                                    string repoOwner = itemRow.SubItems[1].Text.Split('\t')[2].Split('/')[1]; // Fix 1.8.5.4: Added Filter For "\t" To Seperate Git From GUI
-                                    string repoName = itemRow.SubItems[1].Text.Split('\t')[2].Split('/')[2]; // Fix 1.8.5.4: Added Filter For "\t" To Seperate Git From GUI
+                                    // Extract the owner and repo names.
+                                    string repoOwner = itemRow.SubItems[1].Text.Split('\t')[2].Split('/')[1]; // Fix 1.8.5.4: Added Filter For "\t" To Separate Git From GUI
+                                    string repoName = itemRow.SubItems[1].Text.Split('\t')[2].Split('/')[2];  // Fix 1.8.5.4: Added Filter For "\t" To Separate Git From GUI
 
                                     // Get the path name to the desired repo sub-directory.
                                     Octokit.GitHubClient client = new Octokit.GitHubClient(new Octokit.ProductHeaderValue(repoName));
@@ -2248,7 +2248,7 @@ namespace TerrariaDepotDownloader
                                         Console.WriteLine("Terraria-v" + itemRow.SubItems[0].Text + " found! Downloading." + downloadUrl);
                                     }
 
-                                    // Start github download.
+                                    // Start GitHub download.
                                     WebClient webClient = new WebClient();
                                     // webClient.Headers.Add("user-agent", "Anything");
                                     await webClient.DownloadFileTaskAsync(new Uri(downloadUrl), OutDir + @"\" + directoryName + ".zip");
@@ -2293,7 +2293,7 @@ namespace TerrariaDepotDownloader
                                     // No repo file found, log it.
                                     if (LogActions_CheckBox.Checked)
                                     {
-                                        Console.WriteLine("ERROR: This repository contans no versions that match: \"" + itemRow.SubItems[0].Text + "\"!");
+                                        Console.WriteLine("ERROR: This repository contains no versions that match: \"" + itemRow.SubItems[0].Text + "\"!");
                                     }
 
                                     // Process Failed, Delete Folder
@@ -2378,7 +2378,7 @@ namespace TerrariaDepotDownloader
                 // Show Warning
                 if (MessageBox.Show("This will download game versions to your steamapps." + "\n" + "Do you want to continue?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 {
-                    // Cancle Prompt
+                    // Cancel Prompt
                     UseSteamDirectory_CheckBox.Checked = false;
 
                     // Enable Path Changing
@@ -2400,9 +2400,9 @@ namespace TerrariaDepotDownloader
                 else
                 {
                     // Prompt Yes, Create Directory, Change Textbox
-                    // Define the game path based on the registry rather then a hardcoded path encase game was installed elseware. - Added 1.8.5.4.
+                    // Define the game path based on the registry rather then a hardcoded path encase game was installed else where. - Added 1.8.5.4.
 
-                    // Define varibles.
+                    // Define variables.
                     string backupLocation = BaseDepotDirectory_TextBox.Text;
                     string installLocation;
 
@@ -2423,7 +2423,7 @@ namespace TerrariaDepotDownloader
                                                   (gameLocation == "missing") ? "ERROR: Unable to find the default install location! Manually install the game at least once!" :
                                                                                 "ERROR: Unable to find the default install location! An unknown error was returned.";
 
-                            // Cancle operations and exit void.
+                            // Cancel operations and exit void.
                             MessageBox.Show(errorMessage, "ERROR: TerrariaDepotDownloader v" + FileVersionInfo.GetVersionInfo(Path.GetFileName(System.Windows.Forms.Application.ExecutablePath)).FileVersion, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
                             // Key does not exist, log item.
@@ -2447,7 +2447,7 @@ namespace TerrariaDepotDownloader
                             Console.WriteLine("ERROR: Something went wrong while reading the registry! Is steam even installed?");
                         }
 
-                        // Cancle operations and exit void.
+                        // Cancel operations and exit void.
                         UseSteamDirectory_CheckBox.Checked = false;
                         BaseDepotDirectory_TextBox.Text = backupLocation;
                         return;
@@ -2480,7 +2480,7 @@ namespace TerrariaDepotDownloader
             }
             if (!UseSteamDirectory_CheckBox.Checked && Properties.Settings.Default.UseSteamDir == true)
             {
-                // Checkbox Unchecked, Reset Textbox To Defualt Dir
+                // Checkbox Unchecked, Reset Textbox To default Dir
                 BaseDepotDirectory_TextBox.Text = Application.StartupPath + @"\TerrariaDepots";
 
                 // Enable Path Changing
@@ -2502,7 +2502,7 @@ namespace TerrariaDepotDownloader
             }
         }
 
-        // Tooltip Contols
+        // Tooltip Controls
         private void ShowTooltips_CheckBox_CheckedChanged(object sender, EventArgs e)
         {
             // Enable or Disable Tooltips
@@ -2644,11 +2644,11 @@ namespace TerrariaDepotDownloader
             }
         }
 
-        // User separate configs for each verison.
-        private async void UseSeperateConfigs_CheckBox_CheckedChanged(object sender, EventArgs e)
+        // User separate configs for each version.
+        private async void UseSeparateConfigs_CheckBox_CheckedChanged(object sender, EventArgs e)
         {
             // Enable or Disable Tooltips
-            if (UseSeperateConfigs_CheckBox.Checked)
+            if (UseSeparateConfigs_CheckBox.Checked)
             {
                 // Enable Tooltips
                 Properties.Settings.Default.UseSeparateConfigs = true;
@@ -2658,7 +2658,7 @@ namespace TerrariaDepotDownloader
                 // Disable Tooltips
                 Properties.Settings.Default.UseSeparateConfigs = false;
 
-                #region Load Defualt Configuration
+                #region Load default Configuration
 
                 // Define config directory path.
                 string configPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\My Games";
@@ -2716,7 +2716,7 @@ namespace TerrariaDepotDownloader
                     }
                     else
                     {
-                        // No defualt directory found. Create one.
+                        // No default directory found. Create one.
                         await Task.Run(() => Directory.CreateDirectory(configPath + @"\Terraria"));
                     }
 

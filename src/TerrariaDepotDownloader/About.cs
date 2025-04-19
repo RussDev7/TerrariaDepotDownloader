@@ -17,7 +17,7 @@ namespace TerrariaDepotDownloader
         // Update Stats
         private void About_Load(object sender, EventArgs e)
         {
-            VersionData_Label.Text = FileVersionInfo.GetVersionInfo(Path.GetFileName(System.Windows.Forms.Application.ExecutablePath)).FileVersion;    // Version.
+            VersionData_Label.Text = FileVersionInfo.GetVersionInfo(Path.GetFileName(System.Windows.Forms.Application.ExecutablePath)).FileVersion;      // Version.
             CopyrightData_Label.Text = FileVersionInfo.GetVersionInfo(Path.GetFileName(System.Windows.Forms.Application.ExecutablePath)).LegalCopyright; // Copyright.
         }
         #endregion
