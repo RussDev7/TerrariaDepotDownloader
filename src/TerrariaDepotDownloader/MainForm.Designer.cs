@@ -42,7 +42,7 @@ namespace TerrariaDepotDownloader
             this.ReloadList_Button = new System.Windows.Forms.Button();
             this.Settings_TabPage = new System.Windows.Forms.TabPage();
             this.Options_GroupBox = new System.Windows.Forms.GroupBox();
-            this.UseSeperateConfigs_CheckBox = new System.Windows.Forms.CheckBox();
+            this.UseSeparateConfigs_CheckBox = new System.Windows.Forms.CheckBox();
             this.EnableCollectorsEdition_CheckBox = new System.Windows.Forms.CheckBox();
             this.DarkMode_CheckBox = new System.Windows.Forms.CheckBox();
             this.RememberLogin_CheckBox = new System.Windows.Forms.CheckBox();
@@ -202,7 +202,7 @@ namespace TerrariaDepotDownloader
             // 
             // Options_GroupBox
             // 
-            this.Options_GroupBox.Controls.Add(this.UseSeperateConfigs_CheckBox);
+            this.Options_GroupBox.Controls.Add(this.UseSeparateConfigs_CheckBox);
             this.Options_GroupBox.Controls.Add(this.EnableCollectorsEdition_CheckBox);
             this.Options_GroupBox.Controls.Add(this.DarkMode_CheckBox);
             this.Options_GroupBox.Controls.Add(this.RememberLogin_CheckBox);
@@ -217,16 +217,16 @@ namespace TerrariaDepotDownloader
             this.Options_GroupBox.TabStop = false;
             this.Options_GroupBox.Text = "Options";
             // 
-            // UseSeperateConfigs_CheckBox
+            // UseSeparateConfigs_CheckBox
             // 
-            this.UseSeperateConfigs_CheckBox.AutoSize = true;
-            this.UseSeperateConfigs_CheckBox.Location = new System.Drawing.Point(167, 80);
-            this.UseSeperateConfigs_CheckBox.Name = "UseSeperateConfigs_CheckBox";
-            this.UseSeperateConfigs_CheckBox.Size = new System.Drawing.Size(158, 20);
-            this.UseSeperateConfigs_CheckBox.TabIndex = 17;
-            this.UseSeperateConfigs_CheckBox.Text = "Use Separate Configs";
-            this.UseSeperateConfigs_CheckBox.UseVisualStyleBackColor = true;
-            this.UseSeperateConfigs_CheckBox.CheckedChanged += new System.EventHandler(this.UseSeperateConfigs_CheckBox_CheckedChanged);
+            this.UseSeparateConfigs_CheckBox.AutoSize = true;
+            this.UseSeparateConfigs_CheckBox.Location = new System.Drawing.Point(167, 80);
+            this.UseSeparateConfigs_CheckBox.Name = "UseSeparateConfigs_CheckBox";
+            this.UseSeparateConfigs_CheckBox.Size = new System.Drawing.Size(158, 20);
+            this.UseSeparateConfigs_CheckBox.TabIndex = 17;
+            this.UseSeparateConfigs_CheckBox.Text = "Use Separate Configs";
+            this.UseSeparateConfigs_CheckBox.UseVisualStyleBackColor = true;
+            this.UseSeparateConfigs_CheckBox.CheckedChanged += new System.EventHandler(this.UseSeparateConfigs_CheckBox_CheckedChanged);
             // 
             // EnableCollectorsEdition_CheckBox
             // 
@@ -659,7 +659,7 @@ namespace TerrariaDepotDownloader
         private System.Windows.Forms.CheckBox RememberLogin_CheckBox;
         private System.Windows.Forms.CheckBox DarkMode_CheckBox;
         private System.Windows.Forms.CheckBox EnableCollectorsEdition_CheckBox;
-        private System.Windows.Forms.CheckBox UseSeperateConfigs_CheckBox;
+        private System.Windows.Forms.CheckBox UseSeparateConfigs_CheckBox;
     }
 }
 
