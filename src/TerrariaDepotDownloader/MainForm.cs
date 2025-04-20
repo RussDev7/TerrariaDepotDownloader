@@ -1539,7 +1539,8 @@ namespace TerrariaDepotDownloader
                                     try
                                     {
                                         // Check if the existing game version already exists or not.
-                                        if (!Directory.Exists(OutDirParent + @"\Terraria-v" + currentVersion))
+                                        // Fix 1.8.5.8: Prevent empty game folders from being backed up. 
+                                        if (!Directory.Exists(OutDirParent + @"\Terraria-v" + currentVersion) && currentVersion != "Changelog!")
                                         {
                                             // Move to a backup.
                                             DirectoryInfo dir = new DirectoryInfo(OutDir + @"\Terraria");
@@ -1881,7 +1882,8 @@ namespace TerrariaDepotDownloader
                                     try
                                     {
                                         // Ensure the target directory does not already exist.
-                                        if (!Directory.Exists(OutDirParent + @"\Terraria-v" + currentVersion))
+                                        // Fix 1.8.5.8: Prevent empty game folders from being backed up. 
+                                        if (!Directory.Exists(OutDirParent + @"\Terraria-v" + currentVersion) && currentVersion != "Changelog!")
                                         {
                                             DirectoryInfo dir = new DirectoryInfo(OutDir + @"\Terraria");
                                             dir.MoveTo(OutDirParent + @"\Terraria-v" + currentVersion);
@@ -2148,7 +2150,8 @@ namespace TerrariaDepotDownloader
                                 try
                                 {
                                     // Ensure the target directory does not already exist.
-                                    if (!Directory.Exists(OutDirParent + @"\Terraria-v" + currentVersion))
+                                    // Fix 1.8.5.8: Prevent empty game folders from being backed up. 
+                                    if (!Directory.Exists(OutDirParent + @"\Terraria-v" + currentVersion) && currentVersion != "Changelog!")
                                     {
                                         DirectoryInfo dir = new DirectoryInfo(OutDir + @"\Terraria");
                                         dir.MoveTo(OutDirParent + @"\Terraria-v" + currentVersion);
