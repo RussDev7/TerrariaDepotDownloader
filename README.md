@@ -148,6 +148,7 @@ For some people, steam will try to keep Terraria up to date automatically. This 
      - Stored steam usernames and passwords are now encrypted.
      - Unofficial patch installations are now async.
      - Updated all controls across all forms with new names.
+     - Upgraded packages.
      - Added an external log.
      - Added an option to enable or disable collectors edition.
      - Added an option to use separate configs for each version.
