@@ -6,7 +6,7 @@
 @ECHO OFF
 
 Rem | Set parameters.
-Set "VersionPrefix=1.8.5.7"
+Set "VersionPrefix=1.8.5.8"
 Set "filename=TerrariaDepotDownloader-%VersionPrefix%"
 
 Rem | Put the expected location of vswhere into a variable.
@@ -55,3 +55,4 @@ powershell.exe -nologo -noprofile -command "Compress-Archive -Path ".\release\*"
 Rem | Operation complete.
 echo(
 pause
+
