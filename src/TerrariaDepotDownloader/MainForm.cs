@@ -709,6 +709,8 @@ namespace TerrariaDepotDownloader
 
         #region Reload List
 
+        private bool DownloaderIsBusy = false;
+
         // Reload List
         private void ReloadList_Button_Click(object sender, EventArgs e)
         {
@@ -795,7 +797,8 @@ namespace TerrariaDepotDownloader
                                     // Check for version folder and if its populated.
                                     if (Directory.Exists(versionDir))
                                     {
-                                        if (Directory.EnumerateFileSystemEntries(versionDir).Any())
+                                        // If the downloader is busy, also treat this entree like a valid record (do not delete this directory).
+                                        if (Directory.EnumerateFileSystemEntries(versionDir).Any() || DownloaderIsBusy)
                                         {
                                             // Valid record, record like normal.
                                             Main_ListView.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("github") ? "GitHub - Unofficial Patch\t                    \t" + line.Substring(line.LastIndexOf(' ') + 1) : line.Substring(line.LastIndexOf(' ') + 1), "Yes" })); // Fix v1.8.5.4: Add Check For GitHub Links.
@@ -823,7 +826,8 @@ namespace TerrariaDepotDownloader
                                     // Check for generic folder and if its populated.
                                     if (Directory.Exists(genericDir))
                                     {
-                                        if (Directory.EnumerateFileSystemEntries(genericDir).Any())
+                                        // If the downloader is busy, also treat this entree like a valid record (do not delete this directory).
+                                        if (Directory.EnumerateFileSystemEntries(versionDir).Any() || DownloaderIsBusy)
                                         {
                                             // Read the version from changelog.
                                             if (File.ReadLines(genericDir + @"\changelog.txt").First().Split(' ')[1].ToString() == String.Concat(line.TakeWhile(c => c != ',')) ||
@@ -873,7 +877,8 @@ namespace TerrariaDepotDownloader
                                 if (Directory.Exists(versionDir))
                                 {
                                     // Check if its populated.
-                                    if (Directory.EnumerateFileSystemEntries(versionDir).Any())
+                                    // If the downloader is busy, also treat this entree like a valid record (do not delete this directory).
+                                    if (Directory.EnumerateFileSystemEntries(versionDir).Any() || DownloaderIsBusy)
                                     {
                                         // String Does Not Contain "null", Record Like Normal
                                         Main_ListView.Items.Add(new ListViewItem(new string[] { String.Concat(line.TakeWhile(c => c != ',')), line.Substring(line.LastIndexOf(' ') + 1).ToLower().Contains("github") ? "GitHub - Unofficial Patch\t                    \t" + line.Substring(line.LastIndexOf(' ') + 1) : line.Substring(line.LastIndexOf(' ') + 1), "Yes" })); // Fix v1.8.5.4: Add Check For GitHub Links.
@@ -2018,6 +2023,9 @@ namespace TerrariaDepotDownloader
                                         }
                                         catch (Exception) { }
 
+                                        // Reload List
+                                        ReloadList();
+
                                         // Log Item
                                         if (LogActions_CheckBox.Checked)
                                         {
@@ -2051,8 +2059,15 @@ namespace TerrariaDepotDownloader
                                     // Start Download
                                     try
                                     {
+                                        // First create the directory (This forces ReloadList() to actually capture this download).
+                                        Directory.CreateDirectory(OutDir);
+                                        DownloaderIsBusy = true; // Ensure this empty directory does not get cleaned before download starts.
+
                                         // Start Download Process
                                         ExecuteCmd.ExecuteCommandAsync(Arg);
+
+                                        // Reload List
+                                        ReloadList();
 
                                         // Log Item
                                         if (LogActions_CheckBox.Checked)
@@ -2070,10 +2085,12 @@ namespace TerrariaDepotDownloader
                                         catch (Exception) { }
                                         Directory.CreateDirectory(OutDir); // Update 1.8.2 Fix
                                     }
+                                    finally
+                                    {
+                                        // Release the downloader is busy gate.
+                                        DownloaderIsBusy = false;
+                                    }
                                 }
-
-                                // Reload List
-                                ReloadList();
                             }
                         }
                         else
