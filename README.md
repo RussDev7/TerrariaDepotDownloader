@@ -137,6 +137,7 @@ For some people, steam will try to keep Terraria up to date automatically. This 
     
     v1.8.5.8
      - Fixed automatic reload-list not showing current download version when downloading through steam.
+     - Fixed trailing new-lines within ManifestVersions.cfg throwing errors.
      
     v1.8.5.7
      - Fixed button UI for NA depot items.
