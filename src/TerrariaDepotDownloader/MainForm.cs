@@ -329,8 +329,14 @@ namespace TerrariaDepotDownloader
             {
                 // Get Database To List
                 List<string> manifests = new List<string>() { };
-                foreach (string line in File.ReadAllLines(Application.StartupPath + @"\ManifestVersions.cfg"))
+                var manifestPath = Path.Combine(Application.StartupPath, "ManifestVersions.cfg");
+                foreach (var raw in File.ReadLines(manifestPath))
                 {
+                    var line = raw?.Trim();
+
+                    // Ignore blank/whitespace-only lines (common at EOF due to trailing newline).
+                    if (string.IsNullOrWhiteSpace(line))
+                        continue;
                     try
                     {
                         // Check If String Contains "null"
@@ -765,8 +771,15 @@ namespace TerrariaDepotDownloader
             {
                 // Get Database To List
                 List<string> manifests = new List<string>() { };
-                foreach (string line in File.ReadAllLines(Application.StartupPath + @"\ManifestVersions.cfg"))
+                var manifestPath = Path.Combine(Application.StartupPath, "ManifestVersions.cfg");
+                foreach (var raw in File.ReadLines(manifestPath))
                 {
+                    var line = raw?.Trim();
+
+                    // Ignore blank/whitespace-only lines (common at EOF due to trailing newline).
+                    if (string.IsNullOrWhiteSpace(line))
+                        continue;
+
                     try
                     {
                         // Check If String Contains "null"
@@ -827,7 +840,7 @@ namespace TerrariaDepotDownloader
                                     if (Directory.Exists(genericDir))
                                     {
                                         // If the downloader is busy, also treat this entree like a valid record (do not delete this directory).
-                                        if (Directory.EnumerateFileSystemEntries(versionDir).Any() || DownloaderIsBusy)
+                                        if (Directory.EnumerateFileSystemEntries(genericDir).Any() || DownloaderIsBusy)
                                         {
                                             // Read the version from changelog.
                                             if (File.ReadLines(genericDir + @"\changelog.txt").First().Split(' ')[1].ToString() == String.Concat(line.TakeWhile(c => c != ',')) ||
