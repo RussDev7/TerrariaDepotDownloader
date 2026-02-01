@@ -156,9 +156,7 @@ namespace TerrariaDepotDownloader
             if (!Directory.Exists(Application.StartupPath + @"\TerrariaDepots"))
             {
                 Directory.CreateDirectory(Application.StartupPath + @"\TerrariaDepots");
-                Properties.Settings.Default.DepotPath = Application.StartupPath + @"\TerrariaDepots";
             }
-            BaseDepotDirectory_TextBox.Text = Application.StartupPath + @"\TerrariaDepots";
 
             // Populate Depot Setting Path
             if (Directory.Exists(Application.StartupPath + @"\TerrariaDepots") && Properties.Settings.Default.DepotPath == "")
@@ -172,12 +170,14 @@ namespace TerrariaDepotDownloader
                     {
                         // Update install location.
                         Properties.Settings.Default.DepotPath = Directory.GetParent(gameLocation).FullName;
+                        BaseDepotDirectory_TextBox.Text = Directory.GetParent(gameLocation).FullName;
                     }
                     else
                     {
                         // Steam game not found, use startup path instead!
                         UseSteamDirectory_CheckBox.Checked = false;
                         Properties.Settings.Default.DepotPath = Application.StartupPath + @"\TerrariaDepots";
+                        BaseDepotDirectory_TextBox.Text = Application.StartupPath + @"\TerrariaDepots";
 
                         // Log Item
                         if (LogActions_CheckBox.Checked)
@@ -190,6 +190,7 @@ namespace TerrariaDepotDownloader
                 {
                     // Use Steam Directory Disabled
                     Properties.Settings.Default.DepotPath = Application.StartupPath + @"\TerrariaDepots";
+                    BaseDepotDirectory_TextBox.Text = Application.StartupPath + @"\TerrariaDepots";
                 }
             }
 
