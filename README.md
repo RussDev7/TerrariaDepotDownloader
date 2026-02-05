@@ -134,7 +134,10 @@ For some people, steam will try to keep Terraria up to date automatically. This 
   </details>
 </details>
 <details><summary>Changelog</summary>
-    
+
+    v1.8.5.9
+     - Fixed 'Use Steam Directory' saving-to wrong directory.
+     
     v1.8.5.8
      - Fixed automatic reload-list not showing current download version when downloading through steam.
      - Fixed trailing new-lines within ManifestVersions.cfg throwing errors.
