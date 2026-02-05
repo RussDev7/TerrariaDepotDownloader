@@ -1545,11 +1545,11 @@ namespace TerrariaDepotDownloader
                             try
                             {
                                 // Get the correct directory and move it to "Terraria".
-                                string OutDir = Properties.Settings.Default.DepotPath;
-                                string OutDirParent = OutDir; // Directory.GetParent(OutDir).ToString();
+                                string OutDir = Path.Combine(Properties.Settings.Default.DepotPath, "Terraria");
+                                string OutDirParent = Directory.GetParent(OutDir).ToString();
 
                                 // Get the current games version. Check For 1.3 == 1.3.0.1 & 1.4 == 1.4.0.1.
-                                string currentVersion = File.ReadLines(OutDir + @"\Terraria\changelog.txt").First().Split(' ')[1].ToString();
+                                string currentVersion = File.ReadLines(OutDir + @"\changelog.txt").First().Split(' ')[1].ToString();
                                 currentVersion = currentVersion == "1.3" ? "1.3.0.1" : currentVersion == "1.4" ? "1.4.0.1" : currentVersion;
 
                                 // Check if version is different from the selected.
@@ -1562,14 +1562,14 @@ namespace TerrariaDepotDownloader
                                         if (!Directory.Exists(OutDirParent + @"\Terraria-v" + currentVersion) && currentVersion != "Changelog!")
                                         {
                                             // Move to a backup.
-                                            DirectoryInfo dir = new DirectoryInfo(OutDir + @"\Terraria");
+                                            DirectoryInfo dir = new DirectoryInfo(OutDir);
                                             dir.MoveTo(OutDirParent + @"\Terraria-v" + currentVersion);
-                                            Directory.Delete(OutDir + @"\Terraria", true); // Encase any files where left behind.
+                                            Directory.Delete(OutDir, true); // Encase any files where left behind.
                                         }
                                         else
                                         {
                                             // This version already exists, delete parent.
-                                            Directory.Delete(OutDir + @"\Terraria", true);
+                                            Directory.Delete(OutDir, true);
                                         }
                                     }
                                     catch (Exception) { }
@@ -1579,7 +1579,7 @@ namespace TerrariaDepotDownloader
                                     {
                                         // Rename target version to "Terraria".
                                         DirectoryInfo dir = new DirectoryInfo(OutDirParent + @"\Terraria-v" + itemRow.SubItems[0].Text);
-                                        dir.MoveTo(OutDir + @"\Terraria");
+                                        dir.MoveTo(OutDir);
                                         Directory.Delete(OutDirParent + @"\Terraria -v" + itemRow.SubItems[0].Text, true); // Encase any files where left behind.
                                     }
                                     catch (Exception) { }
@@ -1873,8 +1873,8 @@ namespace TerrariaDepotDownloader
                                 // Use Steam Directory.
                                 if (UseSteamDirectory_CheckBox.Checked)
                                 {
-                                    OutDir = Properties.Settings.Default.DepotPath;
-                                    string OutDirParent = OutDir; // Directory.GetParent(OutDir).ToString();
+                                    OutDir = Path.Combine(Properties.Settings.Default.DepotPath, "Terraria");
+                                    string OutDirParent = Directory.GetParent(OutDir).ToString();
 
                                     // Check If Client Is Already Running - Update 1.8.3
                                     bool isRunning = Process.GetProcessesByName("Terraria").FirstOrDefault(p => p.MainModule.FileName.StartsWith(OutDir, StringComparison.InvariantCultureIgnoreCase)) != default(Process);
@@ -1894,7 +1894,7 @@ namespace TerrariaDepotDownloader
                                     }
 
                                     // Get the current games version. Check For 1.3 == 1.3.0.1 & 1.4 == 1.4.0.1.
-                                    string currentVersion = File.ReadLines(OutDir + @"\Terraria\changelog.txt").First().Split(' ')[1].ToString();
+                                    string currentVersion = File.ReadLines(OutDir + @"\changelog.txt").First().Split(' ')[1].ToString();
                                     currentVersion = currentVersion == "1.3" ? "1.3.0.1" : currentVersion == "1.4" ? "1.4.0.1" : currentVersion;
 
                                     // Delete Folder
@@ -1904,18 +1904,18 @@ namespace TerrariaDepotDownloader
                                         // Fix 1.8.5.8: Prevent empty game folders from being backed up. 
                                         if (!Directory.Exists(OutDirParent + @"\Terraria-v" + currentVersion) && currentVersion != "Changelog!")
                                         {
-                                            DirectoryInfo dir = new DirectoryInfo(OutDir + @"\Terraria");
+                                            DirectoryInfo dir = new DirectoryInfo(OutDir);
                                             dir.MoveTo(OutDirParent + @"\Terraria-v" + currentVersion);
-                                            Directory.Delete(OutDir + @"\Terraria", true); // Encase any files where left behind.
+                                            Directory.Delete(OutDir, true); // Encase any files where left behind.
                                         }
                                         else
                                         {
                                             // This version already exists, delete parent.
-                                            Directory.Delete(OutDir + @"\Terraria", true);
+                                            Directory.Delete(OutDir, true);
                                         }
                                     }
                                     catch (Exception) { }
-                                    Directory.CreateDirectory(OutDir + @"\Terraria"); // Update 1.8.2 Fix
+                                    Directory.CreateDirectory(OutDir); // Update 1.8.2 Fix
 
                                     // Check if the desired version already exists, otherwise download it.
                                     if (Directory.Exists(OutDirParent + @"\Terraria-v" + itemRow.SubItems[0].Text))
@@ -1924,11 +1924,11 @@ namespace TerrariaDepotDownloader
                                         {
                                             // Rename target version to "Terraria".
                                             DirectoryInfo dir = new DirectoryInfo(OutDirParent + @"\Terraria-v" + itemRow.SubItems[0].Text);
-                                            dir.MoveTo(OutDir + @"\Terraria");
-                                            Directory.Delete(OutDir + @"\Terraria", true); // Encase any files where left behind.
+                                            dir.MoveTo(OutDir);
+                                            Directory.Delete(OutDir, true); // Encase any files where left behind.
                                         }
                                         catch (Exception) { }
-                                        Directory.CreateDirectory(OutDir + @"\Terraria"); // Update 1.8.2 Fix
+                                        Directory.CreateDirectory(OutDir); // Update 1.8.2 Fix
 
                                         // Reload List
                                         ReloadList();
@@ -2153,8 +2153,8 @@ namespace TerrariaDepotDownloader
                             // Use Steam Directory.
                             if (UseSteamDirectory_CheckBox.Checked)
                             {
-                                OutDir = Properties.Settings.Default.DepotPath;
-                                string OutDirParent = OutDir; // Directory.GetParent(OutDir).ToString();
+                                OutDir = Path.Combine(Properties.Settings.Default.DepotPath, "Terraria");
+                                string OutDirParent = Directory.GetParent(OutDir).ToString();
 
                                 // Check If Client Is Already Running - Update 1.8.3
                                 bool isRunning = Process.GetProcessesByName("Terraria").FirstOrDefault(p => p.MainModule.FileName.StartsWith(OutDir, StringComparison.InvariantCultureIgnoreCase)) != default(Process);
@@ -2174,7 +2174,7 @@ namespace TerrariaDepotDownloader
                                 }
 
                                 // Get the current games version. Check For 1.3 == 1.3.0.1 & 1.4 == 1.4.0.1.
-                                string currentVersion = File.ReadLines(OutDir + @"\Terraria\changelog.txt").First().Split(' ')[1].ToString();
+                                string currentVersion = File.ReadLines(OutDir + @"\changelog.txt").First().Split(' ')[1].ToString();
                                 currentVersion = currentVersion == "1.3" ? "1.3.0.1" : currentVersion == "1.4" ? "1.4.0.1" : currentVersion;
 
                                 // Delete Folder
@@ -2184,18 +2184,18 @@ namespace TerrariaDepotDownloader
                                     // Fix 1.8.5.8: Prevent empty game folders from being backed up. 
                                     if (!Directory.Exists(OutDirParent + @"\Terraria-v" + currentVersion) && currentVersion != "Changelog!")
                                     {
-                                        DirectoryInfo dir = new DirectoryInfo(OutDir + @"\Terraria");
+                                        DirectoryInfo dir = new DirectoryInfo(OutDir);
                                         dir.MoveTo(OutDirParent + @"\Terraria-v" + currentVersion);
-                                        Directory.Delete(OutDir + @"\Terraria", true); // Encase any files where left behind.
+                                        Directory.Delete(OutDir, true); // Encase any files where left behind.
                                     }
                                     else
                                     {
                                         // This version already exists, delete parent.
-                                        Directory.Delete(OutDir + @"\Terraria", true);
+                                        Directory.Delete(OutDir, true);
                                     }
                                 }
                                 catch (Exception) { }
-                                Directory.CreateDirectory(OutDir + @"\Terraria"); // Update 1.8.2 Fix
+                                Directory.CreateDirectory(OutDir); // Update 1.8.2 Fix
 
                                 // Check if the desired version already exists, otherwise download it.
                                 if (Directory.Exists(OutDirParent + @"\Terraria-v" + itemRow.SubItems[0].Text))
@@ -2204,11 +2204,11 @@ namespace TerrariaDepotDownloader
                                     {
                                         // Rename target version to "Terraria".
                                         DirectoryInfo dir = new DirectoryInfo(OutDirParent + @"\Terraria-v" + itemRow.SubItems[0].Text);
-                                        dir.MoveTo(OutDir + @"\Terraria");
-                                        Directory.Delete(OutDir + @"\Terraria", true); // Encase any files where left behind.
+                                        dir.MoveTo(OutDir);
+                                        Directory.Delete(OutDir, true); // Encase any files where left behind.
                                     }
                                     catch (Exception) { }
-                                    Directory.CreateDirectory(OutDir + @"\Terraria"); // Update 1.8.2 Fix
+                                    Directory.CreateDirectory(OutDir); // Update 1.8.2 Fix
 
                                     // Reload List
                                     ReloadList();
@@ -2227,13 +2227,6 @@ namespace TerrariaDepotDownloader
                                     if (LogActions_CheckBox.Checked)
                                     {
                                         Console.WriteLine("GitHub download for Terraria-v" + itemRow.SubItems[0].Text + " initiated.");
-                                    }
-
-                                    if (UseSteamDirectory_CheckBox.Checked) // Use Steam Directory
-                                    {
-                                        // Folder system was already handled.
-                                        // OutDir = Directory.GetParent(Properties.Settings.Default.DepotPath).ToString() + @"\Terraria";
-                                        OutDir = Path.Combine(Properties.Settings.Default.DepotPath, "Terraria");
                                     }
 
                                     // Create an out path.
@@ -2383,6 +2376,9 @@ namespace TerrariaDepotDownloader
                         // Display Error
                         Console.WriteLine("ERROR: Please enter steam username / password");
                     }
+
+                    // Prevent checking other versions.
+                    break;
                 }
             }
         }
