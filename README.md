@@ -135,6 +135,9 @@ For some people, steam will try to keep Terraria up to date automatically. This 
 </details>
 <details><summary>Changelog</summary>
 
+    v1.8.5.91
+     - Updated ManifestVersions.cfg with latest manifests.
+
     v1.8.5.9
      - Fixed 'Use Steam Directory' saving-to wrong directory.
      
