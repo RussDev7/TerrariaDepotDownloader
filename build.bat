@@ -24,7 +24,7 @@ for /f "usebackq tokens=*" %%I in (`
 )
 
 Rem | Install SLN under x64 profile.
-"%MSBUILD%" ".\src\TerrariaDepotDownloader.sln" /p:Configuration=Release /p:Platform=x64"
+"%MSBUILD%" ".\src\TerrariaDepotDownloader.sln" /p:Configuration=Release /p:Platform=x64
 
 Rem | Delete paths & create paths.
 rmdir /s /q ".\release"
