@@ -1,7 +1,7 @@
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ::Clean The TerrariaDepotDownloader Project Via Batch            ::
 ::Gihub https://github.com/RussDev7/TerrariaDepotDownloader      ::
-::Devoloped, Maintained, And Sponsored By D.RUSS#2430            ::
+:: Developed and maintained by RussDev7 / Discord: dannyruss     ::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 @ECHO OFF
 

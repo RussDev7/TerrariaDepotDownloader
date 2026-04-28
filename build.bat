@@ -1,7 +1,7 @@
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ::Install TerrariaDepotDownloader Via MSBuild Tools              ::
 ::Gihub https://github.com/RussDev7/TerrariaDepotDownloader      ::
-::Devoloped, Maintained, And Sponsored By Discord:dannyruss      ::
+:: Developed and maintained by RussDev7 / Discord: dannyruss     ::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 @ECHO OFF
 
