@@ -1,61 +1,197 @@
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:: Install TerrariaDepotDownloader Via MSBuild Tools             ::
-:: Gihub https://github.com/RussDev7/TerrariaDepotDownloader     ::
-:: Developed and maintained by RussDev7 / Discord: dannyruss     ::
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:: Build TerrariaDepotDownloader Via MSBuild Tools             ::
+:: GitHub: https://github.com/RussDev7/TerrariaDepotDownloader ::
+:: Developed and maintained by RussDev7 / Discord: dannyruss   ::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 @ECHO OFF
+SETLOCAL ENABLEDELAYEDEXPANSION
 
-Rem | Set parameters.
-Set "VersionPrefix=1.8.5.92"
-Set "filename=TerrariaDepotDownloader-%VersionPrefix%"
+REM ============================================================
+REM Paths
+REM ============================================================
+SET "RootDir=%~dp0"
+SET "SolutionPath=%RootDir%src\TerrariaDepotDownloader.sln"
+SET "ProjectOutput=%RootDir%src\TerrariaDepotDownloader\bin\x64\Release"
+SET "ReleaseDir=%RootDir%release"
+SET "ExeName=TerrariaDepotDownloader.exe"
 
-Rem | Put the expected location of vswhere into a variable.
-set "VSWHERE=%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe"
+SET "ExternalResourcesDir=%RootDir%src\TerrariaDepotDownloader\ExternalResources"
+SET "DepotDownloaderDir=%RootDir%src\TerrariaDepotDownloader\DepotDownloader"
 
-Rem | Ask for the newest VS install that includes Microsoft.Component.MSBuild
-Rem | and let vswhere do the glob‑expansion that finds MSBuild.exe.
-for /f "usebackq tokens=*" %%I in (`
-  "%VSWHERE%" -latest ^
-              -products * ^
-              -requires Microsoft.Component.MSBuild ^
-              -find MSBuild\**\Bin\MSBuild.exe
-`) do (
-    set "MSBUILD=%%I"
+REM ============================================================
+REM Find Visual Studio / Build Tools MSBuild
+REM ============================================================
+SET "VSWHERE=%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe"
+
+IF NOT EXIST "%VSWHERE%" (
+    ECHO ERROR: vswhere.exe was not found.
+    ECHO Install Visual Studio or Visual Studio Build Tools with .NET desktop build tools.
+    PAUSE
+    EXIT /B 1
 )
 
-Rem | Install SLN under x64 profile.
-"%MSBUILD%" ".\src\TerrariaDepotDownloader.sln" /p:Configuration=Release /p:Platform=x64
+FOR /F "usebackq tokens=*" %%I IN (`"%VSWHERE%" -latest -products * -requires Microsoft.Component.MSBuild -find MSBuild\**\Bin\MSBuild.exe`) DO (
+    SET "MSBUILD=%%I"
+)
 
-Rem | Delete paths & create paths.
-rmdir /s /q ".\release"
-mkdir ".\release"
+IF NOT DEFINED MSBUILD (
+    ECHO ERROR: Could not find Visual Studio MSBuild.
+    ECHO Install Visual Studio Build Tools and include MSBuild / .NET desktop workload.
+    PAUSE
+    EXIT /B 1
+)
 
-Rem | Copy over items.
-xcopy /E /Y ".\src\TerrariaDepotDownloader\bin\x64\Release" ".\release\%filename%\"
-copy ".\src\TerrariaDepotDownloader\ExternalResources\ManifestVersions.cfg" ".\release\%filename%\"
-copy ".\src\packages\DotNetZip.1.16.0\lib\net40\DotNetZip.dll" ".\release\%filename%\"
-copy ".\src\TerrariaDepotDownloader\DepotDownloader\DepotDownloader.dll" ".\release\%filename%\"
-copy ".\src\TerrariaDepotDownloader\DepotDownloader\protobuf-net.Core.dll" ".\release\%filename%\"
-copy ".\src\TerrariaDepotDownloader\DepotDownloader\protobuf-net.dll" ".\release\%filename%\"
-copy ".\src\TerrariaDepotDownloader\DepotDownloader\SteamKit2.dll" ".\release\%filename%\"
-copy ".\src\TerrariaDepotDownloader\DepotDownloader\DepotDownloader.runtimeconfig.json" ".\release\%filename%\"
-copy ".\src\TerrariaDepotDownloader\DepotDownloader\DepotDownloader.deps.json" ".\release\%filename%\"
-copy ".\src\TerrariaDepotDownloader\DepotDownloader\System.IO.Hashing.dll" ".\release\%filename%\"
-copy ".\src\TerrariaDepotDownloader\DepotDownloader\QRCoder.dll" ".\release\%filename%\"
+ECHO Using MSBuild:
+ECHO "%MSBUILD%"
+ECHO(
 
-Rem | Clean up files.
-del /f /q /s ".\release\*.xml"
-del /f /q /s ".\release\*.pdb"
-del /f /q /s ".\release\*.config"
+REM ============================================================
+REM Build Solution
+REM ============================================================
+ECHO Building TerrariaDepotDownloader.sln...
 
-Rem | Delete & create ZIP release.
-if exist ".\%filename%.zip" (del /f ".\%filename%.zip")
-powershell.exe -nologo -noprofile -command "Compress-Archive -Path ".\release\*" -DestinationPath ".\%filename%.zip""
+"%MSBUILD%" "%SolutionPath%" ^
+    /m ^
+    /restore ^
+    /p:Configuration=Release ^
+    /p:Platform=x64
 
-Rem | Operation complete.
-echo(
-pause
+IF ERRORLEVEL 1 (
+    ECHO(
+    ECHO Build failed.
+    PAUSE
+    EXIT /B 1
+)
 
+REM ============================================================
+REM Read File Version From Built EXE
+REM ============================================================
+IF NOT EXIST "%ProjectOutput%\%ExeName%" (
+    ECHO ERROR: Built EXE was not found:
+    ECHO "%ProjectOutput%\%ExeName%"
+    PAUSE
+    EXIT /B 1
+)
 
+FOR /F "usebackq tokens=*" %%V IN (`powershell.exe -NoLogo -NoProfile -Command "(Get-Item '%ProjectOutput%\%ExeName%').VersionInfo.FileVersion"`) DO (
+    SET "VersionPrefix=%%V"
+)
 
+IF NOT DEFINED VersionPrefix (
+    ECHO ERROR: Could not read file version from EXE.
+    PAUSE
+    EXIT /B 1
+)
 
+SET "FileName=TerrariaDepotDownloader-%VersionPrefix%"
+SET "PackageDir=%ReleaseDir%\%FileName%"
+
+ECHO(
+ECHO Detected File Version: %VersionPrefix%
+ECHO Release Name: %FileName%
+ECHO(
+
+REM ============================================================
+REM Recreate Release Folder
+REM ============================================================
+IF EXIST "%ReleaseDir%" (
+    RMDIR /S /Q "%ReleaseDir%"
+)
+
+MKDIR "%PackageDir%"
+
+IF ERRORLEVEL 1 (
+    ECHO(
+    ECHO Failed to create release folder.
+    PAUSE
+    EXIT /B 1
+)
+
+REM ============================================================
+REM Copy Build Output
+REM ============================================================
+ECHO Copying build output...
+
+XCOPY /E /Y /I "%ProjectOutput%\*" "%PackageDir%\"
+
+IF ERRORLEVEL 1 (
+    ECHO(
+    ECHO Failed to copy build output.
+    PAUSE
+    EXIT /B 1
+)
+
+REM ============================================================
+REM Copy External Resources
+REM ============================================================
+ECHO Copying external resources...
+
+IF EXIST "%ExternalResourcesDir%\ManifestVersions.cfg" (
+    COPY /Y "%ExternalResourcesDir%\ManifestVersions.cfg" "%PackageDir%\" >NUL
+) ELSE (
+    ECHO WARNING: ManifestVersions.cfg was not found.
+)
+
+REM ============================================================
+REM Copy DepotDownloader Runtime Files
+REM ============================================================
+ECHO Copying DepotDownloader runtime files...
+
+IF EXIST "%DepotDownloaderDir%" (
+    ROBOCOPY "%DepotDownloaderDir%" "%PackageDir%" /E /XF *.pdb >NUL
+
+    REM Robocopy returns 0-7 for success / non-fatal copy states.
+    IF !ERRORLEVEL! GEQ 8 (
+        ECHO(
+        ECHO Failed to copy DepotDownloader runtime files.
+        PAUSE
+        EXIT /B 1
+    )
+) ELSE (
+    ECHO ERROR: DepotDownloader folder was not found:
+    ECHO "%DepotDownloaderDir%"
+    PAUSE
+    EXIT /B 1
+)
+
+REM ============================================================
+REM Clean Release Files
+REM ============================================================
+ECHO Cleaning release files...
+
+DEL /F /Q /S "%ReleaseDir%\*.xml" >NUL 2>&1
+DEL /F /Q /S "%ReleaseDir%\*.pdb" >NUL 2>&1
+
+REM NOTE:
+REM Do NOT delete *.config for this project.
+REM TerrariaDepotDownloader.exe.config contains .NET Framework runtime settings,
+REM user setting defaults, and binding redirects for NuGet dependencies.
+
+REM ============================================================
+REM Create ZIP Release
+REM ============================================================
+IF EXIST "%RootDir%%FileName%.zip" (
+    DEL /F /Q "%RootDir%%FileName%.zip"
+)
+
+ECHO Creating ZIP package...
+
+powershell.exe -NoLogo -NoProfile -Command ^
+    "Compress-Archive -Path '%PackageDir%' -DestinationPath '%RootDir%%FileName%.zip' -Force"
+
+IF ERRORLEVEL 1 (
+    ECHO(
+    ECHO ZIP creation failed.
+    PAUSE
+    EXIT /B 1
+)
+
+REM ============================================================
+REM Operation Complete
+REM ============================================================
+ECHO(
+ECHO Build complete.
+ECHO Created: "%RootDir%%FileName%.zip"
+ECHO(
+PAUSE
+ENDLOCAL
