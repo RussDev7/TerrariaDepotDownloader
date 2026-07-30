@@ -7,11 +7,11 @@
 **TerrariaDepotDownloader** - Downgrade your game to any of the past game versions where the steam manifest IDs are known.
 
 ## How It Works / Legal
-Steam allows the downloading of previous game versions through the use of depots. Depots are a collection of files pertaining to a group; for steam, the game Terraria. When a game gets updated, steam archives each patch as something called a manifest ID. Using steam [console](steam//nav/console) and the correct manifest ID, you can downgrade/download any game version that you own on your account. Using an open source utility called [DepotDownloader](https://github.com/SteamRE/DepotDownloader), you can download depots with a lot more flexibility.
+Steam allows the downloading of previous game versions through the use of depots. Depots are a collection of files pertaining to a group; for steam, the game Terraria. When a game gets updated, steam archives each patch as something called a manifest ID. Using steam [console](steam//nav/console) and the correct manifest ID, you can downgrade/download any game version that you own on your account. Using an open-source utility called [DepotDownloader](https://github.com/SteamRE/DepotDownloader), you can download depots with a lot more flexibility.
 
-Included in this application's directory is a file named `ManifestVersions.cfg`. This file is in charge of all the game versions and their data which is loaded into the program. This can be updated to include future versions or previously unknown earlier versions of the game without the need to download a new tool version.
+Included in this application's directory is a file named `ManifestVersions.cfg`. This file is in charge of all the game versions and the data in which is loaded into the program. This can be updated to include future versions or previously unknown earlier versions of the game without the need to download a new tool version.
 
-**Note to Terraria's team:** I have created this courtesyware in hopes to diminish pirating and bring easability to downgrading. If their is any issues with this tool please do not hessitate to contact me.
+**Note to Terraria's team:** I have created this courtesy-ware in hopes to diminish pirating and bring easability to downgrading. If there is any issues with this tool please do not hesitate to contact me.
 
 ## Other Information
 
@@ -84,7 +84,7 @@ Clicking More info -> Run anyway
 Why this is happening?
 <p></p>
 
-Built into Windows 10, is something called Windows Defender SmartScreen. Each time an application is ran Windows 10, SmartScreen will check if it is a “good” application against their catalog of applications. It’s a good security measure and is particular helpful at stopping malware spreading through email attachments – where some users do not understand the difference between a legitimate document and an application. Sometimes SmartScreen will prevent applications you know are not bad – for example, it’s a CMD or VBS script you wrote, or a program from a trusted source.
+Built into Windows 10, is something called Windows Defender SmartScreen. Each time an application is ran Windows 10, SmartScreen will check if it is a “good” application against catalog of applications. It’s a good security measure and is particular helpful at stopping malware spreading through email attachments – where some users do not understand the difference between a legitimate document and an application. Sometimes SmartScreen will prevent applications you know are not bad – for example, it’s a CMD or VBS script you wrote, or a program from a trusted source.
 
 Explanation Credits: [Adrian Gordon](https://www.itsupportguides.com/blog/author/agordon/)
   </details>
